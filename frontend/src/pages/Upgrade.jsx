@@ -7,21 +7,42 @@ function playSound(type) {
     const osc = ctx.createOscillator(); const gain = ctx.createGain()
     osc.connect(gain); gain.connect(ctx.destination)
     if (type === 'spin') {
-      osc.type = 'triangle'; osc.frequency.setValueAtTime(200, ctx.currentTime); osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.15)
-      gain.gain.setValueAtTime(0.02, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.2)
+      osc.type = 'triangle'
+      osc.frequency.setValueAtTime(220, ctx.currentTime)
+      osc.frequency.exponentialRampToValueAtTime(440, ctx.currentTime + 0.2)
+      gain.gain.setValueAtTime(0.015, ctx.currentTime)
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.25)
     } else if (type === 'tick') {
-      osc.type = 'sine'; osc.frequency.setValueAtTime(800 + Math.random() * 400, ctx.currentTime)
-      gain.gain.setValueAtTime(0.008, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.02)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.02)
+      osc.type = 'sine'
+      osc.frequency.setValueAtTime(600 + Math.random() * 300, ctx.currentTime)
+      gain.gain.setValueAtTime(0.006, ctx.currentTime)
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.03)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.03)
     } else if (type === 'win') {
-      osc.type = 'sine'; osc.frequency.setValueAtTime(440, ctx.currentTime); osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.3)
-      gain.gain.setValueAtTime(0.06, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.4)
+      osc.type = 'sine'
+      osc.frequency.setValueAtTime(523, ctx.currentTime)
+      osc.frequency.exponentialRampToValueAtTime(1047, ctx.currentTime + 0.5)
+      gain.gain.setValueAtTime(0.05, ctx.currentTime)
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.6)
+      setTimeout(() => {
+        const o2 = ctx.createOscillator(); const g2 = ctx.createGain()
+        o2.connect(g2); g2.connect(ctx.destination)
+        o2.type = 'sine'
+        o2.frequency.setValueAtTime(659, ctx.currentTime)
+        o2.frequency.exponentialRampToValueAtTime(1318, ctx.currentTime + 0.4)
+        g2.gain.setValueAtTime(0.04, ctx.currentTime)
+        g2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5)
+        o2.start(ctx.currentTime); o2.stop(ctx.currentTime + 0.5)
+      }, 300)
     } else if (type === 'lose') {
-      osc.type = 'sine'; osc.frequency.setValueAtTime(300, ctx.currentTime); osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.4)
-      gain.gain.setValueAtTime(0.04, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.4)
+      osc.type = 'sine'
+      osc.frequency.setValueAtTime(350, ctx.currentTime)
+      osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + 0.35)
+      gain.gain.setValueAtTime(0.03, ctx.currentTime)
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.35)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.35)
     }
   } catch {}
 }
@@ -41,7 +62,10 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const [targetPrice, setTargetPrice] = useState(0)
   const [flash, setFlash] = useState(false)
   const [winGlow, setWinGlow] = useState(false)
-  const [drops, setDrops] = useState([])
+  const [winSkins, setWinSkins] = useState([])
+  const [skinFilter, setSkinFilter] = useState('all')
+  const [spinSpeed, setSpinSpeed] = useState('fast')
+  const arrowRef = useRef(null)
   const animRef = useRef(null)
   const tickTimers = useRef([])
 
@@ -50,6 +74,12 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   }
   useEffect(() => { fetchData() }, [])
   useEffect(() => () => { if (animRef.current) cancelAnimationFrame(animRef.current); tickTimers.current.forEach(clearTimeout) }, [])
+
+  const filteredItems = items.filter(i => {
+    if (skinFilter === 'all') return true
+    if (skinFilter === 'skin') return !i.category || i.category === 'skin' || i.category === ''
+    return i.category === skinFilter
+  })
 
   const selected = items.find(i => i.inventory_id === selectedId)
 
@@ -85,7 +115,15 @@ export default function Upgrade({ user, onBalanceUpdate }) {
 
   const handleUpgrade = async () => {
     if (!selectedId || loading || spinning) return
-    setLoading(true); setResult(null); setShowResult(false); setFlash(false); setWinGlow(false)
+    setLoading(true); setResult(null); setShowResult(false); setFlash(false); setWinGlow(false); setWinSkins([])
+
+    // Fetch some random skins for the win scatter effect
+    let scatterSkins = []
+    try {
+      const allSkins = await api.getSkins({})
+      scatterSkins = allSkins.sort(() => Math.random() - 0.5).slice(0, 8)
+    } catch {}
+
     try {
       const res = await api.upgrade(user.id, selectedId, mode, value)
       setResult(res)
@@ -97,13 +135,13 @@ export default function Upgrade({ user, onBalanceUpdate }) {
         ? winStart + Math.random() * (winEnd - winStart - 5)
         : (winEnd + 5) + Math.random() * (loseEnd - winEnd - 10)
 
-      const fullSpins = 5 + Math.floor(Math.random() * 3)
+      const fullSpins = spinSpeed === 'slow' ? 3 + Math.floor(Math.random() * 2) : 5 + Math.floor(Math.random() * 3)
       const totalDegrees = fullSpins * 360 + (targetAngle / 100) * 360
 
       setSpinning(true)
       playSound('spin')
       const startTime = Date.now()
-      const duration = 2500 + Math.random() * 600
+      const duration = spinSpeed === 'slow' ? 3500 + Math.random() * 500 : 2000 + Math.random() * 400
 
       setFlash(true)
 
@@ -113,6 +151,9 @@ export default function Upgrade({ user, onBalanceUpdate }) {
         const eased = 1 - Math.pow(1 - progress, 3.5)
         const currentAngle = totalDegrees * eased
         setArrowAngle(currentAngle)
+        if (arrowRef.current) {
+          arrowRef.current.setAttribute('transform', `rotate(${currentAngle}, 200, 200)`)
+        }
 
         const segDeg = currentAngle % 18
         if (segDeg < 2) {
@@ -126,6 +167,9 @@ export default function Upgrade({ user, onBalanceUpdate }) {
           animRef.current = requestAnimationFrame(animate)
         } else {
           setArrowAngle(totalDegrees)
+          if (arrowRef.current) {
+            arrowRef.current.setAttribute('transform', `rotate(${totalDegrees}, 200, 200)`)
+          }
           setSpinning(false)
           setFlash(false)
           setTimeout(() => {
@@ -133,12 +177,13 @@ export default function Upgrade({ user, onBalanceUpdate }) {
             if (res.won) {
               playSound('win')
               setWinGlow(true)
-              setDrops(Array.from({length: 12}, (_, i) => ({
-                id: i, left: 20 + Math.random() * 60, delay: Math.random() * 0.3,
-                emoji: ['🔫','💎','🔥','⭐','💀','🎯','👑','💥','✨','🎲','🃏','💰'][Math.floor(Math.random()*12)],
-                size: 14 + Math.random() * 10, dur: 1.5 + Math.random() * 1.5,
-              })))
-              setTimeout(() => { setWinGlow(false); setDrops([]) }, 3500)
+              if (scatterSkins.length) {
+                setWinSkins(scatterSkins.map((s, i) => ({
+                  id: i, left: 5 + Math.random() * 90, delay: Math.random() * 0.5,
+                  img: s.image_url, dur: 2 + Math.random() * 2, name: s.name,
+                })))
+              }
+              setTimeout(() => { setWinGlow(false); setWinSkins([]) }, 4500)
             } else {
               playSound('lose')
             }
@@ -199,6 +244,13 @@ export default function Upgrade({ user, onBalanceUpdate }) {
             </div>
           </div>
 
+          <div className="spin-options">
+            <div className="preset-row">
+              <button className={`pbtn sm ${spinSpeed === 'slow' ? 'active' : ''}`} onClick={() => setSpinSpeed('slow')}>Медленно</button>
+              <button className={`pbtn sm ${spinSpeed === 'fast' ? 'active' : ''}`} onClick={() => setSpinSpeed('fast')}>Быстро</button>
+            </div>
+          </div>
+
           {selected && (
             <div className="upgrade-stats">
               <div className="us-item"><span className="us-lbl">Шанс</span><span className="us-val chance-clr">{chance}%</span></div>
@@ -234,7 +286,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
               <circle cx={cx} cy={cy} r={24} fill="none" stroke="var(--accent)" strokeWidth="1.5" opacity="0.5"/>
               <circle cx={cx} cy={cy} r={9} fill="var(--accent)"/>
               <circle cx={cx} cy={cy} r={4} fill="#fff"/>
-              <g transform={`rotate(${arrowAngle}, ${cx}, ${cy})`} filter="url(#wShad)">
+              <g ref={arrowRef} transform={`rotate(${arrowAngle}, ${cx}, ${cy})`} filter="url(#wShad)">
                 <polygon points={`${cx - 6},${cy - 32} ${cx},${cy - 170} ${cx + 6},${cy - 32}`}
                   fill="var(--accent)" stroke="#fff" strokeWidth="0.5"/>
                 <polygon points={`${cx - 4},${cy - 170} ${cx},${cy - 178} ${cx + 4},${cy - 170}`}
@@ -284,12 +336,21 @@ export default function Upgrade({ user, onBalanceUpdate }) {
       </div>
 
       <div className="upgrade-inventory">
-        <h3>Инвентарь</h3>
-        {items.length === 0 ? (
+        <div className="inv-filter-row">
+          <h3>Инвентарь</h3>
+          <div className="filter-chips">
+            {['all', 'skin', 'sticker'].map(f => (
+              <button key={f} className={`chip ${skinFilter === f ? 'active' : ''}`} onClick={() => setSkinFilter(f)}>
+                {f === 'all' ? 'Все' : f === 'skin' ? 'Скины' : 'Стикеры'}
+              </button>
+            ))}
+          </div>
+        </div>
+        {filteredItems.length === 0 ? (
           <div className="empty-state"><p>Нет скинов для апгрейда</p><a href="/marketplace" className="btn btn-primary btn-sm">Маркет</a></div>
         ) : (
           <div className="skin-grid">
-            {items.map(item => (
+            {filteredItems.map(item => (
               <div key={item.inventory_id} className={`skin-card${selectedId === item.inventory_id ? ' selected' : ''}`}
                 onClick={() => toggleSkin(item.inventory_id)}>
                 <div className="skin-img-wrap">
@@ -297,7 +358,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
                 </div>
                 <div className="skin-info">
                   <div className="skin-name">{item.name}</div>
-                  <div className="skin-ql">{item.quality}</div>
+                  <div className="skin-ql">{item.category === 'sticker' ? 'Стикер' : item.quality}</div>
                   <div className="skin-price">{item.price.toLocaleString()} ₽</div>
                 </div>
               </div>
@@ -306,16 +367,18 @@ export default function Upgrade({ user, onBalanceUpdate }) {
         )}
       </div>
 
-      {drops.length > 0 && (
-        <div className="drops-container">
-          {drops.map(d => (
-            <div key={d.id} className="drop-piece"
+      {winSkins.length > 0 && (
+        <div className="winskins-container">
+          {winSkins.map(s => (
+            <div key={s.id} className="winskin-piece"
               style={{
-                left: `${d.left}%`, fontSize: d.size,
-                animationDelay: `${d.delay}s`,
-                animationDuration: `${d.dur}s`,
+                left: `${s.left}%`,
+                animationDelay: `${s.delay}s`,
+                animationDuration: `${s.dur}s`,
               }}
-            >{d.emoji}</div>
+            >
+              <img src={s.img} alt={s.name} />
+            </div>
           ))}
         </div>
       )}

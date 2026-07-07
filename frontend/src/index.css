@@ -367,6 +367,23 @@ body {
   position: absolute; transform: translateX(-50%); color: var(--accent); font-weight: 600;
 }
 
+/* Spin speed options */
+.spin-options { margin-top: 4px; }
+.spin-options .pbtn { font-size: 10px; padding: 5px 8px; }
+.pbtn.sm { font-size: 10px; padding: 5px 8px; }
+
+/* Inventory filter chips */
+.inv-filter-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.inv-filter-row h3 { margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); }
+.filter-chips { display: flex; gap: 4px; }
+.chip {
+  background: var(--bg3); border: 1px solid var(--border); border-radius: 3px;
+  color: var(--text2); font-size: 9px; padding: 2px 8px; cursor: pointer;
+  text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.15s;
+}
+.chip.active { background: rgba(255,143,0,0.1); border-color: var(--accent); color: var(--accent); }
+.chip:hover { border-color: rgba(255,255,255,0.1); }
+
 /* Spin button */
 .spin-btn {
   width: 100%; padding: 10px; border-radius: 4px; border: none;
@@ -460,17 +477,18 @@ body {
   50% { filter: drop-shadow(0 0 40px rgba(67,160,71,0.8)); }
 }
 
-/* Drops (skins, stickers, charms on win) */
-.drops-container { position: fixed; inset: 0; pointer-events: none; z-index: 9999; overflow: hidden; }
-.drop-piece {
-  position: absolute; top: -30px;
-  animation: dropFall linear forwards;
+/* Win skins scatter */
+.winskins-container { position: fixed; inset: 0; pointer-events: none; z-index: 9999; overflow: hidden; }
+.winskin-piece {
+  position: absolute; top: -60px; width: 48px; height: 48px;
+  animation: winskinFall linear forwards;
 }
-@keyframes dropFall {
-  0% { transform: translateY(0) rotate(0deg) scale(0.5); opacity: 0; }
-  10% { opacity: 1; transform: translateY(20px) rotate(30deg) scale(1); }
-  80% { opacity: 1; }
-  100% { transform: translateY(100vh) rotate(360deg) scale(0.8); opacity: 0; }
+.winskin-piece img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 6px rgba(255,143,0,0.5)); }
+@keyframes winskinFall {
+  0% { transform: translateY(0) rotate(0deg) scale(0.3); opacity: 0; }
+  10% { opacity: 1; transform: translateY(30px) rotate(20deg) scale(1); }
+  70% { opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg) scale(0.6); opacity: 0; }
 }
 
 /* Withdrawn badge */
