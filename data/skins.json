@@ -3058,5 +3058,425 @@
     "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJai0ki7VeTHjMu1OXqZ8VcnpNajpVj0VQ_Olpns8mwK7qP9OqJsdPLCWDOVwLgltrc-HCzrxUhxtWuDn4mtIHvFag5zA8R4W6dU5bClXV6s",
     "price": 912,
     "category": "sticker"
+  },
+  {
+    "id": "m4a1s-black-lotus",
+    "name": "M4A1-S | Black Lotus",
+    "collection": "The Coalition Collection",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 5800,
+    "category": "",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "ak47-nightwish",
+    "name": "AK-47 | Nightwish",
+    "collection": "The Dreams & Nightmares",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 18500,
+    "category": "",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "awp-dual-lotus",
+    "name": "AWP | Dual Lotus",
+    "collection": "The Dreams & Nightmares",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 12000,
+    "category": "",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "deagle-dreams",
+    "name": "Desert Eagle | Dreams",
+    "collection": "The Dreams & Nightmares",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 3500,
+    "category": "",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "m4a4-eye-of-justice",
+    "name": "M4A4 | Eye of Justice",
+    "collection": "The Revolution",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 25000,
+    "category": "",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "usp-s-whiteout",
+    "name": "USP-S | Whiteout",
+    "collection": "The Revolution",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 8000,
+    "category": "",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "ssg08-candy-apple",
+    "name": "SSG 08 | Candy Apple",
+    "collection": "The Revolution",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 800,
+    "category": "",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "p250-bengal-tiger",
+    "name": "P250 | Bengal Tiger",
+    "collection": "The Revolution",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 2500,
+    "category": "",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "awp-chromatic",
+    "name": "AWP | Chromatic",
+    "collection": "The Chromatic Collection",
+    "rarity": "Covert",
+    "quality": "Minimal Wear",
+    "price": 32000,
+    "category": "",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "ak47-cyber-security",
+    "name": "AK-47 | Cyber Security",
+    "collection": "The Chromatic Collection",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 14500,
+    "category": "",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "m4a1s-sky-blue",
+    "name": "M4A1-S | Sky Blue",
+    "collection": "The Chromatic Collection",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 3200,
+    "category": "",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "glock18-rainbow",
+    "name": "Glock-18 | Rainbow",
+    "collection": "The Chromatic Collection",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 4500,
+    "category": "",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "scar20-enforcer",
+    "name": "SCAR-20 | Enforcer",
+    "collection": "The Chromatic Collection",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 500,
+    "category": "",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "m249-impact",
+    "name": "M249 | Impact",
+    "collection": "The Chromatic Collection",
+    "rarity": "Industrial",
+    "quality": "Field-Tested",
+    "price": 120,
+    "category": "",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "keychain-ak47-gold",
+    "name": "Брелок AK-47 Gold",
+    "collection": "Keychains",
+    "rarity": "Remarkable",
+    "quality": "Factory New",
+    "price": 500,
+    "category": "keychain",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "keychain-awp-dragon",
+    "name": "Брелок AWP Dragon",
+    "collection": "Keychains",
+    "rarity": "Remarkable",
+    "quality": "Factory New",
+    "price": 800,
+    "category": "keychain",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "keychain-deagle-skull",
+    "name": "Брелок Deagle Skull",
+    "collection": "Keychains",
+    "rarity": "Remarkable",
+    "quality": "Factory New",
+    "price": 350,
+    "category": "keychain",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "keychain-m4a4-cyan",
+    "name": "Брелок M4A4 Cyan",
+    "collection": "Keychains",
+    "rarity": "Remarkable",
+    "quality": "Factory New",
+    "price": 450,
+    "category": "keychain",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "keychain-usp-s-white",
+    "name": "Брелок USP-S White",
+    "collection": "Keychains",
+    "rarity": "Remarkable",
+    "quality": "Factory New",
+    "price": 250,
+    "category": "keychain",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "keychain-gloves-ct",
+    "name": "Брелок Перчатки CT",
+    "collection": "Keychains",
+    "rarity": "Remarkable",
+    "quality": "Factory New",
+    "price": 600,
+    "category": "keychain",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "keychain-knife-gold",
+    "name": "Брелок Gold Knife",
+    "collection": "Keychains",
+    "rarity": "High Grade",
+    "quality": "Factory New",
+    "price": 1200,
+    "category": "keychain",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "keychain-bomb",
+    "name": "Брелок C4 Bomb",
+    "collection": "Keychains",
+    "rarity": "Remarkable",
+    "quality": "Factory New",
+    "price": 300,
+    "category": "keychain",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "keychain-headshot",
+    "name": "Брелок Headshot",
+    "collection": "Keychains",
+    "rarity": "Remarkable",
+    "quality": "Factory New",
+    "price": 450,
+    "category": "keychain",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "keychain-ct-logo",
+    "name": "Брелок CT Logo",
+    "collection": "Keychains",
+    "rarity": "Remarkable",
+    "quality": "Factory New",
+    "price": 200,
+    "category": "keychain",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "keychain-t-logo",
+    "name": "Брелок T Logo",
+    "collection": "Keychains",
+    "rarity": "Remarkable",
+    "quality": "Factory New",
+    "price": 200,
+    "category": "keychain",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "keychain-ace",
+    "name": "Брелок ACE",
+    "collection": "Keychains",
+    "rarity": "High Grade",
+    "quality": "Factory New",
+    "price": 1500,
+    "category": "keychain",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "keychain-clutch",
+    "name": "Брелок Clutch",
+    "collection": "Keychains",
+    "rarity": "Remarkable",
+    "quality": "Factory New",
+    "price": 800,
+    "category": "keychain",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-cs2",
+    "name": "Стикер CS2",
+    "collection": "CS2",
+    "rarity": "High Grade",
+    "quality": "Factory New",
+    "price": 100,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-premier",
+    "name": "Стикер Premier",
+    "collection": "CS2",
+    "rarity": "High Grade",
+    "quality": "Factory New",
+    "price": 150,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-monesy",
+    "name": "Стикер m0NESY | Paris 2023",
+    "collection": "Paris 2023",
+    "rarity": "Exotic",
+    "quality": "Factory New",
+    "price": 3000,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-zywoo-gold",
+    "name": "Стикер ZywOo (Gold) | Paris 2023",
+    "collection": "Paris 2023",
+    "rarity": "Exotic",
+    "quality": "Factory New",
+    "price": 5000,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-donk-gold",
+    "name": "Стикер donk (Gold) | Shanghai 2024",
+    "collection": "Shanghai 2024",
+    "rarity": "Exotic",
+    "quality": "Factory New",
+    "price": 8000,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-navi-holo",
+    "name": "Стикер NAVI (Holo) | Stockholm 2021",
+    "collection": "Stockholm 2021",
+    "rarity": "Exotic",
+    "quality": "Factory New",
+    "price": 4500,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-vitality-holo",
+    "name": "Стикер Vitality (Holo) | Paris 2023",
+    "collection": "Paris 2023",
+    "rarity": "Exotic",
+    "quality": "Factory New",
+    "price": 3500,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-g2-holo",
+    "name": "Стикер G2 (Holo) | Katowice 2024",
+    "collection": "Katowice 2024",
+    "rarity": "Exotic",
+    "quality": "Factory New",
+    "price": 4000,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-faze-holo",
+    "name": "Стикер FaZe (Holo) | Antwerp 2022",
+    "collection": "Antwerp 2022",
+    "rarity": "Exotic",
+    "quality": "Factory New",
+    "price": 3200,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-s1mple-gold-2021",
+    "name": "Стикер s1mple (Gold) | Stockholm 2021",
+    "collection": "Stockholm 2021",
+    "rarity": "Exotic",
+    "quality": "Factory New",
+    "price": 12000,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-ropz-gold",
+    "name": "Стикер ropz (Gold) | Copenhagen 2024",
+    "collection": "Copenhagen 2024",
+    "rarity": "Exotic",
+    "quality": "Factory New",
+    "price": 6000,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-c9-holo",
+    "name": "Стикер Cloud9 (Holo) | Boston 2018",
+    "collection": "Boston 2018",
+    "rarity": "Exotic",
+    "quality": "Factory New",
+    "price": 8500,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-astralis-holo",
+    "name": "Стикер Astralis (Holo) | London 2018",
+    "collection": "London 2018",
+    "rarity": "Exotic",
+    "quality": "Factory New",
+    "price": 2800,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-og-holo",
+    "name": "Стикер OG (Holo) | Stockholm 2021",
+    "collection": "Stockholm 2021",
+    "rarity": "Exotic",
+    "quality": "Factory New",
+    "price": 2200,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
+  },
+  {
+    "id": "sticker-liquid-holo",
+    "name": "Стикер Team Liquid (Holo) | Rio 2022",
+    "collection": "Rio 2022",
+    "rarity": "Exotic",
+    "quality": "Factory New",
+    "price": 2500,
+    "category": "sticker",
+    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8"
   }
 ]

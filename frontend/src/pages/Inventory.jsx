@@ -16,7 +16,9 @@ export default function Inventory({ user, onBalanceUpdate }) {
   const filteredItems = items.filter(i => {
     if (skinFilter === 'all') return true
     if (skinFilter === 'skin') return !i.category || i.category === 'skin' || i.category === ''
-    return i.category === skinFilter
+    if (skinFilter === 'sticker') return i.category === 'sticker'
+    if (skinFilter === 'keychain') return i.category === 'keychain'
+    return true
   })
 
   const fetchHistory = () => {
@@ -61,9 +63,9 @@ export default function Inventory({ user, onBalanceUpdate }) {
             <>
               <div className="inv-filter-row">
                 <div className="filter-chips">
-                  {['all', 'skin', 'sticker'].map(f => (
+                  {['all', 'skin', 'sticker', 'keychain'].map(f => (
                     <button key={f} className={`chip ${skinFilter === f ? 'active' : ''}`} onClick={() => setSkinFilter(f)}>
-                      {f === 'all' ? 'Все' : f === 'skin' ? 'Скины' : 'Стикеры'}
+                      {f === 'all' ? 'Все' : f === 'skin' ? 'Скины' : f === 'sticker' ? 'Стикеры' : 'Брелки'}
                     </button>
                   ))}
                 </div>

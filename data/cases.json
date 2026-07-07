@@ -2,35 +2,33 @@
   {
     "id": "csgo-weapon-case",
     "name": "CS:GO Weapon Case",
-    "price": 2500,
+    "price": 1500,
     "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8",
     "drops": [
-      { "skin_id": "scar20-bloodsport", "weight": 30 },
-      { "skin_id": "m4a1s-lead-glass", "weight": 30 },
-      { "skin_id": "usp-s-cortex", "weight": 30 },
-      { "skin_id": "famas-commemoration", "weight": 25 },
-      { "skin_id": "galil-ar-shattered", "weight": 25 },
-      { "skin_id": "deagle-code-red", "weight": 20 },
-      { "skin_id": "awp-asimov", "weight": 5 },
-      { "skin_id": "ak47-wild-lotus", "weight": 3 },
-      { "skin_id": "m4a4-howling-dawn", "weight": 1 }
+      { "skin_id": "scar20-bloodsport", "weight": 25 },
+      { "skin_id": "aug-torque", "weight": 25 },
+      { "skin_id": "mp9-rose-iron", "weight": 25 },
+      { "skin_id": "galil-crimson-tsunami", "weight": 20 },
+      { "skin_id": "famas-styx", "weight": 20 },
+      { "skin_id": "mac10-neon-rider", "weight": 15 },
+      { "skin_id": "tec9-fuel-injector", "weight": 12 },
+      { "skin_id": "awp-corticera", "weight": 8 },
+      { "skin_id": "ak47-redline-ft", "weight": 3 }
     ]
   },
   {
     "id": "prisma-case",
     "name": "Prisma Case",
-    "price": 2000,
+    "price": 2500,
     "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8",
     "drops": [
-      { "skin_id": "mp9-music-box", "weight": 35 },
-      { "skin_id": "nova-wood-fired", "weight": 30 },
-      { "skin_id": "p250-metal-shells", "weight": 25 },
-      { "skin_id": "mac10-silver-hornet", "weight": 20 },
-      { "skin_id": "ump45-roadblock", "weight": 15 },
-      { "skin_id": "deagle-pilot", "weight": 10 },
-      { "skin_id": "ssg08-deaths-strike", "weight": 5 },
-      { "skin_id": "ak47-the-empress", "weight": 3 },
-      { "skin_id": "awp-gungnir", "weight": 1 }
+      { "skin_id": "mp5-sd-nitro", "weight": 25 },
+      { "skin_id": "p250-white", "weight": 25 },
+      { "skin_id": "glock18-pink-ddp", "weight": 20 },
+      { "skin_id": "p250-nuclear-threat", "weight": 15 },
+      { "skin_id": "usp-s-kill-confirmed", "weight": 10 },
+      { "skin_id": "awp-asimov-ft", "weight": 5 },
+      { "skin_id": "awp-dragon-lore", "weight": 1 }
     ]
   },
   {
@@ -39,31 +37,30 @@
     "price": 3500,
     "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8",
     "drops": [
-      { "skin_id": "galil-ar-eco", "weight": 30 },
-      { "skin_id": "mp5-sd-snakedrill", "weight": 30 },
-      { "skin_id": "famas-faulty-wiring", "weight": 30 },
-      { "skin_id": "m4a4-tooth-fairy", "weight": 20 },
-      { "skin_id": "deagle-oxide-blaze", "weight": 15 },
-      { "skin_id": "awp-mortal-wounds", "weight": 8 },
-      { "skin_id": "usp-s-kill-confirmed", "weight": 5 },
-      { "skin_id": "ak47-wild-lotus", "weight": 2 }
+      { "skin_id": "p250-metal", "weight": 25 },
+      { "skin_id": "mp9-moderate", "weight": 25 },
+      { "skin_id": "m4a1s-hyper-beast", "weight": 15 },
+      { "skin_id": "ak47-frontside", "weight": 15 },
+      { "skin_id": "ak47-empress-mw", "weight": 10 },
+      { "skin_id": "usp-s-printstream", "weight": 5 },
+      { "skin_id": "m4a4-howl", "weight": 2 },
+      { "skin_id": "karambit-doppler", "weight": 1 }
     ]
   },
   {
     "id": "fracture-case",
     "name": "Fracture Case",
-    "price": 1500,
+    "price": 2000,
     "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8",
     "drops": [
-      { "skin_id": "m249-spectre", "weight": 35 },
-      { "skin_id": "g3sg1-slaughter", "weight": 30 },
-      { "skin_id": "p2000-fade", "weight": 25 },
-      { "skin_id": "xm1014-elegant-vines", "weight": 20 },
-      { "skin_id": "sg553-aerial", "weight": 15 },
-      { "skin_id": "deagle-pilot", "weight": 10 },
-      { "skin_id": "m4a1s-hot-rod", "weight": 5 },
-      { "skin_id": "ssg08-ghost-crusader", "weight": 3 },
-      { "skin_id": "awp-the-prince", "weight": 1 }
+      { "skin_id": "ssg08-mainframe", "weight": 25 },
+      { "skin_id": "aug-syd-mead", "weight": 25 },
+      { "skin_id": "famas-eye", "weight": 20 },
+      { "skin_id": "awp-mortis", "weight": 10 },
+      { "skin_id": "m4a1s-decimator", "weight": 10 },
+      { "skin_id": "ak47-the-silent", "weight": 5 },
+      { "skin_id": "ak47-empress-fn", "weight": 2 },
+      { "skin_id": "m9-bayonet-doppler", "weight": 1 }
     ]
   },
   {
@@ -72,15 +69,14 @@
     "price": 5000,
     "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8",
     "drops": [
-      { "skin_id": "mp9-food-chain", "weight": 30 },
-      { "skin_id": "mag7-copper-core", "weight": 25 },
-      { "skin_id": "p250-wingshot", "weight": 25 },
-      { "skin_id": "negev-loudmouth", "weight": 20 },
-      { "skin_id": "famas-styx", "weight": 15 },
-      { "skin_id": "m4a1s-hyper-beast", "weight": 10 },
-      { "skin_id": "awp-asimov", "weight": 5 },
-      { "skin_id": "ak47-the-empress", "weight": 3 },
-      { "skin_id": "m4a4-howling-dawn", "weight": 1 }
+      { "skin_id": "ssg08-blood", "weight": 20 },
+      { "skin_id": "p2000-fire-elemental", "weight": 20 },
+      { "skin_id": "m4a4-asimov", "weight": 15 },
+      { "skin_id": "ak47-neon-revolution", "weight": 15 },
+      { "skin_id": "ak47-empress-mw", "weight": 10 },
+      { "skin_id": "m4a1s-emperor", "weight": 8 },
+      { "skin_id": "awp-gungnir", "weight": 2 },
+      { "skin_id": "butterfly-fade", "weight": 1 }
     ]
   }
 ]

@@ -283,7 +283,7 @@ app.post('/api/cases/:caseId/buy', async (req, res) => {
     if (!skin) return res.status(500).json({ error: 'Skin data missing' });
 
     // Deduct case price, add skin
-    const invId = require('uuid').v4();
+    const invId = uuidv4();
     await query('UPDATE users SET balance = balance - $1 WHERE id = $2', [c.price, userId]);
     await query('INSERT INTO inventory (id, user_id, skin_id) VALUES ($1,$2,$3)', [invId, userId, skin.id]);
     await query('INSERT INTO transactions (id,user_id,type,amount,description) VALUES ($1,$2,$3,$4,$5)',
@@ -338,7 +338,7 @@ app.post('/api/tradeup', async (req, res) => {
 
     // Delete the 10 staked items, add the won skin
     await query(`DELETE FROM inventory WHERE id = ANY($1)`, [inventoryIds]);
-    const newInvId = require('uuid').v4();
+    const newInvId = uuidv4();
     await query('INSERT INTO inventory (id, user_id, skin_id) VALUES ($1,$2,$3)', [newInvId, userId, wonSkin.id]);
     await query('INSERT INTO transactions (id,user_id,type,amount,description) VALUES ($1,$2,$3,$4,$5)',
       [uuidv4(), userId, 'tradeup', 0, `Контракт: ${items.length} скинов → ${wonSkin.name}`]);

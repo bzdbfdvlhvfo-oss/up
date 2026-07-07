@@ -65,6 +65,7 @@ export default function Marketplace({ user, onBalanceUpdate }) {
           <option value="">Все типы</option>
           <option value="skin">Скины</option>
           <option value="sticker">Стикеры</option>
+          <option value="keychain">Брелки</option>
         </select>
         <select className="filter-select" value={rarity} onChange={e => setRarity(e.target.value)}>
           <option value="">Все редкости</option>
