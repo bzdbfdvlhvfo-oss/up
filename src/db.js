@@ -64,6 +64,8 @@ async function initTables() {
     code TEXT PRIMARY KEY, amount REAL NOT NULL,
     max_uses INTEGER DEFAULT 1, used_count INTEGER DEFAULT 0, expires_at TIMESTAMP
   )`);
+  // Migrate old tables that may be missing columns
+  await query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS password TEXT DEFAULT ''`).catch(() => {});
   console.log('Tables ready');
 }
 
