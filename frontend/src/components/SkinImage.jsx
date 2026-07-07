@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
 export default function SkinImage({ src, alt, className }) {
-  const [failed, setFailed] = useState(false)
+  const [state, setState] = useState('loading')
 
-  if (!src || failed) {
+  if (!src || state === 'error') {
     const letter = alt ? alt[0].toUpperCase() : '?'
     return (
       <div className={`skin-img-fallback ${className || ''}`}>
@@ -12,5 +12,18 @@ export default function SkinImage({ src, alt, className }) {
     )
   }
 
-  return <img src={src} alt={alt} className={className} onError={() => setFailed(true)} />
+  return (
+    <>
+      {state === 'loading' && <div className="skin-img-fallback skin-img-loading"><span /></div>}
+      <img
+        src={src}
+        alt={alt}
+        className={className}
+        loading="lazy"
+        style={state === 'loading' ? { display: 'none' } : {}}
+        onLoad={() => setState('loaded')}
+        onError={() => setState('error')}
+      />
+    </>
+  )
 }

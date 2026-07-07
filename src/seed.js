@@ -11,7 +11,7 @@ async function seed() {
     await query(
       `INSERT INTO skins (id, name, collection, rarity, quality, price, image_url)
        VALUES ($1, $2, $3, $4, $5, $6, $7)
-       ON CONFLICT (id) DO UPDATE SET price = $6`,
+       ON CONFLICT (id) DO UPDATE SET price = $6, image_url = $7`,
       [s.id, s.name, s.collection, s.rarity, s.quality, s.price, s.image_url]
     );
   }

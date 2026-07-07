@@ -35,7 +35,7 @@ body {
     radial-gradient(ellipse at 50% 0, rgba(255,143,0,0.04) 0%, transparent 60%),
     repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.008) 2px, rgba(255,255,255,0.008) 4px);
 }
-.app { min-height: 100vh; display: flex; flex-direction: column; }
+.app { min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
 
 /* === NAVBAR === */
 .navbar {
@@ -78,20 +78,22 @@ body {
 .nav-username { color: var(--text2); font-size: 12px; }
 
 .nav-hamburger {
-  display: none; background: none; border: none; color: var(--text2); cursor: pointer;
-  padding: 4px; border-radius: 50%; transition: transform 0.3s ease, color 0.2s; margin-left: auto;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: none; color: var(--text2); cursor: pointer;
+  padding: 5px; border-radius: 50%; transition: transform 0.3s ease, color 0.2s;
+  margin-left: 4px; flex-shrink: 0;
 }
-.nav-hamburger:hover { color: var(--accent); }
+.nav-hamburger:hover { color: var(--accent); background: var(--bg3); }
 .nav-hamburger.open { transform: rotate(180deg); color: var(--accent); }
 
 .nav-dropdown {
-  display: none; position: absolute; top: 52px; left: 0; right: 0;
+  position: absolute; top: 52px; left: 0; right: 0;
   background: var(--bg2); border-bottom: 1px solid var(--border);
-  padding: 8px 20px 12px; flex-direction: column; gap: 2px;
-  transform: translateY(-10px); opacity: 0; pointer-events: none;
-  transition: transform 0.25s ease, opacity 0.2s ease;
+  padding: 8px 20px 12px; display: flex; flex-direction: column; gap: 2px;
+  transform: translateY(-10px); opacity: 0; pointer-events: none; visibility: hidden;
+  transition: transform 0.25s ease, opacity 0.2s ease, visibility 0.25s ease;
 }
-.nav-dropdown.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.nav-dropdown.open { transform: translateY(0); opacity: 1; pointer-events: auto; visibility: visible; }
 .nav-dropdown a {
   color: var(--text2); text-decoration: none; font-size: 12px; padding: 8px 12px;
   border-radius: 4px; text-transform: uppercase; letter-spacing: 1px;
@@ -103,8 +105,6 @@ body {
 
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .nav-hamburger { display: flex; align-items: center; justify-content: center; }
-  .nav-dropdown { display: flex; }
   .promo-form .promo-input { width: 60px; }
   .nav-balance { font-size: 12px; padding: 3px 8px; }
   .nav-username { display: none; }
@@ -252,6 +252,11 @@ body {
   width: 50px; height: 50px; background: var(--bg3); border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
   color: var(--text3); font-size: 18px; font-weight: 700;
+}
+.skin-img-loading { animation: skPulse 0.8s ease infinite alternate; }
+@keyframes skPulse {
+  from { opacity: 0.4; }
+  to { opacity: 0.8; }
 }
 
 .skin-type-badge {
@@ -417,11 +422,11 @@ body {
   top: 50%;
   width: 0;
   height: 0;
-  margin-top: -160px;
+  margin-top: calc(-1 * var(--arrow-len, 160px));
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-bottom: 160px solid var(--accent);
-  transform-origin: 0px 160px;
+  border-bottom: var(--arrow-len, 160px) solid var(--accent);
+  transform-origin: 0px var(--arrow-len, 160px);
   z-index: 10;
   pointer-events: none;
   will-change: transform;
@@ -460,6 +465,7 @@ body {
 /* TARGET SCALE */
 .target-scale-wrap {
   width: 420px;
+  max-width: 100%;
 }
 .target-scale {
   position: relative; width: 100%; height: 50px;
@@ -690,7 +696,7 @@ body {
   .skin-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
   .upgrade-content { flex-direction: column; align-items: center; }
   .upgrade-left { min-width: unset; width: 100%; max-width: 420px; }
-  .wheel-wrap { width: 320px; height: 320px; }
+  .wheel-wrap { width: 320px; height: 320px; --arrow-len: 120px; }
   .target-scale-wrap { width: 320px; }
   .hero h1 { font-size: 28px; }
   .inventory-layout { flex-direction: column; }
