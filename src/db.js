@@ -26,8 +26,7 @@ export async function initDb() {
   }
   if (retries === 0) throw new Error('Could not connect to database');
   await initTables();
-  const seeded = await checkSeed();
-  if (!seeded) await autoSeed();
+  await autoSeed();
 }
 
 export async function query(text, params) {
@@ -71,21 +70,15 @@ async function initTables() {
   console.log('Tables ready');
 }
 
-async function checkSeed() {
-  const result = await query('SELECT COUNT(*) as count FROM skins');
-  return parseInt(result.rows[0].count) > 0;
-}
-
 async function autoSeed() {
   console.log('Seeding data...');
   const __dirname = dirname(fileURLToPath(import.meta.url));
-  await query('DELETE FROM upgrade_history');
-  await query('DELETE FROM inventory');
-  await query('DELETE FROM skins');
   const skins = JSON.parse(readFileSync(join(__dirname, '..', 'data', 'skins.json'), 'utf-8'));
+  let count = 0;
   for (const s of skins) {
-    await query(`INSERT INTO skins (id, name, collection, rarity, quality, price, image_url) VALUES ($1,$2,$3,$4,$5,$6,$7)`,
+    const r = await query(`INSERT INTO skins (id, name, collection, rarity, quality, price, image_url) VALUES ($1,$2,$3,$4,$5,$6,$7) ON CONFLICT (id) DO UPDATE SET price=$6, image_url=$7`,
       [s.id, s.name, s.collection || '', s.rarity, s.quality, s.price, s.image_url || '']);
+    if (r.rowCount > 0) count++;
   }
   const promos = [
     { code: 'WELCOME', amount: 100, max: 50 }, { code: 'START', amount: 200, max: 30 },

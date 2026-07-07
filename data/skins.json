@@ -1,302 +1,2702 @@
 [
-  {"id":"scar20-bloodsport","name":"SCAR-20 | Bloodsport","collection":"Clutch","rarity":"Restricted","quality":"Factory New","price":405,"image_url":""},
-  {"id":"aug-torque","name":"AUG | Torque","collection":"Chroma 2","rarity":"Restricted","quality":"Factory New","price":252,"image_url":""},
-  {"id":"mp9-rose-iron","name":"MP9 | Rose Iron","collection":"Chroma 2","rarity":"Restricted","quality":"Factory New","price":288,"image_url":""},
-  {"id":"galil-crimson-tsunami","name":"Galil AR | Crimson Tsunami","collection":"Chroma 2","rarity":"Classified","quality":"Minimal Wear","price":585,"image_url":""},
-  {"id":"famas-styx","name":"FAMAS | Styx","collection":"Chroma 2","rarity":"Classified","quality":"Minimal Wear","price":702,"image_url":""},
-  {"id":"mac10-neon-rider","name":"MAC-10 | Neon Rider","collection":"Chroma 2","rarity":"Classified","quality":"Minimal Wear","price":810,"image_url":""},
-  {"id":"tec9-fuel-injector","name":"Tec-9 | Fuel Injector","collection":"Chroma 2","rarity":"Classified","quality":"Minimal Wear","price":1080,"image_url":""},
-  {"id":"five-seven-monkey","name":"Five-SeveN | Monkey Business","collection":"Chroma 2","rarity":"Classified","quality":"Minimal Wear","price":1305,"image_url":""},
-  {"id":"mp7-bloodsport","name":"MP7 | Bloodsport","collection":"Clutch","rarity":"Classified","quality":"Minimal Wear","price":1350,"image_url":""},
-  {"id":"p2000-imperial-dragon","name":"P2000 | Imperial Dragon","collection":"Chroma 2","rarity":"Classified","quality":"Minimal Wear","price":1620,"image_url":""},
-  {"id":"deagle-code-red","name":"Desert Eagle | Code Red","collection":"Spectrum","rarity":"Classified","quality":"Minimal Wear","price":2025,"image_url":""},
-  {"id":"ak47-redline-ft","name":"AK-47 | Redline","collection":"Phoenix","rarity":"Classified","quality":"Field-Tested","price":2475,"image_url":""},
-  {"id":"ssg08-dragonfire","name":"SSG 08 | Dragonfire","collection":"Chroma 2","rarity":"Classified","quality":"Minimal Wear","price":2880,"image_url":""},
-  {"id":"ak47-redline-mw","name":"AK-47 | Redline","collection":"Phoenix","rarity":"Classified","quality":"Minimal Wear","price":3978,"image_url":""},
-  {"id":"usp-s-kill-confirmed","name":"USP-S | Kill Confirmed","collection":"Spectrum","rarity":"Covert","quality":"Minimal Wear","price":7020,"image_url":""},
-  {"id":"awp-asimov-ft","name":"AWP | Asiimov","collection":"Phoenix","rarity":"Covert","quality":"Field-Tested","price":8010,"image_url":""},
-  {"id":"awp-contain-breach","name":"AWP | Containment Breach","collection":"Operation Broken Fang","rarity":"Covert","quality":"Minimal Wear","price":8550,"image_url":""},
-  {"id":"m4a1s-hot-rod","name":"M4A1-S | Hot Rod","collection":"Gamma 2","rarity":"Classified","quality":"Factory New","price":8550,"image_url":""},
-  {"id":"glock18-fade","name":"Glock-18 | Fade","collection":"Chroma 2","rarity":"Classified","quality":"Factory New","price":14850,"image_url":""},
-  {"id":"usp-s-printstream","name":"USP-S | Printstream","collection":"Operation Riptide","rarity":"Covert","quality":"Factory New","price":13050,"image_url":""},
-  {"id":"desert-eagle-blaze","name":"Desert Eagle | Blaze","collection":"Phoenix","rarity":"Classified","quality":"Factory New","price":16650,"image_url":""},
-  {"id":"deagle-printstream","name":"Desert Eagle | Printstream","collection":"Operation Riptide","rarity":"Covert","quality":"Factory New","price":24750,"image_url":""},
-  {"id":"m4a1-s-knight","name":"M4A1-S | Knight","collection":"Chroma 2","rarity":"Classified","quality":"Factory New","price":26100,"image_url":""},
-  {"id":"m4a4-printstream","name":"M4A4 | Printstream","collection":"Operation Riptide","rarity":"Covert","quality":"Factory New","price":27900,"image_url":""},
-  {"id":"m4a1s-printstream","name":"M4A1-S | Printstream","collection":"Operation Riptide","rarity":"Covert","quality":"Factory New","price":28800,"image_url":""},
-  {"id":"ak47-fire-serpent","name":"AK-47 | Fire Serpent","collection":"Bravo","rarity":"Covert","quality":"Field-Tested","price":31500,"image_url":""},
-  {"id":"ak47-inheritance","name":"AK-47 | Inheritance","collection":"Operation Riptide","rarity":"Covert","quality":"Factory New","price":49500,"image_url":""},
-  {"id":"m4a4-howl","name":"M4A4 | Howl","collection":"CSGOWeaponCase","rarity":"Covert","quality":"Minimal Wear","price":108000,"image_url":""},
-  {"id":"awp-dragon-lore","name":"AWP | Dragon Lore","collection":"CSGOWeaponCase","rarity":"Covert","quality":"Field-Tested","price":162000,"image_url":""},
-  {"id":"awp-gungnir","name":"AWP | Gungnir","collection":"Operation Wildfire","rarity":"Covert","quality":"Field-Tested","price":360000,"image_url":""},
-  {"id":"karambit-doppler","name":"★ Karambit | Doppler","collection":"Gamma","rarity":"Covert","quality":"Factory New","price":540000,"image_url":""},
-  {"id":"m9-bayonet-doppler","name":"★ M9 Bayonet | Doppler","collection":"Gamma","rarity":"Covert","quality":"Factory New","price":468000,"image_url":""},
-  {"id":"butterfly-fade","name":"★ Butterfly Knife | Fade","collection":"Spectrum","rarity":"Covert","quality":"Factory New","price":720000,"image_url":""},
-  {"id":"karambit-fade","name":"★ Karambit | Fade","collection":"Chroma","rarity":"Covert","quality":"Factory New","price":792000,"image_url":""},
-  {"id":"glock18-pink-ddp","name":"Glock-18 | Pink DDPAT","collection":"Gamma","rarity":"Mil-Spec","quality":"Factory New","price":225,"image_url":""},
-  {"id":"p250-white","name":"P250 | White","collection":"Nuke","rarity":"Industrial","quality":"Battle-Scarred","price":18,"image_url":""},
-  {"id":"mp5-sd-nitro","name":"MP5-SD | Nitro","collection":"Prisma","rarity":"Mil-Spec","quality":"Factory New","price":135,"image_url":""},
-  {"id":"p250-nuclear-threat","name":"P250 | Nuclear Threat","collection":"Nuke","rarity":"Classified","quality":"Minimal Wear","price":1980,"image_url":""},
-  {"id":"glock-water-elemental","name":"Glock-18 | Water Elemental","collection":"Chroma 2","rarity":"Classified","quality":"Minimal Wear","price":540,"image_url":""},
-  {"id":"awp-wildfire-ft","name":"AWP | Wildfire","collection":"Chroma 2","rarity":"Covert","quality":"Field-Tested","price":8100,"image_url":""},
-  {"id":"ak47-empress-mw","name":"AK-47 | Empress","collection":"Spectrum","rarity":"Covert","quality":"Minimal Wear","price":7920,"image_url":""},
-  {"id":"m4a1s-emperor","name":"M4A1-S | Emperor","collection":"Spectrum 2","rarity":"Covert","quality":"Minimal Wear","price":5400,"image_url":""},
-  {"id":"awp-oni-taji","name":"AWP | Oni Taiji","collection":"Operation Bloodhound","rarity":"Covert","quality":"Field-Tested","price":5220,"image_url":""},
-  {"id":"ssg08-death-strike","name":"SSG 08 | Death Strike","collection":"Operation Bloodhound","rarity":"Covert","quality":"Field-Tested","price":1305,"image_url":""},
-  {"id":"desert-eagle-conspiracy","name":"Desert Eagle | Conspiracy","collection":"Falchion","rarity":"Classified","quality":"Factory New","price":1260,"image_url":""},
-  {"id":"m4a4-dragon-king","name":"M4A4 | Dragon King","collection":"Chroma","rarity":"Classified","quality":"Minimal Wear","price":1350,"image_url":""},
-  {"id":"ak47-neon-revolution","name":"AK-47 | Neon Revolution","collection":"Gamma","rarity":"Classified","quality":"Minimal Wear","price":1620,"image_url":""},
-  {"id":"mp9-aspen","name":"MP9 | Aspen","collection":"WinterOffensive","rarity":"Restricted","quality":"Factory New","price":315,"image_url":""},
-  {"id":"usp-s-orange-anolis","name":"USP-S | Orange Anolis","collection":"Falchion","rarity":"Mil-Spec","quality":"Factory New","price":90,"image_url":""},
-  {"id":"awp-corticera","name":"AWP | Corticera","collection":"Breakout","rarity":"Classified","quality":"Minimal Wear","price":1800,"image_url":""},
-  {"id":"ak47-wasteland-ft","name":"AK-47 | Wasteland Rebel","collection":"Breakout","rarity":"Classified","quality":"Field-Tested","price":1800,"image_url":""},
-  {"id":"m4a4-asimov","name":"M4A4 | Asiimov","collection":"Breakout","rarity":"Covert","quality":"Field-Tested","price":4050,"image_url":""},
-  {"id":"p2000-fire-elemental","name":"P2000 | Fire Elemental","collection":"Breakout","rarity":"Classified","quality":"Minimal Wear","price":1170,"image_url":""},
-  {"id":"ssg08-blood","name":"SSG 08 | Blood in the Water","collection":"CSGOWeaponCase","rarity":"Classified","quality":"Minimal Wear","price":2340,"image_url":""},
-  {"id":"pp-bizon-osiris","name":"PP-Bizon | Osiris","collection":"CSGOWeaponCase","rarity":"Restricted","quality":"Factory New","price":270,"image_url":""},
-  {"id":"ump45-blaze","name":"UMP-45 | Blaze","collection":"CSGOWeaponCase","rarity":"Restricted","quality":"Factory New","price":585,"image_url":""},
-  {"id":"nova-ghost","name":"Nova | Ghost","collection":"CSGOWeaponCase","rarity":"Restricted","quality":"Factory New","price":225,"image_url":""},
-  {"id":"g3sg1-murky","name":"G3SG1 | Murky","collection":"CSGOWeaponCase","rarity":"Mil-Spec","quality":"Factory New","price":135,"image_url":""},
-  {"id":"m249-splash","name":"M249 | Splash","collection":"CSGOWeaponCase","rarity":"Mil-Spec","quality":"Factory New","price":45,"image_url":""},
-  {"id":"negev-loudmouth","name":"Negev | Loudmouth","collection":"Prisma 2","rarity":"Classified","quality":"Factory New","price":1440,"image_url":""},
-  {"id":"xm1014-fractal","name":"XM1014 | Fractal","collection":"Fracture","rarity":"Mil-Spec","quality":"Factory New","price":180,"image_url":""},
-  {"id":"mag7-monster","name":"MAG-7 | Monster","collection":"Hydra","rarity":"Restricted","quality":"Factory New","price":360,"image_url":""},
-  {"id":"sawed-off-waster","name":"Sawed-Off | Wasteland","collection":"Fracture","rarity":"Restricted","quality":"Factory New","price":270,"image_url":""},
-  {"id":"mac10-stalker","name":"MAC-10 | Stalker","collection":"Spectrum 2","rarity":"Classified","quality":"Minimal Wear","price":990,"image_url":""},
-  {"id":"p250-motherboard","name":"P250 | Motherboard","collection":"Spectrum","rarity":"Restricted","quality":"Factory New","price":450,"image_url":""},
-  {"id":"cz75-tread","name":"CZ75-Auto | Tread","collection":"Spectrum","rarity":"Restricted","quality":"Factory New","price":315,"image_url":""},
-  {"id":"r8-cygnet","name":"R8 Revolver | Cygnet","collection":"Spectrum","rarity":"Restricted","quality":"Factory New","price":270,"image_url":""},
-  {"id":"dual-elites-fluid","name":"Dual Berettas | Fluid","collection":"Spectrum","rarity":"Restricted","quality":"Factory New","price":225,"image_url":""},
-  {"id":"scar20-green","name":"SCAR-20 | Green","collection":"Spectrum","rarity":"Mil-Spec","quality":"Factory New","price":180,"image_url":""},
-  {"id":"g3sg1-scavenger","name":"G3SG1 | Scavenger","collection":"Spectrum","rarity":"Mil-Spec","quality":"Factory New","price":135,"image_url":""},
-  {"id":"m4a1s-hyper-beast","name":"M4A1-S | Hyper Beast","collection":"Gamma","rarity":"Covert","quality":"Minimal Wear","price":4500,"image_url":""},
-  {"id":"ak47-frontside","name":"AK-47 | Frontside Misty","collection":"Gamma","rarity":"Classified","quality":"Minimal Wear","price":1800,"image_url":""},
-  {"id":"awp-elite","name":"AWP | Elite Build","collection":"Gamma","rarity":"Classified","quality":"Factory New","price":2520,"image_url":""},
-  {"id":"ssg08-necropos","name":"SSG 08 | Necropos","collection":"Fracture","rarity":"Classified","quality":"Factory New","price":1620,"image_url":""},
-  {"id":"m4a1s-control","name":"M4A1-S | Control","collection":"Fracture","rarity":"Restricted","quality":"Factory New","price":405,"image_url":""},
-  {"id":"famas-commander","name":"FAMAS | Commander","collection":"Fracture","rarity":"Restricted","quality":"Factory New","price":360,"image_url":""},
-  {"id":"galil-ar-connexion","name":"Galil AR | Connexion","collection":"Fracture","rarity":"Restricted","quality":"Factory New","price":315,"image_url":""},
-  {"id":"ump53-roadblock","name":"UMP-45 | Roadblock","collection":"Fracture","rarity":"Restricted","quality":"Factory New","price":270,"image_url":""},
-  {"id":"mp5-sd-phosphor","name":"MP5-SD | Phosphor","collection":"Fracture","rarity":"Mil-Spec","quality":"Factory New","price":135,"image_url":""},
-  {"id":"mp9-moderate","name":"MP9 | Moderate","collection":"Fracture","rarity":"Mil-Spec","quality":"Factory New","price":90,"image_url":""},
-  {"id":"m4a4-dragon-disco","name":"M4A4 | Dragon Disco","collection":"Horizon","rarity":"Classified","quality":"Minimal Wear","price":1170,"image_url":""},
-  {"id":"usp-s-blueprint","name":"USP-S | Blueprint","collection":"Horizon","rarity":"Classified","quality":"Factory New","price":1170,"image_url":""},
-  {"id":"deagle-trigger","name":"Desert Eagle | Trigger Discipline","collection":"Horizon","rarity":"Restricted","quality":"Factory New","price":585,"image_url":""},
-  {"id":"ak47-orbit","name":"AK-47 | Orbit","collection":"Danger Zone","rarity":"Classified","quality":"Factory New","price":1620,"image_url":""},
-  {"id":"awp-mortis","name":"AWP | Mortis","collection":"Danger Zone","rarity":"Covert","quality":"Field-Tested","price":3600,"image_url":""},
-  {"id":"ssg08-mainframe","name":"SSG 08 | Mainframe 001","collection":"Danger Zone","rarity":"Restricted","quality":"Factory New","price":225,"image_url":""},
-  {"id":"aug-syd-mead","name":"AUG | Syd Mead","collection":"Operation Shattered Web","rarity":"Classified","quality":"Factory New","price":1080,"image_url":""},
-  {"id":"famas-eye","name":"FAMAS | Eye of the Dragon","collection":"Operation Shattered Web","rarity":"Classified","quality":"Minimal Wear","price":1080,"image_url":""},
-  {"id":"m4a1s-decimator","name":"M4A1-S | Decimator","collection":"Operation Shattered Web","rarity":"Classified","quality":"Factory New","price":1800,"image_url":""},
-  {"id":"awp-snake","name":"AWP | Snake","collection":"Operation Shattered Web","rarity":"Classified","quality":"Factory New","price":2250,"image_url":""},
-  {"id":"ak47-the-silent","name":"AK-47 | The Silencer","collection":"Operation Shattered Web","rarity":"Restricted","quality":"Factory New","price":630,"image_url":""},
-  {"id":"glock18-bullet","name":"Glock-18 | Bullet Queen","collection":"Operation Shattered Web","rarity":"Classified","quality":"Factory New","price":1710,"image_url":""},
-  {"id":"deagle-light","name":"Desert Eagle | Light","collection":"Operation Shattered Web","rarity":"Restricted","quality":"Factory New","price":450,"image_url":""},
-  {"id":"karambit-ruby","name":"★ Karambit | Ruby","collection":"Gamma","rarity":"Covert","quality":"Factory New","price":2610000,"image_url":""},
-  {"id":"karambit-sapphire","name":"★ Karambit | Sapphire","collection":"Gamma","rarity":"Covert","quality":"Factory New","price":2520000,"image_url":""},
-  {"id":"butterfly-doppler","name":"★ Butterfly Knife | Doppler","collection":"Gamma","rarity":"Covert","quality":"Factory New","price":720000,"image_url":""},
-  {"id":"m9-bayonet-fade","name":"★ M9 Bayonet | Fade","collection":"Chroma","rarity":"Covert","quality":"Factory New","price":792000,"image_url":""},
-  {"id":"talon-fade","name":"★ Talon Knife | Fade","collection":"Spectrum 2","rarity":"Covert","quality":"Factory New","price":666000,"image_url":""},
-  {"id":"bowie-fade","name":"★ Bowie Knife | Fade","collection":"Gamma","rarity":"Covert","quality":"Factory New","price":324000,"image_url":""},
-  {"id":"flip-doppler","name":"★ Flip Knife | Doppler","collection":"Gamma","rarity":"Covert","quality":"Factory New","price":234000,"image_url":""},
-  {"id":"huntsman-fade","name":"★ Huntsman Knife | Fade","collection":"Chroma","rarity":"Covert","quality":"Factory New","price":252000,"image_url":""},
-  {"id":"falchion-doppler","name":"★ Falchion Knife | Doppler","collection":"Gamma","rarity":"Covert","quality":"Factory New","price":198000,"image_url":""},
-  {"id":"shadow-daggers-fade","name":"★ Shadow Daggers | Fade","collection":"Chroma","rarity":"Covert","quality":"Factory New","price":126000,"image_url":""},
-  {"id":"ak47-blood-sport","name":"AK-47 | Bloodsport","collection":"Clutch","rarity":"Covert","quality":"Field-Tested","price":5850,"image_url":""},
-  {"id":"awp-fever","name":"AWP | Fever Dream","collection":"Clutch","rarity":"Classified","quality":"Factory New","price":1980,"image_url":""},
-  {"id":"m4a1s-chantico","name":"M4A1-S | Chantico's Fire","collection":"Clutch","rarity":"Classified","quality":"Minimal Wear","price":3150,"image_url":""},
-  {"id":"ump45-primal-saber","name":"UMP-45 | Primal Saber","collection":"Clutch","rarity":"Classified","quality":"Factory New","price":990,"image_url":""},
-  {"id":"ak47-steel-delta","name":"AK-47 | Steel Delta","collection":"Clutch","rarity":"Classified","quality":"Factory New","price":2970,"image_url":""},
-  {"id":"deagle-mecha","name":"Desert Eagle | Mecha Industries","collection":"Clutch","rarity":"Classified","quality":"Factory New","price":3510,"image_url":""},
-  {"id":"m4a4-schmidt","name":"M4A4 | Neo-Noir","collection":"Clutch","rarity":"Covert","quality":"Field-Tested","price":2340,"image_url":""},
-  {"id":"awp-buddy","name":"AWP | Neo-Noir","collection":"Clutch","rarity":"Covert","quality":"Field-Tested","price":4950,"image_url":""},
-  {"id":"ak47-asimov","name":"AK-47 | Asiimov","collection":"Operation Phoenix","rarity":"Covert","quality":"Field-Tested","price":10800,"image_url":""},
-  {"id":"awp-pink-ddp","name":"AWP | Pink DDPAT","collection":"Operation Phoenix","rarity":"Classified","quality":"Minimal Wear","price":3330,"image_url":""},
-  {"id":"m4a1s-master","name":"M4A1-S | Master Piece","collection":"Operation Phoenix","rarity":"Classified","quality":"Minimal Wear","price":9000,"image_url":""},
-  {"id":"deagle-kumicho","name":"Desert Eagle | Kumicho Dragon","collection":"Operation Phoenix","rarity":"Classified","quality":"Minimal Wear","price":1665,"image_url":""},
-  {"id":"usp-s-caiman","name":"USP-S | Caiman","collection":"Shadow","rarity":"Classified","quality":"Factory New","price":1215,"image_url":""},
-  {"id":"deagle-naga","name":"Desert Eagle | Naga","collection":"Shadow","rarity":"Restricted","quality":"Factory New","price":495,"image_url":""},
-  {"id":"m4a4-sheriff","name":"M4A4 | The Emperor","collection":"Shadow","rarity":"Covert","quality":"Minimal Wear","price":4770,"image_url":""},
-  {"id":"p250-asimov","name":"P250 | Asiimov","collection":"WinterOffensive","rarity":"Restricted","quality":"Factory New","price":2250,"image_url":""},
-  {"id":"awp-redline","name":"AWP | Redline","collection":"WinterOffensive","rarity":"Classified","quality":"Minimal Wear","price":17550,"image_url":""},
-  {"id":"m4a1s-guardian","name":"M4A1-S | Guardian","collection":"WinterOffensive","rarity":"Classified","quality":"Factory New","price":1035,"image_url":""},
-  {"id":"scar20-magna","name":"SCAR-20 | Magna Carta","collection":"Falchion","rarity":"Restricted","quality":"Factory New","price":720,"image_url":""},
-  {"id":"ak47-hydra","name":"AK-47 | Hydra","collection":"Falchion","rarity":"Classified","quality":"Factory New","price":3825,"image_url":""},
-  {"id":"awp-boom","name":"AWP | BOOM","collection":"CSGOWeaponCase2","rarity":"Classified","quality":"Minimal Wear","price":2205,"image_url":""},
-  {"id":"m4a4-desolate","name":"M4A4 | Desolate Space","collection":"Clutch","rarity":"Classified","quality":"Factory New","price":2160,"image_url":""},
-  {"id":"usp-s-neo-noir","name":"USP-S | Neo-Noir","collection":"Clutch","rarity":"Covert","quality":"Factory New","price":16200,"image_url":""},
-  {"id":"glock18-royal","name":"Glock-18 | Royal Legion","collection":"Fracture","rarity":"Classified","quality":"Factory New","price":1890,"image_url":""},
-  {"id":"m4a4-tooth","name":"M4A4 | Tooth Fairy","collection":"Fracture","rarity":"Covert","quality":"Factory New","price":9900,"image_url":""},
-  {"id":"mp9-hex","name":"MP9 | Hydra","collection":"Danger Zone","rarity":"Classified","quality":"Factory New","price":945,"image_url":""},
-  {"id":"m4a1s-night","name":"M4A1-S | Nightmare","collection":"Danger Zone","rarity":"Covert","quality":"Factory New","price":10350,"image_url":""},
-  {"id":"ak47-phantom","name":"AK-47 | Phantom Disruptor","collection":"Danger Zone","rarity":"Classified","quality":"Factory New","price":1800,"image_url":""},
-  {"id":"awp-camo","name":"AWP | Camo","collection":"Danger Zone","rarity":"Restricted","quality":"Factory New","price":585,"image_url":""},
-  {"id":"m4a1s-player","name":"M4A1-S | Player Two","collection":"Operation Riptide","rarity":"Covert","quality":"Factory New","price":18000,"image_url":""},
-  {"id":"ssg08-lic","name":"SSG 08 | Lichen Dashed","collection":"Dust2","rarity":"Industrial","quality":"Factory New","price":54,"image_url":""},
-  {"id":"awp-sun","name":"AWP | Sun in Leo","collection":"Spectrum 2","rarity":"Covert","quality":"Minimal Wear","price":4050,"image_url":""},
-  {"id":"ak47-chaos","name":"AK-47 | Rat Rod","collection":"Spectrum 2","rarity":"Classified","quality":"Factory New","price":6300,"image_url":""},
-  {"id":"m4a4-royal","name":"M4A4 | Royal Paladin","collection":"Spectrum 2","rarity":"Classified","quality":"Factory New","price":1440,"image_url":""},
-  {"id":"deagle-ocean","name":"Desert Eagle | Ocean Drive","collection":"Operation Broken Fang","rarity":"Covert","quality":"Factory New","price":21600,"image_url":""},
-  {"id":"ak47-empress-fn","name":"AK-47 | Empress","collection":"Spectrum","rarity":"Covert","quality":"Factory New","price":16200,"image_url":""},
-  {"id":"m4a1s-flash","name":"M4A1-S | Flashback","collection":"Spectrum","rarity":"Restricted","quality":"Factory New","price":450,"image_url":""},
-  {"id":"awp-acheron","name":"AWP | Acheron","collection":"Spectrum","rarity":"Classified","quality":"Factory New","price":1710,"image_url":""},
-  {"id":"ak47-point","name":"AK-47 | Point Disarray","collection":"Spectrum","rarity":"Classified","quality":"Factory New","price":2250,"image_url":""},
-  {"id":"butterfly-slaughter","name":"★ Butterfly Knife | Slaughter","collection":"Chroma","rarity":"Covert","quality":"Factory New","price":900000,"image_url":""},
-  {"id":"karambit-tiger","name":"★ Karambit | Tiger Tooth","collection":"Chroma","rarity":"Covert","quality":"Factory New","price":1440000,"image_url":""},
-  {"id":"m9-bayonet-slaughter","name":"★ M9 Bayonet | Slaughter","collection":"Chroma","rarity":"Covert","quality":"Factory New","price":1080000,"image_url":""},
-  {"id":"bayonet-doppler","name":"★ Bayonet | Doppler","collection":"Gamma","rarity":"Covert","quality":"Factory New","price":360000,"image_url":""},
-  {"id":"karambit-tt-fn","name":"★ Karambit | Tiger Tooth","collection":"Chroma","rarity":"Covert","quality":"Factory New","price":1440000,"image_url":""},
-  {"id":"butterfly-tiger","name":"★ Butterfly Knife | Tiger Tooth","collection":"Chroma","rarity":"Covert","quality":"Factory New","price":720000,"image_url":""},
-  {"id":"usp-s-monster","name":"USP-S | Monster","collection":"Wildfire","rarity":"Classified","quality":"Factory New","price":405,"image_url":""},
-  {"id":"p2000-ivory","name":"P2000 | Ivory","collection":"Wildfire","rarity":"Mil-Spec","quality":"Factory New","price":72,"image_url":""},
-  {"id":"p250-cartel","name":"P250 | Cartel","collection":"Wildfire","rarity":"Restricted","quality":"Factory New","price":225,"image_url":""},
-  {"id":"p90-asimov","name":"P90 | Asiimov","collection":"Phoenix","rarity":"Classified","quality":"Factory New","price":3420,"image_url":""},
-  {"id":"p90-death","name":"P90 | Death by Kitty","collection":"Phoenix","rarity":"Classified","quality":"Minimal Wear","price":5400,"image_url":""},
-  {"id":"p90-barett","name":"P90 | Barett","collection":"Prisma","rarity":"Restricted","quality":"Factory New","price":360,"image_url":""},
-  {"id":"p90-teardown","name":"P90 | Teardown","collection":"Prisma","rarity":"Classified","quality":"Factory New","price":720,"image_url":""},
-  {"id":"mp9-stained","name":"MP9 | Stained","collection":"Prisma","rarity":"Mil-Spec","quality":"Factory New","price":72,"image_url":""},
-  {"id":"mac10-echo","name":"MAC-10 | Echo","collection":"Fracture","rarity":"Restricted","quality":"Factory New","price":270,"image_url":""},
-  {"id":"mp7-special","name":"MP7 | Special","collection":"Fracture","rarity":"Mil-Spec","quality":"Factory New","price":108,"image_url":""},
-  {"id":"ump45-moon","name":"UMP-45 | Moon","collection":"Fracture","rarity":"Mil-Spec","quality":"Factory New","price":72,"image_url":""},
-  {"id":"nova-red","name":"Nova | Red","collection":"Fracture","rarity":"Mil-Spec","quality":"Factory New","price":54,"image_url":""},
-  {"id":"xm1014-blast","name":"XM1014 | Blast","collection":"Fracture","rarity":"Mil-Spec","quality":"Factory New","price":45,"image_url":""},
-  {"id":"mag7-steel","name":"MAG-7 | Steel","collection":"Fracture","rarity":"Restricted","quality":"Factory New","price":198,"image_url":""},
-  {"id":"famas-rapid","name":"FAMAS | Rapid","collection":"Gamma","rarity":"Restricted","quality":"Factory New","price":315,"image_url":""},
-  {"id":"famas-mecha","name":"FAMAS | Mecha Industries","collection":"Gamma","rarity":"Restricted","quality":"Factory New","price":495,"image_url":""},
-  {"id":"galil-ar-eco","name":"Galil AR | Eco","collection":"Gamma","rarity":"Mil-Spec","quality":"Factory New","price":135,"image_url":""},
-  {"id":"sg553-aerial","name":"SG 553 | Aerial","collection":"Gamma","rarity":"Restricted","quality":"Factory New","price":585,"image_url":""},
-  {"id":"aug-ricochet","name":"AUG | Ricochet","collection":"Gamma","rarity":"Restricted","quality":"Factory New","price":360,"image_url":""},
-  {"id":"ssg08-slash","name":"SSG 08 | Slash","collection":"Gamma","rarity":"Restricted","quality":"Factory New","price":225,"image_url":""},
-  {"id":"ak47-slate","name":"AK-47 | Slate","collection":"Gamma","rarity":"Restricted","quality":"Factory New","price":1170,"image_url":""},
-  {"id":"ak47-safari","name":"AK-47 | Safari Mesh","collection":"Dust2","rarity":"Industrial","quality":"Field-Tested","price":27,"image_url":""},
-  {"id":"m4a1s-basilisk","name":"M4A1-S | Basilisk","collection":"Dust2","rarity":"Classified","quality":"Factory New","price":990,"image_url":""},
-  {"id":"awp-paw","name":"AWP | Paw","collection":"Dust2","rarity":"Restricted","quality":"Factory New","price":1260,"image_url":""},
-  {"id":"deagle-pilot","name":"Desert Eagle | Pilot","collection":"Dust2","rarity":"Restricted","quality":"Factory New","price":765,"image_url":""},
-  {"id":"glock18-wraiths","name":"Glock-18 | Wraiths","collection":"Dust2","rarity":"Restricted","quality":"Factory New","price":540,"image_url":""},
-  {"id":"usp-s-tick","name":"USP-S | Tick","collection":"Dust2","rarity":"Restricted","quality":"Factory New","price":585,"image_url":""},
-  {"id":"p250-metal","name":"P250 | Metal","collection":"Dust2","rarity":"Industrial","quality":"Factory New","price":45,"image_url":""},
-  {"id":"five-seven-boolean","name":"Five-SeveN | Boolean","collection":"Dust2","rarity":"Restricted","quality":"Factory New","price":360,"image_url":""},
-  {"id":"cz75-vendetta","name":"CZ75-Auto | Vendetta","collection":"Dust2","rarity":"Classified","quality":"Factory New","price":450,"image_url":""},
-  {"id":"dual-elites-heat","name":"Dual Berettas | Heat","collection":"Dust2","rarity":"Mil-Spec","quality":"Factory New","price":54,"image_url":""},
-  {"id":"p2000-pulse","name":"P2000 | Pulse","collection":"Dust2","rarity":"Mil-Spec","quality":"Factory New","price":90,"image_url":""},
-  {"id":"m4a1s-lead","name":"M4A1-S | Lead","collection":"Horizon","rarity":"Restricted","quality":"Factory New","price":675,"image_url":""},
-  {"id":"deagle-crimson","name":"Desert Eagle | Crimson","collection":"Horizon","rarity":"Restricted","quality":"Factory New","price":720,"image_url":""},
-  {"id":"p250-ghost","name":"P250 | Ghost","collection":"Horizon","rarity":"Restricted","quality":"Factory New","price":360,"image_url":""},
-  {"id":"glock18-moon","name":"Glock-18 | Moon","collection":"Horizon","rarity":"Classified","quality":"Factory New","price":1620,"image_url":""},
-  {"id":"ak47-snow","name":"AK-47 | Snow","collection":"Horizon","rarity":"Classified","quality":"Factory New","price":2070,"image_url":""},
-  {"id":"awp-moon","name":"AWP | Moon","collection":"Horizon","rarity":"Classified","quality":"Factory New","price":2610,"image_url":""},
-  {"id":"m4a4-twin","name":"M4A4 | Twin","collection":"Horizon","rarity":"Covert","quality":"Factory New","price":5400,"image_url":""},
-  {"id":"ak47-unity","name":"AK-47 | Unity","collection":"Horizon","rarity":"Covert","quality":"Factory New","price":7200,"image_url":""},
-  {"id":"awp-phobos","name":"AWP | Phobos","collection":"Horizon","rarity":"Covert","quality":"Factory New","price":8550,"image_url":""},
-  {"id":"ssg08-danger","name":"SSG 08 | Danger","collection":"Horizon","rarity":"Covert","quality":"Factory New","price":3600,"image_url":""},
-  {"id":"ak47-case-hardened","name":"AK-47 | Case Hardened","collection":"Bravo","rarity":"Classified","quality":"Minimal Wear","price":5850,"image_url":""},
-  {"id":"m4a4-case-hardened","name":"M4A4 | Case Hardened","collection":"Bravo","rarity":"Classified","quality":"Minimal Wear","price":3600,"image_url":""},
-  {"id":"awp-case-hardened","name":"AWP | Case Hardened","collection":"Bravo","rarity":"Classified","quality":"Minimal Wear","price":5220,"image_url":""},
-  {"id":"deagle-case-hardened","name":"Desert Eagle | Case Hardened","collection":"Bravo","rarity":"Restricted","quality":"Minimal Wear","price":1350,"image_url":""},
-  {"id":"ak47-vulcan","name":"AK-47 | Vulcan","collection":"Phoenix","rarity":"Covert","quality":"Field-Tested","price":17100,"image_url":""},
-  {"id":"m4a1s-cyrex","name":"M4A1-S | Cyrex","collection":"Phoenix","rarity":"Classified","quality":"Minimal Wear","price":3150,"image_url":""},
-  {"id":"awp-bees","name":"AWP | Bees","collection":"Phoenix","rarity":"Classified","quality":"Minimal Wear","price":2700,"image_url":""},
-  {"id":"deagle-heat","name":"Desert Eagle | Heat","collection":"Phoenix","rarity":"Classified","quality":"Minimal Wear","price":1800,"image_url":""},
-  {"id":"gut-fade","name":"★ Gut Knife | Fade","collection":"Gamma","rarity":"Covert","quality":"Factory New","price":144000,"image_url":""},
-  {"id":"gut-doppler","name":"★ Gut Knife | Doppler","collection":"Gamma","rarity":"Covert","quality":"Factory New","price":126000,"image_url":""},
-  {"id":"navaja-fade","name":"★ Navaja Knife | Fade","collection":"Gamma","rarity":"Covert","quality":"Factory New","price":90000,"image_url":""},
-  {"id":"stiletto-doppler","name":"★ Stiletto Knife | Doppler","collection":"Spectrum 2","rarity":"Covert","quality":"Factory New","price":360000,"image_url":""},
-  {"id":"talon-doppler","name":"★ Talon Knife | Doppler","collection":"Spectrum 2","rarity":"Covert","quality":"Factory New","price":540000,"image_url":""},
-  {"id":"ursus-fade","name":"★ Ursus Knife | Fade","collection":"Horizon","rarity":"Covert","quality":"Factory New","price":216000,"image_url":""},
-  {"id":"classic-fade","name":"★ Classic Knife | Fade","collection":"CS20","rarity":"Covert","quality":"Factory New","price":468000,"image_url":""},
-  {"id":"survival-fade","name":"★ Survival Knife | Fade","collection":"Danger Zone","rarity":"Covert","quality":"Factory New","price":180000,"image_url":""},
-  {"id":"paracord-fade","name":"★ Paracord Knife | Fade","collection":"Danger Zone","rarity":"Covert","quality":"Factory New","price":234000,"image_url":""},
-  {"id":"nomad-fade","name":"★ Nomad Knife | Fade","collection":"Danger Zone","rarity":"Covert","quality":"Factory New","price":288000,"image_url":""},
-  {"id":"skeleton-fade","name":"★ Skeleton Knife | Fade","collection":"Danger Zone","rarity":"Covert","quality":"Factory New","price":540000,"image_url":""},
-  {"id":"bowie-doppler","name":"★ Bowie Knife | Doppler","collection":"Gamma","rarity":"Covert","quality":"Factory New","price":270000,"image_url":""},
-  {"id":"bayonet-fade","name":"★ Bayonet | Fade","collection":"Chroma","rarity":"Covert","quality":"Factory New","price":450000,"image_url":""},
-  {"id":"bayonet-slaughter","name":"★ Bayonet | Slaughter","collection":"Chroma","rarity":"Covert","quality":"Factory New","price":315000,"image_url":""},
-  {"id":"bayonet-tiger","name":"★ Bayonet | Tiger Tooth","collection":"Chroma","rarity":"Covert","quality":"Factory New","price":378000,"image_url":""},
-  {"id":"m4a1s-all","name":"M4A1-S | All","collection":"Prisma 2","rarity":"Restricted","quality":"Factory New","price":585,"image_url":""},
-  {"id":"m4a4-poly","name":"M4A4 | Poly","collection":"Prisma 2","rarity":"Mil-Spec","quality":"Factory New","price":180,"image_url":""},
-  {"id":"ak47-green","name":"AK-47 | Green","collection":"Prisma 2","rarity":"Restricted","quality":"Factory New","price":720,"image_url":""},
-  {"id":"awp-ato","name":"AWP | Ato","collection":"Prisma 2","rarity":"Restricted","quality":"Factory New","price":855,"image_url":""},
-  {"id":"deagle-flame","name":"Desert Eagle | Flame","collection":"Prisma 2","rarity":"Restricted","quality":"Factory New","price":540,"image_url":""},
-  {"id":"famas-mac","name":"FAMAS | Mac","collection":"Prisma 2","rarity":"Mil-Spec","quality":"Factory New","price":126,"image_url":""},
-  {"id":"galil-ar-justice","name":"Galil AR | Justice","collection":"Prisma 2","rarity":"Classified","quality":"Factory New","price":1080,"image_url":""},
-  {"id":"ssg08-ferro","name":"SSG 08 | Ferro","collection":"Prisma 2","rarity":"Classified","quality":"Factory New","price":1350,"image_url":""},
-  {"id":"aug-navy","name":"AUG | Navy","collection":"Prisma 2","rarity":"Restricted","quality":"Factory New","price":405,"image_url":""},
-  {"id":"sg553-candy","name":"SG 553 | Candy","collection":"Prisma 2","rarity":"Mil-Spec","quality":"Factory New","price":144,"image_url":""},
-  {"id":"p250-cont","name":"P250 | Cont","collection":"Prisma 2","rarity":"Restricted","quality":"Factory New","price":315,"image_url":""},
-  {"id":"usp-s-val","name":"USP-S | Val","collection":"Prisma 2","rarity":"Mil-Spec","quality":"Factory New","price":126,"image_url":""},
-  {"id":"glock18-prestige","name":"Glock-18 | Prestige","collection":"Prisma 2","rarity":"Classified","quality":"Factory New","price":1350,"image_url":""},
-  {"id":"mp9-red","name":"MP9 | Red","collection":"Prisma 2","rarity":"Mil-Spec","quality":"Factory New","price":54,"image_url":""},
-  {"id":"mp7-blue","name":"MP7 | Blue","collection":"Prisma 2","rarity":"Restricted","quality":"Factory New","price":234,"image_url":""},
-  {"id":"mac10-fade","name":"MAC-10 | Fade","collection":"Prisma 2","rarity":"Classified","quality":"Factory New","price":1260,"image_url":""},
-  {"id":"ump45-red","name":"UMP-45 | Red","collection":"Prisma 2","rarity":"Mil-Spec","quality":"Factory New","price":90,"image_url":""},
-  {"id":"p90-blue","name":"P90 | Blue","collection":"Prisma 2","rarity":"Mil-Spec","quality":"Factory New","price":108,"image_url":""},
-  {"id":"pp-bizon-navy","name":"PP-Bizon | Navy","collection":"Prisma 2","rarity":"Mil-Spec","quality":"Factory New","price":36,"image_url":""},
-  {"id":"mp5-sd-green","name":"MP5-SD | Green","collection":"Prisma 2","rarity":"Restricted","quality":"Factory New","price":270,"image_url":""},
-  {"id":"m4a4-oren","name":"M4A4 | Oren","collection":"Revolver","rarity":"Classified","quality":"Factory New","price":1350,"image_url":""},
-  {"id":"m4a1s-snake","name":"M4A1-S | Snake","collection":"Revolver","rarity":"Classified","quality":"Factory New","price":1620,"image_url":""},
-  {"id":"ak47-gy","name":"AK-47 | Gy","collection":"Revolver","rarity":"Restricted","quality":"Factory New","price":855,"image_url":""},
-  {"id":"awp-snake","name":"AWP | Snake","collection":"Revolver","rarity":"Classified","quality":"Factory New","price":2340,"image_url":""},
-  {"id":"deagle-urban","name":"Desert Eagle | Urban","collection":"Revolver","rarity":"Classified","quality":"Factory New","price":1440,"image_url":""},
-  {"id":"usp-s-laser","name":"USP-S | Laser","collection":"Revolver","rarity":"Restricted","quality":"Factory New","price":585,"image_url":""},
-  {"id":"glock18-red","name":"Glock-18 | Red","collection":"Revolver","rarity":"Restricted","quality":"Factory New","price":450,"image_url":""},
-  {"id":"cz75-yellow","name":"CZ75-Auto | Yellow","collection":"Revolver","rarity":"Restricted","quality":"Factory New","price":270,"image_url":""},
-  {"id":"five-seven-orange","name":"Five-SeveN | Orange","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":99,"image_url":""},
-  {"id":"tec9-yellow","name":"Tec-9 | Yellow","collection":"Revolver","rarity":"Restricted","quality":"Factory New","price":315,"image_url":""},
-  {"id":"p250-cyber","name":"P250 | Cyber","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":108,"image_url":""},
-  {"id":"mp9-green-ddp","name":"MP9 | Green DDPAT","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":45,"image_url":""},
-  {"id":"mac10-blue","name":"MAC-10 | Blue","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":63,"image_url":""},
-  {"id":"famas-marine","name":"FAMAS | Marine","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":108,"image_url":""},
-  {"id":"galil-ar-orange","name":"Galil AR | Orange","collection":"Revolver","rarity":"Restricted","quality":"Factory New","price":360,"image_url":""},
-  {"id":"sg553-wave","name":"SG 553 | Wave","collection":"Revolver","rarity":"Classified","quality":"Factory New","price":990,"image_url":""},
-  {"id":"aug-flame","name":"AUG | Flame","collection":"Revolver","rarity":"Restricted","quality":"Factory New","price":450,"image_url":""},
-  {"id":"ssg08-orange","name":"SSG 08 | Orange","collection":"Revolver","rarity":"Restricted","quality":"Factory New","price":405,"image_url":""},
-  {"id":"negev-rapid","name":"Negev | Rapid","collection":"Revolver","rarity":"Restricted","quality":"Factory New","price":180,"image_url":""},
-  {"id":"m249-red","name":"M249 | Red","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":27,"image_url":""},
-  {"id":"g3sg1-blue","name":"G3SG1 | Blue","collection":"Revolver","rarity":"Restricted","quality":"Factory New","price":180,"image_url":""},
-  {"id":"scar20-blue","name":"SCAR-20 | Blue","collection":"Revolver","rarity":"Restricted","quality":"Factory New","price":198,"image_url":""},
-  {"id":"nova-blue","name":"Nova | Blue","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":54,"image_url":""},
-  {"id":"xm1014-blue-ddp","name":"XM1014 | Blue DDPAT","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":36,"image_url":""},
-  {"id":"mag7-blue","name":"MAG-7 | Blue","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":45,"image_url":""},
-  {"id":"sawed-off-blue","name":"Sawed-Off | Blue","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":27,"image_url":""},
-  {"id":"bizon-blue","name":"PP-Bizon | Blue","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":27,"image_url":""},
-  {"id":"p90-cold","name":"P90 | Cold","collection":"Revolver","rarity":"Restricted","quality":"Factory New","price":360,"image_url":""},
-  {"id":"ump45-navy","name":"UMP-45 | Navy","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":45,"image_url":""},
-  {"id":"mp7-navy","name":"MP7 | Navy","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":54,"image_url":""},
-  {"id":"mp5-sd-navy","name":"MP5-SD | Navy","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":72,"image_url":""},
-  {"id":"dual-elites-red","name":"Dual Berettas | Red","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":36,"image_url":""},
-  {"id":"r8-revolver-red","name":"R8 Revolver | Red","collection":"Revolver","rarity":"Mil-Spec","quality":"Factory New","price":27,"image_url":""},
-  {"id":"awp-poly","name":"AWP | Poly","collection":"Spectrum 2","rarity":"Classified","quality":"Factory New","price":1800,"image_url":""},
-  {"id":"ak47-poly","name":"AK-47 | Poly","collection":"Spectrum 2","rarity":"Restricted","quality":"Factory New","price":900,"image_url":""},
-  {"id":"m4a4-moss","name":"M4A4 | Moss","collection":"Spectrum 2","rarity":"Restricted","quality":"Factory New","price":585,"image_url":""},
-  {"id":"m4a1s-orange","name":"M4A1-S | Orange","collection":"Spectrum 2","rarity":"Restricted","quality":"Factory New","price":630,"image_url":""},
-  {"id":"deagle-poly","name":"Desert Eagle | Poly","collection":"Spectrum 2","rarity":"Restricted","quality":"Factory New","price":585,"image_url":""},
-  {"id":"glock18-poly","name":"Glock-18 | Poly","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":117,"image_url":""},
-  {"id":"usp-s-poly","name":"USP-S | Poly","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":108,"image_url":""},
-  {"id":"p250-linen","name":"P250 | Linen","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":90,"image_url":""},
-  {"id":"five-seven-bun","name":"Five-SeveN | Bun","collection":"Spectrum 2","rarity":"Restricted","quality":"Factory New","price":315,"image_url":""},
-  {"id":"tec9-blue","name":"Tec-9 | Blue","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":81,"image_url":""},
-  {"id":"famas-orange","name":"FAMAS | Orange","collection":"Spectrum 2","rarity":"Restricted","quality":"Factory New","price":315,"image_url":""},
-  {"id":"bizon-camo","name":"PP-Bizon | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":36,"image_url":""},
-  {"id":"mp9-dart","name":"MP9 | Dart","collection":"Spectrum 2","rarity":"Restricted","quality":"Factory New","price":225,"image_url":""},
-  {"id":"mac10-camo","name":"MAC-10 | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":54,"image_url":""},
-  {"id":"ump45-camo","name":"UMP-45 | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":45,"image_url":""},
-  {"id":"p90-camo","name":"P90 | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":72,"image_url":""},
-  {"id":"mp7-camo","name":"MP7 | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":45,"image_url":""},
-  {"id":"nov-camo","name":"Nova | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":36,"image_url":""},
-  {"id":"xm1014-camo","name":"XM1014 | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":27,"image_url":""},
-  {"id":"mag7-camo","name":"MAG-7 | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":36,"image_url":""},
-  {"id":"scout-camo","name":"SSG 08 | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":63,"image_url":""},
-  {"id":"aug-camo","name":"AUG | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":54,"image_url":""},
-  {"id":"sg553-camo","name":"SG 553 | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":63,"image_url":""},
-  {"id":"g3sg1-camo","name":"G3SG1 | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":45,"image_url":""},
-  {"id":"scar20-camo","name":"SCAR-20 | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":54,"image_url":""},
-  {"id":"negev-camo","name":"Negev | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":36,"image_url":""},
-  {"id":"m249-camo","name":"M249 | Camo","collection":"Spectrum 2","rarity":"Mil-Spec","quality":"Factory New","price":18,"image_url":""},
-  {"id":"ak47-ice","name":"AK-47 | Ice","collection":"Operation 10","rarity":"Classified","quality":"Factory New","price":2520,"image_url":""},
-  {"id":"awp-wildfire-fn","name":"AWP | Wildfire","collection":"Chroma 2","rarity":"Covert","quality":"Factory New","price":13500,"image_url":""},
-  {"id":"m4a4-batt","name":"M4A4 | Batt","collection":"Operation 10","rarity":"Classified","quality":"Factory New","price":1980,"image_url":""},
-  {"id":"deagle-fennec","name":"Desert Eagle | Fennec","collection":"Operation 10","rarity":"Restricted","quality":"Factory New","price":630,"image_url":""},
-  {"id":"usp-s-jaw","name":"USP-S | Jaw","collection":"Operation 10","rarity":"Classified","quality":"Factory New","price":1620,"image_url":""},
-  {"id":"glock18-candy","name":"Glock-18 | Candy","collection":"Operation 10","rarity":"Restricted","quality":"Factory New","price":360,"image_url":""},
-  {"id":"awp-doodle","name":"AWP | Doodle","collection":"Operation 10","rarity":"Restricted","quality":"Factory New","price":1080,"image_url":""}
+  {
+    "id": "scar20-bloodsport",
+    "name": "SCAR-20 | Bloodsport",
+    "collection": "Clutch",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 405,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLinZfyr3Jk6OGRe6dsMqLDMWWczuFyo_FmXT2MmRQguynLnoqrcHPCaFdzDMF5F-8P4Bbum9fkYuvrsVffjI5AyS75inlL5ixjsvFCD_R20nqesQ"
+  },
+  {
+    "id": "aug-torque",
+    "name": "AUG | Torque",
+    "collection": "Chroma 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 252,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwi5Hf_jdk7uepV7R_L_eBC3SDyPhJvOhuRz39lxhxsm_WzN37Iy7CbAcmC8B2QuYPtRCwx9HvNr-xtQPaj95EmS__3TQJsHjrLu4xbg"
+  },
+  {
+    "id": "mp9-rose-iron",
+    "name": "MP9 | Rose Iron",
+    "collection": "Chroma 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 288,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8js_f_C9k-_qheqp0H-KcHWKvzP4vj-1gSCGn20h0423Wn9qoJH6QOwNxXpRxQOQLtEHumtTvP-i05wyMjN5Hz3qtiy1XrnE8Sl7QOgI"
+  },
+  {
+    "id": "galil-crimson-tsunami",
+    "name": "Galil AR | Crimson Tsunami",
+    "collection": "Chroma 2",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 585,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2n5rp8SNJ0OG-V6NsLPmfMXCR1-tJvOhuRz39x0Qm6mjQzo6qeHLGOg8nXJUiE-UKtxa5mtPgZu3rtFGMiIwXxH-viDQJsHh48m4KFg"
+  },
+  {
+    "id": "famas-styx",
+    "name": "FAMAS | Styx",
+    "collection": "Chroma 2",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 702,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL3n5vh7h1a4s2gfadhJfGBMXSb1OJ6o7NWSSi-lA4YvzSCkpu3dnvGPQAkCsMkRLQL5hW6ktC1Pu_h7lHWjY5Fznr-inkY6SxpsO5XAr1lpPPtc2FJkw"
+  },
+  {
+    "id": "mac10-neon-rider",
+    "name": "MAC-10 | Neon Rider",
+    "collection": "Chroma 2",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 810,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8n5WxrR1Y-s2jaac8cM-dC2ie0-dytfNWQyC0nQlp5DzTntmgdC7COABxX5NxQrUOtUS5w4LgMu6zsVCK2IJCmyisjitM6DErvbicsEA0SQ"
+  },
+  {
+    "id": "tec9-fuel-injector",
+    "name": "Tec-9 | Fuel Injector",
+    "collection": "Chroma 2",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 1080,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLlm5W5wiVI0Oara_1SM-WDC3WTye9kt-RtcCW6khUz_Wvcy9qgdCnEPQ8hApBzRrQJ4RW7moDgMLzktFDZiI5HnyWr3ChN5yp1o7FVg4hNKG8"
+  },
+  {
+    "id": "five-seven-monkey",
+    "name": "Five-SeveN | Monkey Business",
+    "collection": "Chroma 2",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 1305,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL3l4Dl7idN6vyRa7FSJvmFC3SV1-t4j-NoQSi9lCIrujqNjsGheXmXPQcoWMFzEO5ZtUOwkILjY7yzsg3ci91DySiohn4buCht4eYET-N7rZVO80Su"
+  },
+  {
+    "id": "mp7-bloodsport",
+    "name": "MP7 | Bloodsport",
+    "collection": "Clutch",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 1350,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8jsHf-jFk4uL5V6ZhL_-XHXef0_pJvOhuRz39lxsk4W3Ry96pIHrFOgElDZN2Q-9etUSwk4LnYu3h5wLejYwWxSr43zQJsHiIGMoJQA"
+  },
+  {
+    "id": "p2000-imperial-dragon",
+    "name": "P2000 | Imperial Dragon",
+    "collection": "Chroma 2",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 1620,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL5lYayrXIL0PW9V7Q_cKDDMW6d0etkueBlcC2hlBoovQKJk4jxNWXEbAQmDsQmRbNYsxGwxoC1YrvrsQXXg40QxCX533tJ7Xs-4eYKWKAl5OSJ2JuLIVNl"
+  },
+  {
+    "id": "deagle-code-red",
+    "name": "Desert Eagle | Code Red",
+    "collection": "Spectrum",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 2025,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk6OGRbKFsJ_yWMWaXxvxzo_JmXRa_nBovp3PRmNj4c3mTb1RxC5cjF-EItRnrlNzkYrnk5gaI3Y0UmyX52H9K7ixs_a9cBsGEcOCn"
+  },
+  {
+    "id": "ak47-redline-ft",
+    "name": "AK-47 | Redline",
+    "collection": "Phoenix",
+    "rarity": "Classified",
+    "quality": "Field-Tested",
+    "price": 2475,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiFO0POlPPNSI_-RHGavzedxuPUnFniykEtzsWWBzoyuIiifaAchDZUjTOZe4RC_w4buM-6z7wzbgokUyzK-0H08hRGDMA"
+  },
+  {
+    "id": "ssg08-dragonfire",
+    "name": "SSG 08 | Dragonfire",
+    "collection": "Chroma 2",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 2880,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLijZGwpR1Y-s29e6M9eM-XHGaXzuBwufNscDqwmg0ijDGMnYftbyrFPVAoWcQjELQOuxO4k4e1N-nnsQfW2I5Mz3ivi3wb7Stj5ukAUKY7uvqAqS55_Pw"
+  },
+  {
+    "id": "ak47-redline-mw",
+    "name": "AK-47 | Redline",
+    "collection": "Phoenix",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 3978,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiFO0POlPPNSI_-RHGavzedxuPUnFniykEtzsWWBzoyuIiifaAchDZUjTOZe4RC_w4buM-6z7wzbgokUyzK-0H08hRGDMA"
+  },
+  {
+    "id": "usp-s-kill-confirmed",
+    "name": "USP-S | Kill Confirmed",
+    "collection": "Spectrum",
+    "rarity": "Covert",
+    "quality": "Minimal Wear",
+    "price": 7020,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSI-WsG3SA_uV_vO1WTCa9kxQ1vjiBpYPwJiPTcFB2Xpp5TO5cskG9lYCxZu_jsVCL3o4Xnij23ClO5ik9tegFA_It8qHJz1aWe-uc160"
+  },
+  {
+    "id": "awp-asimov-ft",
+    "name": "AWP | Asiimov",
+    "collection": "Phoenix",
+    "rarity": "Covert",
+    "quality": "Field-Tested",
+    "price": 8010,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_jdk7uW-V6V-Kf2cGFidxOp_pewnF3nhxEt0sGnSzN76dH3GOg9xC8FyEORftRe-x9PuYurq71bW3d8UnjK-0H0YSTpMGQ"
+  },
+  {
+    "id": "awp-contain-breach",
+    "name": "AWP | Containment Breach",
+    "collection": "Operation Broken Fang",
+    "rarity": "Covert",
+    "quality": "Minimal Wear",
+    "price": 8550,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_jdk7uW-V7JkMuWAMWuZxuZi_rQ6SXq1xURysj_Vw4uhJHOVPQ8oCZt4QrRbtRi6ldPlPu_g4FHaiYNbjXKpcPI_17A"
+  },
+  {
+    "id": "m4a1s-hot-rod",
+    "name": "M4A1-S | Hot Rod",
+    "collection": "Gamma 2",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 8550,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_GdMXWVxdF75OA4XBa_nBovp3PXyt2uJ32QaQciDZUhReUM5hLskdy2Pu_n4wLe2doXm3j-2i5A7X5i_a9cBuWkb97d"
+  },
+  {
+    "id": "glock18-fade",
+    "name": "Glock-18 | Fade",
+    "collection": "Chroma 2",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 14850,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1a7s2oaaBoH_yaCW-Ej-8u5bZvHnq1w0Vz62TUzNj4eCiVblMmXMAkROJeskLpkdXjMrzksVTAy9US8PY25So"
+  },
+  {
+    "id": "usp-s-printstream",
+    "name": "USP-S | Printstream",
+    "collection": "Operation Riptide",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 13050,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSI-WsG3SA_v5kue99XD2hkBwqjDGMnYftb3yUPFR0XsNyRrNc5kO5ltziMenr5lONj4kXyi2riywc7y9o5LtQAqQ7uvqAkScWnv4"
+  },
+  {
+    "id": "desert-eagle-blaze",
+    "name": "Desert Eagle | Blaze",
+    "collection": "Phoenix",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 16650,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7vORbqhsLfWAMWuZxuZi_uI_TX6wxxkjsGXXnImsJ37COlUoWcByEOMOtxa5kdXmNu3htVPZjN1bjXKpkHLRfQU"
+  },
+  {
+    "id": "deagle-printstream",
+    "name": "Desert Eagle | Printstream",
+    "collection": "Operation Riptide",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 24750,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7OeRbKFsJ8-DHG6e1f1iouRoQha_nBovp3OGmdeqInyVP1V0XsYlRbEI50a5wNyzZr605AyI3t5MmCSohylAuC89_a9cBoMY9UkV"
+  },
+  {
+    "id": "m4a1-s-knight",
+    "name": "M4A1-S | Knight",
+    "collection": "Chroma 2",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 26100,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_GeMWqV1e96o95lRi67gVNwsWTQzdn4JHyQZ1QhWMZyQe5YsxK-ktPnZOiwtVDcjo9ExS393ytB8G81tGXpYjdX"
+  },
+  {
+    "id": "m4a4-printstream",
+    "name": "M4A4 | Printstream",
+    "collection": "Operation Riptide",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 27900,
+    "image_url": ""
+  },
+  {
+    "id": "m4a1s-printstream",
+    "name": "M4A1-S | Printstream",
+    "collection": "Operation Riptide",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 28800,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_OGMWrEwL9lj_F7Rienhgk1tjyIpYPwJiPTcAAoCpsiEO5ZsUbpm9C2Zuni4VHW3o5EzSX62HxP7Sg96-hWVqYi_6TJz1aW0nxrkGs"
+  },
+  {
+    "id": "ak47-fire-serpent",
+    "name": "AK-47 | Fire Serpent",
+    "collection": "Bravo",
+    "rarity": "Covert",
+    "quality": "Field-Tested",
+    "price": 31500,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiFO0PSneqF-JeKDC2mE_u995LZWTTuygxIYvzSCkpu3cnvFPQB2DpUkROFY4Rntw93lP7i241DbiI1BxSuviHlKunk_6-sHU71lpPMTRLyP4Q"
+  },
+  {
+    "id": "ak47-inheritance",
+    "name": "AK-47 | Inheritance",
+    "collection": "Operation Riptide",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 49500,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiNQ0OKheqdoLPGaAFicyOl-pK8xGH_nwUt1sGrSz9ivcHKQOAcjXMYkRu5Yuxe4lYCyZOq25VSM2oMT02yg2UxBSEgA"
+  },
+  {
+    "id": "m4a4-howl",
+    "name": "M4A4 | Howl",
+    "collection": "CSGOWeaponCase",
+    "rarity": "Covert",
+    "quality": "Minimal Wear",
+    "price": 108000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwiFO0P_6afVSKP-EAm6extF6ueZhW2exwkl2tmTXwt39eCiUPQR2DMN4TOVetUK8xoLgM-K341eM2otDnC6okGoXufBz_TAB"
+  },
+  {
+    "id": "awp-dragon-lore",
+    "name": "AWP | Dragon Lore",
+    "collection": "CSGOWeaponCase",
+    "rarity": "Covert",
+    "quality": "Field-Tested",
+    "price": 162000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_jdk4veqYaF7IfysCnWRxuF4j-B-Xxa_nBovp3Pdwtj9cC_GaAd0DZdwQu9fuhS4kNy0NePntVTbjYpCyyT_3CgY5i9j_a9cBkcCWUKV"
+  },
+  {
+    "id": "awp-gungnir",
+    "name": "AWP | Gungnir",
+    "collection": "Operation Wildfire",
+    "rarity": "Covert",
+    "quality": "Field-Tested",
+    "price": 360000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf-jFk7uW-V6N4LvedB3WvzedxuPUnHnjnzUl0sWrdztitI3rDZgJzAsZ1QOFY4UPqldDgMO_l41HXit9AmTK-0H227dAsvQ"
+  },
+  {
+    "id": "karambit-doppler",
+    "name": "★ Karambit | Doppler",
+    "collection": "Gamma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 540000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Q7uCvZaZkNM-SA1iDwP5muOh7Sha-lA8lvziMgIr9HifOOV5kFMRxFuEM5hi_xNXhMbmx5VCMjd9MyCv6jigc6n064ucLAvZ3_6bViV3fcepqpLtspE0"
+  },
+  {
+    "id": "m9-bayonet-doppler",
+    "name": "★ M9 Bayonet | Doppler",
+    "collection": "Gamma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 468000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Wts2sab1iLvWHMWad_v13oPFhRju2qhAmoT-Jn4bjJC_4Ml93UtZuQrZfuhi5lYC1Pujr7lDd2YNAmy2siHlJ6Htu5r5TUqcm-6De2wiUOap9v8cDcIwcZw"
+  },
+  {
+    "id": "butterfly-fade",
+    "name": "★ Butterfly Knife | Fade",
+    "collection": "Spectrum",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 720000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Z-ua6bbZrLOmsD2avx-9ytd5lRi67gVNwsDvSwtqqc3iXZg4kCZYjReYLtRbum9XgYuvm5wbWjtgUzCn3iSsf8G81tFEeH9rw"
+  },
+  {
+    "id": "karambit-fade",
+    "name": "★ Karambit | Fade",
+    "collection": "Chroma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 792000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Q7uCvZaZkNM-SD1iWwOpzj-1gSCGn20tztm_UyIn_JHKUbgYlWMcmQ-ZcskSwldS0MOnntAfd3YlMzH35jntXrnE8SOGRGG8"
+  },
+  {
+    "id": "glock18-pink-ddp",
+    "name": "Glock-18 | Pink DDPAT",
+    "collection": "Gamma",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 225,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1T9s2qbLRsNM-DB2mb_uJ_t-l9ASi2lBgjsmjSm4ugeX6WO1AoCsElFuEIuhC6xta2Zbmw5gCMjtlAni3gznQeU26CORw"
+  },
+  {
+    "id": "p250-white",
+    "name": "P250 | White",
+    "collection": "Nuke",
+    "rarity": "Industrial",
+    "quality": "Battle-Scarred",
+    "price": 18,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhzMOwwjFU0OWmYbBoL-WHMWuZxuZi_rJqTCq1wUUh6mSBntaqdHyTPFdzXJQjTeMLskTrk9zlN-7lsgyM34lbjXKp2HY6z6k"
+  },
+  {
+    "id": "mp5-sd-nitro",
+    "name": "MP5-SD | Nitro",
+    "collection": "Prisma",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 135,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8jsPz-R1I4M2heqVjJ_WsD2STxOBio7JWQyC0nQlp42yEzImsdH3EaAEgC8N2EeYJtRbuxtDjYr_q7weI3d5FzCz43ChOvDErvbiO5Zd60w"
+  },
+  {
+    "id": "p250-nuclear-threat",
+    "name": "P250 | Nuclear Threat",
+    "collection": "Nuke",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 1980,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhzMOwwjFL0Py7Y6F-NOKaHmKvxvxzte9WQyC0nQlp5mrRztyuIy3GbQF1WMN2QbFetBfulNbnPruz7lGKit4UyS6vjn9K5jErvbiRPSOzZg"
+  },
+  {
+    "id": "glock-water-elemental",
+    "name": "Glock-18 | Water Elemental",
+    "collection": "Chroma 2",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 540,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1Y-s2pZKtuK72fB3aFxP11te99cCW6khUz_TjVyompc3-QOFR2DJQkFOMJtBbqk9LlY-7n5QLZjtkTxCWqhixPv311o7FVIf8eASQ"
+  },
+  {
+    "id": "awp-wildfire-ft",
+    "name": "AWP | Wildfire",
+    "collection": "Chroma 2",
+    "rarity": "Covert",
+    "quality": "Field-Tested",
+    "price": 8100,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_jdk7uW-V7NkLPSVB3WV_uJ_t-l9AX7rxhl-tmzSwomtdC6TPwQnW5UkR-YD5kK-ltCzP-Ox4FfXiNoQyyrgznQeu9L0PzQ"
+  },
+  {
+    "id": "ak47-empress-mw",
+    "name": "AK-47 | Empress",
+    "collection": "Spectrum",
+    "rarity": "Covert",
+    "quality": "Minimal Wear",
+    "price": 7920,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiVI0POlPPNSJf2DHGKD0tF6ueZhW2exxEt152rWzI7_Ii-Ubw90DMB0Ee4C5xOwx9GxZbjk71PXgogWn36tkGoXudZeYvlo"
+  },
+  {
+    "id": "m4a1s-emperor",
+    "name": "M4A1-S | Emperor",
+    "collection": "Spectrum 2",
+    "rarity": "Covert",
+    "quality": "Minimal Wear",
+    "price": 5400,
+    "image_url": ""
+  },
+  {
+    "id": "awp-oni-taji",
+    "name": "AWP | Oni Taiji",
+    "collection": "Operation Bloodhound",
+    "rarity": "Covert",
+    "quality": "Field-Tested",
+    "price": 5220,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_jdk7uW-V6xsLv6KD1icyOl-pK9vGCqwkx524G_WnNmsInyXOAVyXJJ0TbNb5EOxxIflYbzj4gDdiNlC02yg2XaKgrAq"
+  },
+  {
+    "id": "ssg08-death-strike",
+    "name": "SSG 08 | Death Strike",
+    "collection": "Operation Bloodhound",
+    "rarity": "Covert",
+    "quality": "Field-Tested",
+    "price": 1305,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLijZGwpR1Y-s29e6M9eM-ADWiC0ed5vt5lRi67gVMh6jjTn9ygJSieaAEiAsB2F7Jfshe-xtHkPuvisQLXgt8UmCz523lM8G81tFON4mQ2"
+  },
+  {
+    "id": "desert-eagle-conspiracy",
+    "name": "Desert Eagle | Conspiracy",
+    "collection": "Falchion",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1260,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7OeRbKFsJ_yWMWaF0-tjo95lRi67gVMk4WTSm9moI3-QPVBxDJByQOJe40O6k4fnM-zgsQXci4gUyH3_3CMa8G81tJHuULJI"
+  },
+  {
+    "id": "m4a4-dragon-king",
+    "name": "M4A4 | Dragon King",
+    "collection": "Chroma",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 1350,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwiFO0P_6afBSIf6QC3SE0-96j-1gSCGn20x062mAwtb8cX3CaAMoApV3EeFZ50Wwk9fuM-vqtAHW3opHn3iqiSxXrnE8PytIGFg"
+  },
+  {
+    "id": "ak47-neon-revolution",
+    "name": "AK-47 | Neon Revolution",
+    "collection": "Gamma",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 1620,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiFO0POlPPNSIf6SHGSY2NF6ueZhW2e3w0524mjQzomreXqVbAAhWJF3RuZfuxC5x920Yurh7gONjY0RxHr4kGoXuT5bpI-V"
+  },
+  {
+    "id": "mp9-aspen",
+    "name": "MP9 | Aspen",
+    "collection": "WinterOffensive",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 315,
+    "image_url": ""
+  },
+  {
+    "id": "usp-s-orange-anolis",
+    "name": "USP-S | Orange Anolis",
+    "collection": "Falchion",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 90,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSIf2sAm6KwPxyj_NsSxa_nBovp3OHn4qqcX3FbQMgD5okQeFYtBbsktLmMeux5leLjIIXxXn4i3wdvC9s_a9cBikK0tGN"
+  },
+  {
+    "id": "awp-corticera",
+    "name": "AWP | Corticera",
+    "collection": "Breakout",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 1800,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_jdk6fO4bahsH_GEHlicyOl-pK8xTSzqwU1-5jjWno6hJHyeOg91A5R2TOEOtRS-kIG2ZeO25lDYg90U02yg2USK57Qn"
+  },
+  {
+    "id": "ak47-wasteland-ft",
+    "name": "AK-47 | Wasteland Rebel",
+    "collection": "Breakout",
+    "rarity": "Classified",
+    "quality": "Field-Tested",
+    "price": 1800,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiFO0Oa8YaZ4NPWsD2zEltF6ueZhW2fgkEh35m3cmIusIn6TbwMpWJJxReMKtBHsw4HhM7nh4gTc3YJCxXr2kGoXudZyw1tq"
+  },
+  {
+    "id": "m4a4-asimov",
+    "name": "M4A4 | Asiimov",
+    "collection": "Breakout",
+    "rarity": "Covert",
+    "quality": "Field-Tested",
+    "price": 4050,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwiFO0P_6V6V-Kf2cGFidxOp_pewnTii3w0x_tmTRnt2qdHyWaFAjA5UlQOYI5BO5k9bhZunm41OI34NDnjK-0H3pAWw_Rw"
+  },
+  {
+    "id": "p2000-fire-elemental",
+    "name": "P2000 | Fire Elemental",
+    "collection": "Breakout",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 1170,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL5lYayrXIL0PG7V7Q_cKDDMWGZ0-tJte1sQiy9gRwrjDGMnYftb3-RZldxWJVyF-QLsUG5mofnML_qtg3cjd4TyCr4jXsf63lr4-5TVvA7uvqA-y0nTh8"
+  },
+  {
+    "id": "ssg08-blood",
+    "name": "SSG 08 | Blood in the Water",
+    "collection": "CSGOWeaponCase",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 2340,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLijZGwpR1Y-s29YKV_K8-fB2CY1aAmsbFtFnDilkUl5j7UzoqsInmVaFd0XMMlELYDshbuxNPvP-yxtlCMlcsbmlWiixNl"
+  },
+  {
+    "id": "pp-bizon-osiris",
+    "name": "PP-Bizon | Osiris",
+    "collection": "CSGOWeaponCase",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 270,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLzl4zv8x1Y-s2sYb5iLr2cHW6CyP1JvOhuRz39xUxx6jiBz42rIHjBbAcnWZcjROcJsxjtmoXmNe_k5QHajtlNyC2r3zQJsHh050JUDA"
+  },
+  {
+    "id": "ump45-blaze",
+    "name": "UMP-45 | Blaze",
+    "collection": "CSGOWeaponCase",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 585,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkk4a0qB1a7s2oZKVgJeOsAm6Xyfo4srhvSi21wUoi4j_Xzt7_di6RaQ4mA5YhRuIMtEbswIDmMbzg5ACN35UFk3uW8e_n9A"
+  },
+  {
+    "id": "nova-ghost",
+    "name": "Nova | Ghost",
+    "collection": "CSGOWeaponCase",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 225,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL_kYDhwjFL0PGvZatSN_-cCliSzftzj-1gSCGn2x9ytmXRzt36dH_EPw9yD5R1ROYCtBO_x4LhMO2wslfZiotMxX6viitXrnE8JeKdjD0"
+  },
+  {
+    "id": "g3sg1-murky",
+    "name": "G3SG1 | Murky",
+    "collection": "CSGOWeaponCase",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 135,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2zYXnrB1a4s2pO7dqcc-eG3Wb2NF6ueZhW2e2wE5y6juDy46uJ3qePVR1C5BzR7UO4xa9ldXlYuK07wSP2dlMzin6kGoXucw3wj8l"
+  },
+  {
+    "id": "m249-splash",
+    "name": "M249 | Splash",
+    "collection": "CSGOWeaponCase",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 45,
+    "image_url": ""
+  },
+  {
+    "id": "negev-loudmouth",
+    "name": "Negev | Loudmouth",
+    "collection": "Prisma 2",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1440,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL_m5Hl6x1Y-s2gbaNoNs-SAGmZyed6sfVmXRa_nBovp3PXzousdnrBbgEiX5QjTbICsEa7ktTnNOPrsQLW3YoQyS33jygbuHts_a9cBgJfeVOc"
+  },
+  {
+    "id": "xm1014-fractal",
+    "name": "XM1014 | Fractal",
+    "collection": "Fracture",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 180,
+    "image_url": ""
+  },
+  {
+    "id": "mag7-monster",
+    "name": "MAG-7 | Monster",
+    "collection": "Hydra",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 360,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8n5G3wiFO0P-vb_NSLf-dHXOV09F1se1lcCW6khUz_WncmIz8JHmTa1JyApd5FLEMsES-kNDhM-3i5QKM2Y5AzSr9jngY6Cp1o7FV7cAHRyI"
+  },
+  {
+    "id": "sawed-off-waster",
+    "name": "Sawed-Off | Wasteland",
+    "collection": "Fracture",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 270,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLin4Hl-S1d6c2tfZt6MM-AD3CVxeFwtt5lRi67gVMksWuEmduuIH2fPwUkWJojQuMP5xi8lNzlY-234lDag4xFnin_jihN8G81tH9UxALW"
+  },
+  {
+    "id": "mac10-stalker",
+    "name": "MAC-10 | Stalker",
+    "collection": "Spectrum 2",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 990,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8n5WxrR1c_M2jaac8cM-AGmacyutkj-1gSCGn20V0t27Tw974Jy-WOg9yW8N3QOQDsxG4x9O0ZOPqtgHZ399HzST8ji9XrnE8CxAHwFY"
+  },
+  {
+    "id": "p250-motherboard",
+    "name": "P250 | Motherboard",
+    "collection": "Spectrum",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 450,
+    "image_url": ""
+  },
+  {
+    "id": "cz75-tread",
+    "name": "CZ75-Auto | Tread",
+    "collection": "Spectrum",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 315,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLyhMG1_B1a4s2qYaVgL_6XMXecwPpzj-1gSCGn20l_62-Bzd39cH2QaAYoD8ckE-9csxmxx9biML_q4w3Wi4gTmSyvjShXrnE8FqKNMu4"
+  },
+  {
+    "id": "r8-cygnet",
+    "name": "R8 Revolver | Cygnet",
+    "collection": "Spectrum",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 270,
+    "image_url": ""
+  },
+  {
+    "id": "dual-elites-fluid",
+    "name": "Dual Berettas | Fluid",
+    "collection": "Spectrum",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 225,
+    "image_url": ""
+  },
+  {
+    "id": "scar20-green",
+    "name": "SCAR-20 | Green",
+    "collection": "Spectrum",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 180,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLinZfyr3Jk6OGRe6dsMqLDMXeVwO1zveBiSjvjxiIrujqNjsH6IymVbQEmCZoiQ-MC5kbrwN3kPuy24lDa2YsQmy2t2iof7Hs56uxQT-N7rTkENKOY"
+  },
+  {
+    "id": "g3sg1-scavenger",
+    "name": "G3SG1 | Scavenger",
+    "collection": "Spectrum",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 135,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2zYXnrB1c_M2pO7dqcc-AD3GRxutJvOhuRz39xkl2tziGmNf9JX-WPQcpAsEiQOUNsBixx4bmN7nj5FHb3Y9Cyiz-hzQJsHglCU9Y5w"
+  },
+  {
+    "id": "m4a1s-hyper-beast",
+    "name": "M4A1-S | Hyper Beast",
+    "collection": "Gamma",
+    "rarity": "Covert",
+    "quality": "Minimal Wear",
+    "price": 4500,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_OGMWrEwL9JuPh5SjuMlxgmoCm6lob-KT-JbwF1WZEjR-YJskK9k9XiYePltAeNjYlAxSn5j34dvCZstb4LB6Ut-7qX0V8Xkv5_2A"
+  },
+  {
+    "id": "ak47-frontside",
+    "name": "AK-47 | Frontside Misty",
+    "collection": "Gamma",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 1800,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiFO0POlPPNSN_mdGmKC_v1mv_N9cCW6khUz_WvRm9r8JS-SaFMmWcN5ReMD4BDsltDkN-Prs1DfjN9Cn3r_jC4YvHl1o7FVgJsyBlQ"
+  },
+  {
+    "id": "awp-elite",
+    "name": "AWP | Elite Build",
+    "collection": "Gamma",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 2520,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_jdk7uW-V6lsM-SWHH6vzedxuPUnSnHmk0Qh4G6HmN-scXmSaQRxXJpwRuZYsxTqxtTnM7nl4gTW2dlFyjK-0H0d8XeEBg"
+  },
+  {
+    "id": "ssg08-necropos",
+    "name": "SSG 08 | Necropos",
+    "collection": "Fracture",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1620,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLijZGwpR1Y-s29e6M9eM-dC2SCzv55o95lRi67gVN26m_VnomsdiqTZwB0W5R5E7UCuxe6lICyMO3i7lDWjt4XyHj_iypB8G81tA-y21Aw"
+  },
+  {
+    "id": "m4a1s-control",
+    "name": "M4A1-S | Control",
+    "collection": "Fracture",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 405,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_eAMWrEwL9lj-55SjuygRI1jDGMnYftbynDbQBzDcR3ROMI40Hpmt3kP-y271OK3tpFmy7633hJ73xit70GBPE7uvqArjH2yek"
+  },
+  {
+    "id": "famas-commander",
+    "name": "FAMAS | Commander",
+    "collection": "Fracture",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 360,
+    "image_url": ""
+  },
+  {
+    "id": "galil-ar-connexion",
+    "name": "Galil AR | Connexion",
+    "collection": "Fracture",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 315,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2n5rp8SNJ0PW9V6NsLPmfMXeYzut4uflWQyC0nQlpt22Dzd_4cS7Db1NzDZYkQuIKsBW4xt3jPurq7gPag4oXnCqrhipB7TErvbi_0k78nw"
+  },
+  {
+    "id": "ump53-roadblock",
+    "name": "UMP-45 | Roadblock",
+    "collection": "Fracture",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 270,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkk4a0qB1c_M27ZbRSMv-SCmWczu19j-1gSCGn2xgi5GnWmdmodXyUbwUhA5RyF-FcthS8w4ayMrjgtAzX2t9Byir83HtXrnE8YWMltLM"
+  },
+  {
+    "id": "mp5-sd-phosphor",
+    "name": "MP5-SD | Phosphor",
+    "collection": "Fracture",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 135,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8jsPz-R1c_M2jePFSJvWAGm6GwOJJtPNgXxa_nBovp3PRzd-vdCqQOgYgCMYkRrECskLuwdfkZeqz5QKMjYwUnHj33SlI630__a9cBl0Wy4S-"
+  },
+  {
+    "id": "mp9-moderate",
+    "name": "MP9 | Moderate",
+    "collection": "Fracture",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 90,
+    "image_url": ""
+  },
+  {
+    "id": "m4a4-dragon-disco",
+    "name": "M4A4 | Dragon Disco",
+    "collection": "Horizon",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 1170,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwiFO0P_6afBSIf6QC3SE0-96j-1gSCGn20x062mAwtb8cX3CaAMoApV3EeFZ50Wwk9fuM-vqtAHW3opHn3iqiSxXrnE8PytIGFg"
+  },
+  {
+    "id": "usp-s-blueprint",
+    "name": "USP-S | Blueprint",
+    "collection": "Horizon",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1170,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSI-WsG3SA0tF0vPRsXzu6mwkYvzSCkpu3IiqTZgAmCJIlRLEP5BXpxtPlMOOxswPZithFyyj3iyNPvCo96r1QBb1lpPPa5SpubA"
+  },
+  {
+    "id": "deagle-trigger",
+    "name": "Desert Eagle | Trigger Discipline",
+    "collection": "Horizon",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 585,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7OeRbKFsJ8-HHG6Xxutkj-VgXCq6hREuvTi6lob-KT-Ja1UlWMAkTOMCt0G9kIHlP77l5FbW344XxX_4iSJJv31r4bxRUKUn_rqX0V-d-rquYA"
+  },
+  {
+    "id": "ak47-orbit",
+    "name": "AK-47 | Orbit",
+    "collection": "Danger Zone",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1620,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiVI0POlV6diLP-dFzfB_vxztN5lRi67gVMk4TmEn9n_c3PGPwZyDMckTO8JsEPuktG1ZOrjsgPX2IwUyiyv3S0f8G81tLnuvOvF"
+  },
+  {
+    "id": "awp-mortis",
+    "name": "AWP | Mortis",
+    "collection": "Danger Zone",
+    "rarity": "Covert",
+    "quality": "Field-Tested",
+    "price": 3600,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf-jFk7uW-V6BoIeSbMWuZxuZi_rNtHiuwwRwismWEnNn8JymSZgUiDpd3Ru9ZsxG-xNy2NLzn41DWg41bjXKp5oOAt0A"
+  },
+  {
+    "id": "ssg08-mainframe",
+    "name": "SSG 08 | Mainframe 001",
+    "collection": "Danger Zone",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 225,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLijZGwpR1Y-s29e6M9eM-eD26ex_x3veRWQyC0nQlptzjSntqgJS6Wbg5xDZVwTbUN5EO5ldWxYem04waP2IsUyX_5in4c6zErvbh54g-58w"
+  },
+  {
+    "id": "aug-syd-mead",
+    "name": "AUG | Syd Mead",
+    "collection": "Operation Shattered Web",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1080,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwi5Hf-jFk7uepV7d0JM-eC2aU_uJ_t-l9AX_rkU9-5j_Ry42qcnuQbw5zCcMhQrINtRO-xIHvY-Ow4gPY2Y4UmSngznQeqqNNbYw"
+  },
+  {
+    "id": "famas-eye",
+    "name": "FAMAS | Eye of the Dragon",
+    "collection": "Operation Shattered Web",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 1080,
+    "image_url": ""
+  },
+  {
+    "id": "m4a1s-decimator",
+    "name": "M4A1-S | Decimator",
+    "collection": "Operation Shattered Web",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1800,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_eAMWrEwL9JtORqRiSygRI1jDGMnYftb3iUb1dxW5ImFLNftxCxktflZLm2tgaP2otGyn_-hytOvy9q5elQV_A7uvqA6CRSoZY"
+  },
+  {
+    "id": "awp-snake",
+    "name": "AWP | Snake",
+    "collection": "Operation Shattered Web",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 2250,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf7jJk_PyvY6FSLPmUBnPexb10sbk8HXixk09-smqEyIytci7GPwFxCZt0RLMLtBG4xNHuPr-3tRue1dy_ONei3w"
+  },
+  {
+    "id": "ak47-the-silent",
+    "name": "AK-47 | The Silencer",
+    "collection": "Operation Shattered Web",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 630,
+    "image_url": ""
+  },
+  {
+    "id": "glock18-bullet",
+    "name": "Glock-18 | Bullet Queen",
+    "collection": "Operation Shattered Web",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1710,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1Y-s2pZKtuK6HLMXCR0-N3ueVsQRa_nBovp3PQydf4dXuSalUgCJZwRrILthi9kYDlMe_m4g2Ij90Um3moiXkc6SZj_a9cBgLxwlYC"
+  },
+  {
+    "id": "deagle-light",
+    "name": "Desert Eagle | Light",
+    "collection": "Operation Shattered Web",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 450,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk6OGRbKFsJ_yWMWKIztF6ueZhW2fhlhlw6m-GnNyvIiiXOwQoDMR2QbZe5hi5k9KxN-vhtFbciN1FnyqskGoXuU4JtHUo"
+  },
+  {
+    "id": "karambit-ruby",
+    "name": "★ Karambit | Ruby",
+    "collection": "Gamma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 2610000,
+    "image_url": ""
+  },
+  {
+    "id": "karambit-sapphire",
+    "name": "★ Karambit | Sapphire",
+    "collection": "Gamma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 2520000,
+    "image_url": ""
+  },
+  {
+    "id": "butterfly-doppler",
+    "name": "★ Butterfly Knife | Doppler",
+    "collection": "Gamma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 720000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Z-ua6bbZrLOmsD2qv0u9moOlgXSyMmBw1sTGAk5X8JRTFAVp5Xco0W-ENtRXswYC1Mu_ks1fdjN9EyiqthiMbvHtv5btQBPck-KbT2gnHM-Ajoc5Ufn65u8U"
+  },
+  {
+    "id": "m9-bayonet-fade",
+    "name": "★ M9 Bayonet | Fade",
+    "collection": "Chroma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 792000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Wts2sab1iLvWHMWaR_uh3tORWQyC0nQlp4znQytr6cnjFbg8oC8BzRrQK50S-lNDgP-_r5wWP3t5CyX37jCIb7DErvbiJu9Hv_g"
+  },
+  {
+    "id": "talon-fade",
+    "name": "★ Talon Knife | Fade",
+    "collection": "Spectrum 2",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 666000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1M5vahf6lsK_WBMWaR_uh3tORWQyC0nQlpsmXcnNaoeHuTZwUiWMZzRrVZsxm9x9ThNrzj4QCPjdhNmHj73S9KujErvbhX2ACGeQ"
+  },
+  {
+    "id": "bowie-fade",
+    "name": "★ Bowie Knife | Fade",
+    "collection": "Gamma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 324000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1I-uC4YbJsLM-RAXCZxNF3sd5vTi22qhEutDWR1NiocCqeZwYoC5pxRuMM5BPqxtTgY-20sgXZ2NpHnyqqiCpA5nk56u8cEf1y_UmCvro"
+  },
+  {
+    "id": "flip-doppler",
+    "name": "★ Flip Knife | Doppler",
+    "collection": "Gamma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 234000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1d4_u-V6VgH-OSHneYyPxzj-xoXSu_kBQ9tjm6lob-KT-JOgYjXJEmR7Jbs0S8mtSzZezg5wSMit5BzyX7ii9L63455ewFUvAg-LqX0V_ipKFLBg"
+  },
+  {
+    "id": "huntsman-fade",
+    "name": "★ Huntsman Knife | Fade",
+    "collection": "Chroma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 252000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1P7vG6YadsLM-SD1iWwOpzj-1gSCGn2x8hsW6DmIqpcXjBZgYkCZt5F7VcthS8ldS2Nr7m5VCMi4gRyyuqjHtXrnE8oar8MtU"
+  },
+  {
+    "id": "falchion-doppler",
+    "name": "★ Falchion Knife | Doppler",
+    "collection": "Gamma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 198000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1d7v6tYK1iLs-SA1iDwP5muOh7Sha-lA8lvziMgIr9HifOOV5kFMB1TeAIsxi5w4K0Y7_jtVTc3d1MzX_3iSxAuy85seYDA6Bxq6eCjV7fcepqbrrX6Yc"
+  },
+  {
+    "id": "shadow-daggers-fade",
+    "name": "★ Shadow Daggers | Fade",
+    "collection": "Chroma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 126000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1L-uGmV6VsH_aSCmKvzedxuPUnFy-3l0tz5DmGzNmhdnmVblB0CcMjTbQJsBe6k9zlMuLl4gHYjoIRmDK-0H3ZqbeWvA"
+  },
+  {
+    "id": "ak47-blood-sport",
+    "name": "AK-47 | Bloodsport",
+    "collection": "Clutch",
+    "rarity": "Covert",
+    "quality": "Field-Tested",
+    "price": 5850,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiVI0POlPPNSIvycAWOD0eFkpN5lRi67gVN15mmDw9egci_EPFAkDMQlTeZe4EXplNa0Yrvr5wbd345GyHioiC4b8G81tFuqg_k_"
+  },
+  {
+    "id": "awp-fever",
+    "name": "AWP | Fever Dream",
+    "collection": "Clutch",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1980,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_jdk7uW-V7R-OfObAXeR1eZJvOhuRz39kE1w4jiAzNiod3qTOgcgXpAlQ-ML5hjqxtHjZOrrtlHWit9EyCj9iDQJsHhCZP-wUg"
+  },
+  {
+    "id": "m4a1s-chantico",
+    "name": "M4A1-S | Chantico's Fire",
+    "collection": "Clutch",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 3150,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_OGMWrEwL9lj_JmWiWnlBYioQKJk4jxNWXFZ1IgC5MiQuZeuhK4wIXnMuPhslCM2oMTxH75hnxK6Htjse4BVqd25OSJ2DU2Q_CD"
+  },
+  {
+    "id": "ump45-primal-saber",
+    "name": "UMP-45 | Primal Saber",
+    "collection": "Clutch",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 990,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkk4a0qB1Y-s27ZbQ5dc-DHG6dwOJlseNsXRa_nBovp3PRn478JHmePQ8hDcF2Q7YDtxXrk92zYbyw7gXYjIhEyCn_3Hsbui44_a9cBklqRdMs"
+  },
+  {
+    "id": "ak47-steel-delta",
+    "name": "AK-47 | Steel Delta",
+    "collection": "Clutch",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 2970,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiVI0POlPPNSM-SBAWmV_uJ_t-l9AXqyk0hy5GWEyduhdC2TPAEjDptzQbRf5EHrmoWyZu22sQLciokQyyzgznQesAEGx_A"
+  },
+  {
+    "id": "deagle-mecha",
+    "name": "Desert Eagle | Mecha Industries",
+    "collection": "Clutch",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 3510,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk6OGRbKFsJ_yWMWqVwuZ3j-1gSCGn20h042vSyY2tdyjCZwIlXJBxQeNe4EWxxoHkMOq0sQGIid5Fnyr42HtXrnE8p4gbgvE"
+  },
+  {
+    "id": "m4a4-schmidt",
+    "name": "M4A4 | Neo-Noir",
+    "collection": "Clutch",
+    "rarity": "Covert",
+    "quality": "Field-Tested",
+    "price": 2340,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwiFO0P_6afBSLvWcMWmfyPxJvOhuRz39wE1142vSztmvInvBOgV0W5R1FLYNuxW4wIbgNrmx4g2Kj4tMmCX93zQJsHgJr0dqFw"
+  },
+  {
+    "id": "awp-buddy",
+    "name": "AWP | Neo-Noir",
+    "collection": "Clutch",
+    "rarity": "Covert",
+    "quality": "Field-Tested",
+    "price": 4950,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_jdk7uW-V6poL_6cB3WvzedxuPUnHirrxR4l423SyI39I3KXPwdxWZclQeNZ5EXskYfnNeyw71OMi9lNzDK-0H3r66pOTw"
+  },
+  {
+    "id": "ak47-asimov",
+    "name": "AK-47 | Asiimov",
+    "collection": "Operation Phoenix",
+    "rarity": "Covert",
+    "quality": "Field-Tested",
+    "price": 10800,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiFO0POlPPNSIeOaB2qf19F6ueZhW2e2wEt-t2jcytf6dymSO1JxA5oiRecLsRa5kIfkYr-241aLgotHz3-rkGoXuUp8oX57"
+  },
+  {
+    "id": "awp-pink-ddp",
+    "name": "AWP | Pink DDPAT",
+    "collection": "Operation Phoenix",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 3330,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf9Ttk6_a-abBSMPmdBVicyOl-pK9qHXC2zUpz5DiBn9arJCmXOFd0DZpxQOUDtBC6wNK0MOzl4wXWjYpG02yg2c9nQ1pb"
+  },
+  {
+    "id": "m4a1s-master",
+    "name": "M4A1-S | Master Piece",
+    "collection": "Operation Phoenix",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 9000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_OGMWrEwL87o956RiW2mx4ijDGMnYftby3FbFdyXpZxQ-AP5hi7wILkZOzg5ASNgt4WmCv833hKuntvsLxWAKE7uvqATAFok6E"
+  },
+  {
+    "id": "deagle-kumicho",
+    "name": "Desert Eagle | Kumicho Dragon",
+    "collection": "Operation Phoenix",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 1665,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7uORbKF-JeKHC2aXzetJu_RkRiq7mhk1sjqKlLD1KCzPKhh0CcBwQLVe5BHrloKyZOnr5w3XiYhDnC39iCpK7X1psrlUWaFw8qXekUifZlV_fDVZ"
+  },
+  {
+    "id": "usp-s-caiman",
+    "name": "USP-S | Caiman",
+    "collection": "Shadow",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1215,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSI-WsBWaZzO94j-1gSCGn20t-4WyBn4mocC6XbVN0CMB2RLYMsUG5x9DgN-20tQSNiI1GzS2q3XtXrnE8NAiGp64"
+  },
+  {
+    "id": "deagle-naga",
+    "name": "Desert Eagle | Naga",
+    "collection": "Shadow",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 495,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7uORbKFsJ_yWMWmRxu9JvOhuRz39zEx06jjWm4n8Ii6WPFQhA5YjE7MJskPrwdTuZb7htlHbg9oTzCn2hjQJsHhQd9ynBw"
+  },
+  {
+    "id": "m4a4-sheriff",
+    "name": "M4A4 | The Emperor",
+    "collection": "Shadow",
+    "rarity": "Covert",
+    "quality": "Minimal Wear",
+    "price": 4770,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwiVI0P_6afBSJf2DC3Wf09F6ueZhW2exwBh_6m3dnt36InjDPQ4oXJt1TbJeshW_mtfjN-vrsgaKiokWy333kGoXuRj4z9Nd"
+  },
+  {
+    "id": "p250-asimov",
+    "name": "P250 | Asiimov",
+    "collection": "WinterOffensive",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 2250,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhzMOwwiFO0OL8PfRSIeOaB2qf19F6ueZhW2fixx53tWqEm4ugeXuebQN0CZJyRrMJuxm4loCyPr_i51TfjtgXzi79kGoXuUXmUJzm"
+  },
+  {
+    "id": "awp-redline",
+    "name": "AWP | Redline",
+    "collection": "WinterOffensive",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 17550,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_jdk7uW-V6diIuKSMWuZxuZi_rUxHS3lzUwm5DjWy976dSiRagd1WJB1RLQP4RK-mtazM-3itQeL2INbjXKpw2eVIZ0"
+  },
+  {
+    "id": "m4a1s-guardian",
+    "name": "M4A1-S | Guardian",
+    "collection": "WinterOffensive",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1035,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_OGMWrEwL87o95sQyy0lBMzjDGMnYftb3-QPFUlWZJ1F7VbsBi7xoa0Y7vl5ACP2ohEzX-t2iJA7Xtv4ugKWaQ7uvqAAzqYQbE"
+  },
+  {
+    "id": "scar20-magna",
+    "name": "SCAR-20 | Magna Carta",
+    "collection": "Falchion",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 720,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLinZfyr3Jk5-uRabF5KP-BB3OJ_v5jovFlSha_nBovp3PVzdr8cHnBbAcnXsAmR-UOsRHsktTmYb_ns1CNg4JCzSX_iiNKvS0__a9cBnHoQ9ul"
+  },
+  {
+    "id": "ak47-hydra",
+    "name": "AK-47 | Hydra",
+    "collection": "Falchion",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 3825,
+    "image_url": ""
+  },
+  {
+    "id": "awp-boom",
+    "name": "AWP | BOOM",
+    "collection": "CSGOWeaponCase2",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 2205,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf9Ttk7f6vZZt-Kf2DAmKvzedxuPUnTX7mkxhy62iDzYqhdiqXbw4oWZEkE-IDsRa9lIXlMejktFOMi49MmDK-0H2AgUnw_w"
+  },
+  {
+    "id": "m4a4-desolate",
+    "name": "M4A4 | Desolate Space",
+    "collection": "Clutch",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 2160,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwiFO0P_6afBSJPWAAWuR1etJo_FoTCyMmRQguynLnNepJXPEaQJyDZJ0QOdbsxi7ktS0Y-Li4ADegthGn32ojCJJ7CxosfFCD_SyjfEkHg"
+  },
+  {
+    "id": "usp-s-neo-noir",
+    "name": "USP-S | Neo-Noir",
+    "collection": "Clutch",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 16200,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSI-WsG3SA0tF4v-h7cCW6khUz_WXdmd-vI3uRPwEkApR4QuBcu0Xrk4biYr_mtQXdidlCz3r63Ska7Hx1o7FVWuokIcU"
+  },
+  {
+    "id": "glock18-royal",
+    "name": "Glock-18 | Royal Legion",
+    "collection": "Fracture",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1890,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1c_M2pZKtuK6HLMWaHwPxyj-1gSCGn20gksm_Uyo7_JSmeOARyXsEhFLQMsUW_wIXuP-rj71CIiotAzCqoinhXrnE8DvG09t0"
+  },
+  {
+    "id": "m4a4-tooth",
+    "name": "M4A4 | Tooth Fairy",
+    "collection": "Fracture",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 9900,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwiFO0P_6afBSMeWWC2mWwOdkqd5lRi67gVN35WyDwtv8IC-RblVxCpchQLIOuhK8xNG2YbnktAXZjthFxCiohntP8G81tOVu8Qhw"
+  },
+  {
+    "id": "mp9-hex",
+    "name": "MP9 | Hydra",
+    "collection": "Danger Zone",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 945,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8js_f_jdk4uL3V6x0JOKSMWuZxuZi_rQ9H363xU5_4GrWnIr8IHqfbwBxA5R2QuZZshm6kdO2Mum35Q3ajoJbjXKp1xQlWoY"
+  },
+  {
+    "id": "m4a1s-night",
+    "name": "M4A1-S | Nightmare",
+    "collection": "Danger Zone",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 10350,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_OGMWrEwL9lj-9gSCGnmBw1tgKJk4jxNWXCbAUpXpp0FrYPthC7k4fnZOm04laMjYxHn3r52HxJ6i065e0FVKV05OSJ2IHiKyzQ"
+  },
+  {
+    "id": "ak47-phantom",
+    "name": "AK-47 | Phantom Disruptor",
+    "collection": "Danger Zone",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1800,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiFO0POlJfA6H-CbD2mEzuNJtOh6XTyjgRI1jDGMnYftb3qTbQMpCZVxF-8Ku0Xtw4XkYu2xtQSL3d5FxSz-3H5Ovy895epRA6E7uvqAsbzZtpo"
+  },
+  {
+    "id": "awp-camo",
+    "name": "AWP | Camo",
+    "collection": "Danger Zone",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 585,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf7jJk_PyvY6FSLPmUBnPexb10sbk8HXixk09-smqEyIytci7GPwFxCZt0RLMLtBG4xNHuPr-3tRue1dy_ONei3w"
+  },
+  {
+    "id": "m4a1s-player",
+    "name": "M4A1-S | Player Two",
+    "collection": "Operation Riptide",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 18000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_OGMWrEwL9lj-J6SCbhxUl_jDGMnYftby7BbVdyCsB0EeZY4RPukNfhZOO2sQ3W398Qy3_6jHxIunptsO9TUqs7uvqAAWrfZoM"
+  },
+  {
+    "id": "ssg08-lic",
+    "name": "SSG 08 | Lichen Dashed",
+    "collection": "Dust2",
+    "rarity": "Industrial",
+    "quality": "Factory New",
+    "price": 54,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLijZGwpR1I_829YKt_NM-HD3eV_uJ_t-l9AX3lkBh1smSAmNf7eH6VbVQoAsN1TbQC5xa-koXgM-zjswHf341EznrgznQepO2zZeE"
+  },
+  {
+    "id": "awp-sun",
+    "name": "AWP | Sun in Leo",
+    "collection": "Spectrum 2",
+    "rarity": "Covert",
+    "quality": "Minimal Wear",
+    "price": 4050,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf9Ttk9f2qYaVucs-fB2CY1aAnteVqHCzgkRsh4TnXyY2vIH-QaVcpA5F3TOdct0S_wNO0Zri05wbXlcsbmn9hB4gb"
+  },
+  {
+    "id": "ak47-chaos",
+    "name": "AK-47 | Rat Rod",
+    "collection": "Spectrum 2",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 6300,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiVI0POlPPNSLvmRDGuV09F6ueZhW2fklBx362TTnN36dHiRa1AmW5QlQuVftxO9k4HhZuvksVDc398Rzy32kGoXuR34FNLu"
+  },
+  {
+    "id": "m4a4-royal",
+    "name": "M4A4 | Royal Paladin",
+    "collection": "Spectrum 2",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1440,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwiVI0P_6afBSMv-KD2uv0v9jufNscCW6khUz_W-Az9b8d3LFZ1AnDMAjR-4CsBO9xofhNL_q4wLWjogUzyn43SxM73x1o7FVNN3FvCs"
+  },
+  {
+    "id": "deagle-ocean",
+    "name": "Desert Eagle | Ocean Drive",
+    "collection": "Operation Broken Fang",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 21600,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7OeRbKFsJ_yWMWyZ1e1-j-1gSCGn2x5-sG7Wzdyvc3OSbgcnXpR5FO9bukTtm9WzMePhswaN2N5CmCj_jyhXrnE8ibjhEyc"
+  },
+  {
+    "id": "ak47-empress-fn",
+    "name": "AK-47 | Empress",
+    "collection": "Spectrum",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 16200,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiVI0POlPPNSJf2DHGKD0tF6ueZhW2exxEt152rWzI7_Ii-Ubw90DMB0Ee4C5xOwx9GxZbjk71PXgogWn36tkGoXudZeYvlo"
+  },
+  {
+    "id": "m4a1s-flash",
+    "name": "M4A1-S | Flashback",
+    "collection": "Spectrum",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 450,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_OGMWrEwL9Jtu1oXCGxlB4sjDGMnYftb3yVPQFyDMB3EbJZ5xC4kNPvMOO35AHW3d1AnC_3iHlNuytqtuYDVfI7uvqAZWXE-YM"
+  },
+  {
+    "id": "awp-acheron",
+    "name": "AWP | Acheron",
+    "collection": "Spectrum",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1710,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf9Ttk4eetZKFsMs-ABXKczf1JouRtTSWmkCIrujqNjsH4eC-ROFMkDccjR7EDsBCxlN2xZu7jtlaNj4pMxSr8hiIc53tt67kHT-N7rafi4HxI"
+  },
+  {
+    "id": "ak47-point",
+    "name": "AK-47 | Point Disarray",
+    "collection": "Spectrum",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 2250,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiFO0POlPPNSMP-aAHOvxedlsfN7TjCMmRQguynLnIz_dXnEbFcoDsNzQLMN40S7mte0Zuzl5gbY34JEnnr52ChA7ytisPFCD_Rw7udDlA"
+  },
+  {
+    "id": "butterfly-slaughter",
+    "name": "★ Butterfly Knife | Slaughter",
+    "collection": "Chroma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 900000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Z-ua6bbZrLOmsD2qv2-t0ouBWQyC0nQlp4G_dmdauIC_DPQBzDpclRLINsEXsx92yP7jq7gXd2t1NzCT3iCwc6TErvbhfNpboFw"
+  },
+  {
+    "id": "karambit-tiger",
+    "name": "★ Karambit | Tiger Tooth",
+    "collection": "Chroma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 1440000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Q7uCvZaZkNM-SAFiEyOlzot5mXSi9khgYvzSCkpu3eC3BbwUmCcMlQbMD4xG_w9zkPu7gsQXe2YJFzHqqjixL5ylr4ukAWb1lpPNV9oeSnQ"
+  },
+  {
+    "id": "m9-bayonet-slaughter",
+    "name": "★ M9 Bayonet | Slaughter",
+    "collection": "Chroma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 1080000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Wts2sab1iLvWHMWad_vRzsvNocCW6khUz_WXQyN6uIH-fbFd1XJcjFuEJ50W6xofhYuu05AHdiYxNn3-viXlM7C91o7FVpU-ja-I"
+  },
+  {
+    "id": "bayonet-doppler",
+    "name": "★ Bayonet | Doppler",
+    "collection": "Gamma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 360000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLzn4_v8ydP0POjV7dsMOCbB3WV_uN3ouNlSiCpkBkYvzSCkpu3d3_FaFUnXpRwEO4O50G5xoW1Y7zn5wLe3oxBxHn6jiwf7XposO8LBb1lpPPeBvHrwA"
+  },
+  {
+    "id": "karambit-tt-fn",
+    "name": "★ Karambit | Tiger Tooth",
+    "collection": "Chroma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 1440000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Q7uCvZaZkNM-SAFiEyOlzot5mXSi9khgYvzSCkpu3eC3BbwUmCcMlQbMD4xG_w9zkPu7gsQXe2YJFzHqqjixL5ylr4ukAWb1lpPNV9oeSnQ"
+  },
+  {
+    "id": "butterfly-tiger",
+    "name": "★ Butterfly Knife | Tiger Tooth",
+    "collection": "Chroma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 720000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Z-ua6bbZrLOmsD2mv1edxtfNWQDuymxoijDGMnYftb3mfOg8hAsFzRrYCtxKxxtPlZOnl5gaM3ogQmX_7jnkdvHppseoGVvI7uvqAJhUGkWs"
+  },
+  {
+    "id": "usp-s-monster",
+    "name": "USP-S | Monster",
+    "collection": "Wildfire",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 405,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSI-WsG3SA_uVkv-pmXBa_nBovp3PQn46ueX3FbAB0WZMjTe9csEKwk9XvNbnl41Tcj48WzHqv3HhP5ydj_a9cBuLIfNg1"
+  },
+  {
+    "id": "p2000-ivory",
+    "name": "P2000 | Ivory",
+    "collection": "Wildfire",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 72,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL5lYayrXIL0PG7V7Q_cKDDMW6Gzvxvj-1gSCGn20gism3dz96pc3KVOgYoCpR4TOFZsxbsxNzlYejl7lPWiIJBmX6t235XrnE8r5B4jsA"
+  },
+  {
+    "id": "p250-cartel",
+    "name": "P250 | Cartel",
+    "collection": "Wildfire",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 225,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhzMOwwiNK0OL8PfRSI_GBGmKc_uJ_t-l9AX2wlh906m7Uy4v_cXqWaA4gCpUmQLMNsBO_ltfiYuPltAHbgthGmyzgznQeqxXZ9kg"
+  },
+  {
+    "id": "p90-asimov",
+    "name": "P90 | Asiimov",
+    "collection": "Phoenix",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 3420,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhx8bf_jdk_6v-JaV-KfmeAXGvzedxuPUnTSjikRgksjuBzoz4dXLFb1QoC8QlTLQD4EPqk4LvN-Pns1aMioNBzTK-0H3gQVv65g"
+  },
+  {
+    "id": "p90-death",
+    "name": "P90 | Death by Kitty",
+    "collection": "Phoenix",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 5400,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhx8bf_jdk7PO6e694LPyAMXfJkdF6ueZhW2fgkUh042jUnN2geSqTaFN2CcQmQuRfsBXtxtfkN7mztASIg91Bniv8kGoXucYQxgOQ"
+  },
+  {
+    "id": "p90-barett",
+    "name": "P90 | Barett",
+    "collection": "Prisma",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 360,
+    "image_url": ""
+  },
+  {
+    "id": "p90-teardown",
+    "name": "P90 | Teardown",
+    "collection": "Prisma",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 720,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhx8bf7jJk4ve9YJtlL-SsD2mU_u15vOVWQyC0nQlp5mjWy4n9cX3FZ1UiApMkQbJZ4BK8ktXnM-zrsgzeg4wQyHr3iiMc5zErvbiseXdBZA"
+  },
+  {
+    "id": "mp9-stained",
+    "name": "MP9 | Stained",
+    "collection": "Prisma",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 72,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8js_f_C9k_OavYapoJM-UAmaD0tF6ueZhW2ewkUxysDjUz42hdS6XagQjXMZxELQC5BS4koGxYevm4QKLgt8Wzy36kGoXuTMoqxid"
+  },
+  {
+    "id": "mac10-echo",
+    "name": "MAC-10 | Echo",
+    "collection": "Fracture",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 270,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8n5WxrR1Y-s2jaac8cM-ADWaCwOxJvOhuRz39xRlx5GmEyIn9cSjCOg52C8B0TLEOtxa_xNziMu3ktFOP2o1HznqqijQJsHgtnfG5bw"
+  },
+  {
+    "id": "mp7-special",
+    "name": "MP7 | Special",
+    "collection": "Fracture",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 108,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8jsHf_jdk4uL5V6dhIeOAB2GZxOpJvOhuRz39xRhytjuBm9n4d3yXbQF1XJAhQLID4BTskobhZb-35wXZ2toTySz2jTQJsHhDRFQUDw"
+  },
+  {
+    "id": "ump45-moon",
+    "name": "UMP-45 | Moon",
+    "collection": "Fracture",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 72,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkk4a0qB1a7s27ZbQ5dc-eAWie0-dltd56WiegkAkYvzSCkpu3IHzGbQFxCMByE7MJsxC6w9ayN-3ntgPf3YtGmX6tiyxM6X1pt-cCUr1lpPMz7bPahA"
+  },
+  {
+    "id": "nova-red",
+    "name": "Nova | Red",
+    "collection": "Fracture",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 54,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL_kYDhwjFL0OirarZsI_GeMWuZxuZi_rE8Fy2xx0h25z-Eyt77eSnEbw8mXJEmQeMP5EXrx4ezN7jgtAKNjIlbjXKpxHjTAt0"
+  },
+  {
+    "id": "xm1014-blast",
+    "name": "XM1014 | Blast",
+    "collection": "Fracture",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 45,
+    "image_url": ""
+  },
+  {
+    "id": "mag7-steel",
+    "name": "MAG-7 | Steel",
+    "collection": "Fracture",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 198,
+    "image_url": ""
+  },
+  {
+    "id": "famas-rapid",
+    "name": "FAMAS | Rapid",
+    "collection": "Gamma",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 315,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL3n5vh7h1c_M2oaalsM8-BD3eZxdFzqeR6cCW6khUz_WjRmN79JXmePABxDsB1QeZetxnqx9XhN-nk4A3f399CzX2qiCsa7yd1o7FVINiMH98"
+  },
+  {
+    "id": "famas-mecha",
+    "name": "FAMAS | Mecha Industries",
+    "collection": "Gamma",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 495,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL3n5vh7h1c_M2oaalsM8-eC2SYwNF6ueZhW2ewwx4hsm3dz46heSjCPVUjC8chEOYMtxOwkNHiYb63swXY3Y9Nn32skGoXuc3DGOrc"
+  },
+  {
+    "id": "galil-ar-eco",
+    "name": "Galil AR | Eco",
+    "collection": "Gamma",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 135,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2n5rp8SNJ0PG7V6NsLPmfMWKTztF6ueZhW2exwExw4WrcyImrcHmTbQAlWcQkQudYt0O5lNfgP-nh5AOL3otAziz7kGoXua-HTb4P"
+  },
+  {
+    "id": "sg553-aerial",
+    "name": "SG 553 | Aerial",
+    "collection": "Gamma",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 585,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLimcO1qx1Y-s29b_E4c8-SC3WZwOJJvOhuRz39wkQj4TzXw9igJXrEbAJ1C5VyQeVZ5hHslIXjMOyz41begt9Myiiq3zQJsHi7xfgn5g"
+  },
+  {
+    "id": "aug-ricochet",
+    "name": "AUG | Ricochet",
+    "collection": "Gamma",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 360,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwi5Hf_C9k7uepV654LfKfC1icyOl-pK9tHi-wxUp0sTyGw4z8dXqfb1IlWcd1QedctUbpwNHgPrnjtFeLj4tD02yg2euRXb9L"
+  },
+  {
+    "id": "ssg08-slash",
+    "name": "SSG 08 | Slash",
+    "collection": "Gamma",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 225,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLijZGwpR1Y-s29e6M9eM-aA2qf0_p3vN5kSi26gBBp62XXyon_eHKXagYoC5ZwFLQNska7lIfiY-rgtVCN2IxExX_9h34buDErvbiGjEi-fQ"
+  },
+  {
+    "id": "ak47-slate",
+    "name": "AK-47 | Slate",
+    "collection": "Gamma",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 1170,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiVI0POlPPNSMOKcCGKD0ud5vuBlcCW6khUz_W3Sytb4cCqTOFUpWJtzTOUD5hPsw9a0Yrnrs1SK3ooXzy6shilM5311o7FVYrIufmI"
+  },
+  {
+    "id": "ak47-safari",
+    "name": "AK-47 | Safari Mesh",
+    "collection": "Dust2",
+    "rarity": "Industrial",
+    "quality": "Field-Tested",
+    "price": 27,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wjFL0P-re6xSNPGdMWuZxuZi_rIxSirkkElyt2qEzI2heXiTaVIiX5siROQJtxnul4XnYbvgswOMgolbjXKpnRk9Yjk"
+  },
+  {
+    "id": "m4a1s-basilisk",
+    "name": "M4A1-S | Basilisk",
+    "collection": "Dust2",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 990,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_GCMWrEwL9lj-NoXCC_nA4sjDGMnYftbyqVPwUiX5V5ReUDuxC5m9zmNOPktAHYiIgXzSz43C4a7Sg_6uZQVKU7uvqA7bOYRbA"
+  },
+  {
+    "id": "awp-paw",
+    "name": "AWP | Paw",
+    "collection": "Dust2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 1260,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_C9k7uW-V7RsN-CSGVicyOl-pK84Tn-3xkgltWWGnI39c3LDaA4lD5V0QO8It0LqktfuMOrq7gDajYJG02yg2bUm5WIV"
+  },
+  {
+    "id": "deagle-pilot",
+    "name": "Desert Eagle | Pilot",
+    "collection": "Dust2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 765,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7uOReK1hL-SsCmKRxuJzj-1gSCGn2x8jtWncyIupJH2TPwYlCJZyF-Rct0XplNfiYuy2tAeIiItEz36ointXrnE8Ks-4_Fs"
+  },
+  {
+    "id": "glock18-wraiths",
+    "name": "Glock-18 | Wraiths",
+    "collection": "Dust2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 540,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1c_M2pZKtuK6HLMXCCwPp-qfJWQyC0nQlp4T_Xnoz8dCmfZlUgXsd5RbMC40WxkdXnP7nl4wHXi9oUyH_9jilIuzErvbjBKaM58A"
+  },
+  {
+    "id": "usp-s-tick",
+    "name": "USP-S | Tick",
+    "collection": "Dust2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 585,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSI-WsG3SA_vp5j-lsQyWMmRQguynLzt_8JXiVOwF2AsF4R-ECshftltKxZe6x41CKjotExST8jn8f7ilr5PFCD_TZVvgG5g"
+  },
+  {
+    "id": "p250-metal",
+    "name": "P250 | Metal",
+    "collection": "Dust2",
+    "rarity": "Industrial",
+    "quality": "Factory New",
+    "price": 45,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhzMOwwiNW0Oe8aqVjH_yaCW-Ej-9ys7UxSiqyzB4jsGnQn9f6cX6UbQ4mDZRyE-AKsxHpmtPiZe7q5wPAy9USTykR2DM"
+  },
+  {
+    "id": "five-seven-boolean",
+    "name": "Five-SeveN | Boolean",
+    "collection": "Dust2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 360,
+    "image_url": ""
+  },
+  {
+    "id": "cz75-vendetta",
+    "name": "CZ75-Auto | Vendetta",
+    "collection": "Dust2",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 450,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLyhMG1_B1c_M2tcvM4H-aWAGOV1fp3j-1gSCGn205ysWiEw9iqInueOAZyD5J1EOdf4Ea9l9bmMb_q4AaI2NhGySz6iStXrnE8_AWQoqE"
+  },
+  {
+    "id": "dual-elites-heat",
+    "name": "Dual Berettas | Heat",
+    "collection": "Dust2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 54,
+    "image_url": ""
+  },
+  {
+    "id": "p2000-pulse",
+    "name": "P2000 | Pulse",
+    "collection": "Dust2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 90,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL5lYayrXIL0PG7V7Q_cKDDMXeFzf1zj-1gSCGn201wsTnRm9egcS7DaABxDZckQe5Ys0S6xtKxZO-wsQDbi9lMxSv-jS5XrnE8fJdFk9o"
+  },
+  {
+    "id": "m4a1s-lead",
+    "name": "M4A1-S | Lead",
+    "collection": "Horizon",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 675,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_eAMWrEwL9Jo-loWz22hyIrujqNjsH8dn6ePwB2DpEmFuAMt0HulYa1Nu2z4QWPjt9NnCX63H9M5ys96r1QT-N7rZDTLd1E"
+  },
+  {
+    "id": "deagle-crimson",
+    "name": "Desert Eagle | Crimson",
+    "collection": "Horizon",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 720,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk5-uRf6FvM8-XD3WbxPxJvOhuRz39wEUh5W3Rytyscy7FPAYgWJJzRe4MtUW8loKyZOm3sQzb34lEzyX32zQJsHig-EWd2A"
+  },
+  {
+    "id": "p250-ghost",
+    "name": "P250 | Ghost",
+    "collection": "Horizon",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 360,
+    "image_url": ""
+  },
+  {
+    "id": "glock18-moon",
+    "name": "Glock-18 | Moon",
+    "collection": "Horizon",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1620,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1a7s2pZKtuK8_CVliF0-x3vt5kQCa9qhsipTiXpYPwJiPTcANzXJNyFOEMthXsktHhMLzl4FaK3toWn3iqhi9BvHw9su5UU6Zw-_bJz1aWcX-Jd_0"
+  },
+  {
+    "id": "ak47-snow",
+    "name": "AK-47 | Snow",
+    "collection": "Horizon",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 2070,
+    "image_url": ""
+  },
+  {
+    "id": "awp-moon",
+    "name": "AWP | Moon",
+    "collection": "Horizon",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 2610,
+    "image_url": ""
+  },
+  {
+    "id": "m4a4-twin",
+    "name": "M4A4 | Twin",
+    "collection": "Horizon",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 5400,
+    "image_url": ""
+  },
+  {
+    "id": "ak47-unity",
+    "name": "AK-47 | Unity",
+    "collection": "Horizon",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 7200,
+    "image_url": ""
+  },
+  {
+    "id": "awp-phobos",
+    "name": "AWP | Phobos",
+    "collection": "Horizon",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 8550,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf-jFk7uW-V7RlL_KcHVicyOl-pK84GXHmwk115D6GzdqudHyUbwRxW5R3ROZbtEG8wYDiY7-x5VOKgotB02yg2bdJjfAf"
+  },
+  {
+    "id": "ssg08-danger",
+    "name": "SSG 08 | Danger",
+    "collection": "Horizon",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 3600,
+    "image_url": ""
+  },
+  {
+    "id": "ak47-case-hardened",
+    "name": "AK-47 | Case Hardened",
+    "collection": "Bravo",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 5850,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiNK0P2nZKFpH_yaCW-Ej7sk5bE8Sn-2lEpz4zndzoyvdHuUPwFzWZYiE7EK4Bi4k9TlY-y24FbAy9USGSiZd5Q"
+  },
+  {
+    "id": "m4a4-case-hardened",
+    "name": "M4A4 | Case Hardened",
+    "collection": "Bravo",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 3600,
+    "image_url": ""
+  },
+  {
+    "id": "awp-case-hardened",
+    "name": "AWP | Case Hardened",
+    "collection": "Bravo",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 5220,
+    "image_url": ""
+  },
+  {
+    "id": "deagle-case-hardened",
+    "name": "Desert Eagle | Case Hardened",
+    "collection": "Bravo",
+    "rarity": "Restricted",
+    "quality": "Minimal Wear",
+    "price": 1350,
+    "image_url": ""
+  },
+  {
+    "id": "ak47-vulcan",
+    "name": "AK-47 | Vulcan",
+    "collection": "Phoenix",
+    "rarity": "Covert",
+    "quality": "Field-Tested",
+    "price": 17100,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiFO0POlPPNSMuWRDGKC_uJ_t-l9AXCxxEh14zjTztivci2ePQZ2W8NzTecD4BKwloLiYeqxtAOIj9gUyyngznQeF7I6QE8"
+  },
+  {
+    "id": "m4a1s-cyrex",
+    "name": "M4A1-S | Cyrex",
+    "collection": "Phoenix",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 3150,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_OGMWrEwL9lj-JwXSyrqhEutDWR1N77cimSbQQgC8F5QLYCsELpltTnZuvk7wbcjdhDzy_43yMb6ilvt7kcEf1yDWu2yf8"
+  },
+  {
+    "id": "awp-bees",
+    "name": "AWP | Bees",
+    "collection": "Phoenix",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 2700,
+    "image_url": ""
+  },
+  {
+    "id": "deagle-heat",
+    "name": "Desert Eagle | Heat",
+    "collection": "Phoenix",
+    "rarity": "Classified",
+    "quality": "Minimal Wear",
+    "price": 1800,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7uORbKFsJ_yWMWSR0utJuOB7Syy9kBkY4QKJk4jxNWXGbQZ0CZpyTeBf4xO4m9y1Nuy05wHYg4lNySWr3C1Luyhu4LkKA6As5OSJ2JAJXn6j"
+  },
+  {
+    "id": "gut-fade",
+    "name": "★ Gut Knife | Fade",
+    "collection": "Gamma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 144000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1c-uaRaaVSJvGXC1icyOl-pK88HyjikUR_6z_UmIyudy-WPVByCpRzQ7UDukbtmofmM-3r4gaKjINH02yg2St2xdPu"
+  },
+  {
+    "id": "gut-doppler",
+    "name": "★ Gut Knife | Doppler",
+    "collection": "Gamma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 126000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1c-uaRaalSM_GDHm-Z0-tJveB7TSW2nAcitwKJk4jxNWWQO1IjW5d4RLUOsEG_lYCxZbjq5QDejYlBnn6o2y9LvCti4OtRUfUl5OSJ2CIbbpiB"
+  },
+  {
+    "id": "navaja-fade",
+    "name": "★ Navaja Knife | Fade",
+    "collection": "Gamma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 90000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1c9uK9cZtnIfOYBWmZx-tJseBWSSi3kCIrujqNjsH7c3qVOwV2DcZyQbQOukG5m4CyMeqz4laIgoxAnH_93Ckbvyw5troCT-N7rT3KN2DN"
+  },
+  {
+    "id": "stiletto-doppler",
+    "name": "★ Stiletto Knife | Doppler",
+    "collection": "Spectrum 2",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 360000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1I-_uibbB5L8-SA1iDwP5muOh7Sha-lA8lvziMgIr9HifOOV5kFMYmE-VfuxK-x9O0Yu7n4wDWgoxFyyz7jy4d53w65uxTVqR2qfHTi1vfcepq9g3r7qM"
+  },
+  {
+    "id": "talon-doppler",
+    "name": "★ Talon Knife | Doppler",
+    "collection": "Spectrum 2",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 540000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1M5vahf6lsK_WBMWad_v13oPFhRju2qhAmoT-Jn4bjJC_4Ml93UtZuF-MMt0btxtHlZr7m5gKKjYwRmH2oj3gcuH095e1QAqVwqKzUjluTMKp9v8cWgnOBZw"
+  },
+  {
+    "id": "ursus-fade",
+    "name": "★ Ursus Knife | Fade",
+    "collection": "Horizon",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 216000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1O_eG7e5tsIc-VD2OV_uJ_t-l9AXzml00i527XzouseH7GblAjX5N3R-NbuhLswYfjY-zj7laKjdkRyX_gznQeK-1-7hY"
+  },
+  {
+    "id": "classic-fade",
+    "name": "★ Classic Knife | Fade",
+    "collection": "CS20",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 468000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Y_OGRaaVSJvGXC1icyOl-pK9tHn-yxhkltmTVnon4IHqUbgInWcN1ELIK5hS9xIbkZumx4wONjd9H02yg2Yau6XG6"
+  },
+  {
+    "id": "survival-fade",
+    "name": "★ Survival Knife | Fade",
+    "collection": "Danger Zone",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 180000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Y7vyne5tsIc-VD2OV_uJ_t-l9AXuwwBh0sT-BydarInPGPQUpCMcjELJY5xm4xIG0NLy241Dag9hNzirgznQeOQeAleU"
+  },
+  {
+    "id": "paracord-fade",
+    "name": "★ Paracord Knife | Fade",
+    "collection": "Danger Zone",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 234000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Y4OCqV6VsH_aSCmKvzedxuPUnHSixkUl-4mqEnNj8IH3BOgUjX5RzFOMDthewlN3iYu-27gHcio1DmTK-0H2HlTMq_Q"
+  },
+  {
+    "id": "nomad-fade",
+    "name": "★ Nomad Knife | Fade",
+    "collection": "Danger Zone",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 288000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1U-uaqZ6t_H_GSMWGRxetJvOhuRz39wUUksW7Vm4n7d3yUO1InXsdxTeQDukO4l9zuN7_j5QzYjIlFy3n6jDQJsHjNMoy1vA"
+  },
+  {
+    "id": "skeleton-fade",
+    "name": "★ Skeleton Knife | Fade",
+    "collection": "Danger Zone",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 540000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1I5PeibbBiLs-SD1iWwOpzj-1gSCGn20kjt2-En9mpcCmQag8hXsciQeJYthW9kILkMLji4g3Ygo8Uznj6jX9XrnE8raC5r1M"
+  },
+  {
+    "id": "bowie-doppler",
+    "name": "★ Bowie Knife | Doppler",
+    "collection": "Gamma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 270000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1I-uC4YbJsLM-RAXCZxNF3vd56TjmjnRQ1tgKIm537LS7OJFN0Zc4pEr9OrBaxl4KxNr7r5VHZiYtBzH-qiShJ7y1v4roHAvZ2qfLTjlvDOLw_sMIdZKHwjx9VvzI"
+  },
+  {
+    "id": "bayonet-fade",
+    "name": "★ Bayonet | Fade",
+    "collection": "Chroma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 450000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLzn4_v8ydP0POvV6JsJPWsAm6Xyfo45-BrHniwzUh24jjVm4qgInnCOA4mDscmEeVcsBXtkN22P-yx5waNg5UFk3tAoG85FQ"
+  },
+  {
+    "id": "bayonet-slaughter",
+    "name": "★ Bayonet | Slaughter",
+    "collection": "Chroma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 315000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLzn4_v8ydP0POjV75oIuKSMWuZxuZi_uU7HyjhwUh-tm_Xydmuc3nGbwN2ApAmQeNfsUXtktOzYuLm5FPajN9bjXKpLQ8HVlE"
+  },
+  {
+    "id": "bayonet-tiger",
+    "name": "★ Bayonet | Tiger Tooth",
+    "collection": "Chroma",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 378000,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLzn4_v8ydP0POgV7BkJ_WBMWiCwOBxtd5lRi67gVMhsGrTntn4ci-ROAYlXMBwE7YL5BaxxIHjY-vq7w3X398RxS78iylK8G81tBow9RWL"
+  },
+  {
+    "id": "m4a1s-all",
+    "name": "M4A1-S | All",
+    "collection": "Prisma 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 585,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_GeMWrEwL87o95oQyW8jCIooTyLnYrGLSLANkI-D5d2FrENtRG7wNDvZe-3slfci9pFmHj8jSof6yZjtugEB6QtrKTXhxaBb-PhITXxPA"
+  },
+  {
+    "id": "m4a4-poly",
+    "name": "M4A4 | Poly",
+    "collection": "Prisma 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 180,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwiFO0P_6afBSJfyaGmKv1e91pOhqTiWMmRQguynLzY2pIi2QawR0CpdwTOdeuhXrw9XjZeq04QLYjIlFxSz9hn9MvCw44vFCD_Q07cip4Q"
+  },
+  {
+    "id": "ak47-green",
+    "name": "AK-47 | Green",
+    "collection": "Prisma 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 720,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wjFU6s2jbbBsLPyaDViX0-tzvt47cCW6khUz_W-Ay96seSrBaQcnDJRyTbMDuxTsw9bmNLy0sQPb34JNyn_-jS9N6n51o7FVK4Nkj6A"
+  },
+  {
+    "id": "awp-ato",
+    "name": "AWP | Ato",
+    "collection": "Prisma 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 855,
+    "image_url": ""
+  },
+  {
+    "id": "deagle-flame",
+    "name": "Desert Eagle | Flame",
+    "collection": "Prisma 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 540,
+    "image_url": ""
+  },
+  {
+    "id": "famas-mac",
+    "name": "FAMAS | Mac",
+    "collection": "Prisma 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 126,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL3n5vh7h1I_82oaalsM8-eD2SRw_xzj-1gSCGn2xkm5myEzo2sdXPBagInW5pxTLICshnswdOxNrzj71fc2d5CzC76iSJXrnE8xi9ndzw"
+  },
+  {
+    "id": "galil-ar-justice",
+    "name": "Galil AR | Justice",
+    "collection": "Prisma 2",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1080,
+    "image_url": ""
+  },
+  {
+    "id": "ssg08-ferro",
+    "name": "SSG 08 | Ferro",
+    "collection": "Prisma 2",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1350,
+    "image_url": ""
+  },
+  {
+    "id": "aug-navy",
+    "name": "AUG | Navy",
+    "collection": "Prisma 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 405,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwi5Hf9Ttk4ue8aapiH_KfG2KvzedxuPUnF3rgl0R-5DjXn4z7Ii_GbQEhC5VzQrNZuxW5l9ayY77g4gDa2tgWmzK-0H0vbAfLTQ"
+  },
+  {
+    "id": "sg553-candy",
+    "name": "SG 553 | Candy",
+    "collection": "Prisma 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 144,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLimcO1qx1I4M28baBSM_fGWzSvzedxuPUnF3vgx0kmtznSyoyreSqea1UoD5Z0RrZetBm-lt3nPu_r5waP2d9FnDK-0H3tyRypkA"
+  },
+  {
+    "id": "p250-cont",
+    "name": "P250 | Cont",
+    "collection": "Prisma 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 315,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhzMOwwiFO0OL8PfRSKf6VC2SE_uJ_t-l9AXG3xUt-4jjcn4yqIHLGO1QkDsZ4TeNetUK4m9eyP-6xtVHcjd5DzSrgznQee4rYsVM"
+  },
+  {
+    "id": "usp-s-val",
+    "name": "USP-S | Val",
+    "collection": "Prisma 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 126,
+    "image_url": ""
+  },
+  {
+    "id": "glock18-prestige",
+    "name": "Glock-18 | Prestige",
+    "collection": "Prisma 2",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1350,
+    "image_url": ""
+  },
+  {
+    "id": "mp9-red",
+    "name": "MP9 | Red",
+    "collection": "Prisma 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 54,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8js_f9Tte0OKnZq9SNPmUC3WvzedxuPUnGCiyxB4ksDzdz4qpeS-UZ1clXsBwTOFc5BO_kdPlNOnl5wOL2IJGyzK-0H3-TFWDqQ"
+  },
+  {
+    "id": "mp7-blue",
+    "name": "MP7 | Blue",
+    "collection": "Prisma 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 234,
+    "image_url": ""
+  },
+  {
+    "id": "mac10-fade",
+    "name": "MAC-10 | Fade",
+    "collection": "Prisma 2",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1260,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8n5WxrR1a7s2oaaBoH_yaCW-Ej-h347AwHyzqx04l4WvSyI77cCjCbQEhW8MjE-NcthG8loXlMujh7g3Ay9USCa6Cs30"
+  },
+  {
+    "id": "ump45-red",
+    "name": "UMP-45 | Red",
+    "collection": "Prisma 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 90,
+    "image_url": ""
+  },
+  {
+    "id": "p90-blue",
+    "name": "P90 | Blue",
+    "collection": "Prisma 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 108,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhx8bf9Ttk-uGvbpt_L-WdClicyOl-pK9rS3DjwEgjtziHyNioJ3rDaFdxXpR4TbUK4xbtx9K2ZbjltQPei91G02yg2byPK7vI"
+  },
+  {
+    "id": "pp-bizon-navy",
+    "name": "PP-Bizon | Navy",
+    "collection": "Prisma 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 36,
+    "image_url": ""
+  },
+  {
+    "id": "mp5-sd-green",
+    "name": "MP5-SD | Green",
+    "collection": "Prisma 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 270,
+    "image_url": ""
+  },
+  {
+    "id": "m4a4-oren",
+    "name": "M4A4 | Oren",
+    "collection": "Revolver",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1350,
+    "image_url": ""
+  },
+  {
+    "id": "m4a1s-snake",
+    "name": "M4A1-S | Snake",
+    "collection": "Revolver",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1620,
+    "image_url": ""
+  },
+  {
+    "id": "ak47-gy",
+    "name": "AK-47 | Gy",
+    "collection": "Revolver",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 855,
+    "image_url": ""
+  },
+  {
+    "id": "awp-snake",
+    "name": "AWP | Snake",
+    "collection": "Revolver",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 2340,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf7jJk_PyvY6FSLPmUBnPexb10sbk8HXixk09-smqEyIytci7GPwFxCZt0RLMLtBG4xNHuPr-3tRue1dy_ONei3w"
+  },
+  {
+    "id": "deagle-urban",
+    "name": "Desert Eagle | Urban",
+    "collection": "Revolver",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1440,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk5-uRbKB9IeSsG3WS_uJ_t-l9AXm2kxkk42rWn9egc36UOwYiX5N1EOVYsRLtldC0M77g5QXfiN1Fzn_gznQemk8fKYk"
+  },
+  {
+    "id": "usp-s-laser",
+    "name": "USP-S | Laser",
+    "collection": "Revolver",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 585,
+    "image_url": ""
+  },
+  {
+    "id": "glock18-red",
+    "name": "Glock-18 | Red",
+    "collection": "Revolver",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 450,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1I_826YbZoH-SBC2aU_vxztN5lRi67gVN15WzSmY36cn6RagEnD8MjTbIJ50W5m9OyN-rmtQGIgo9Fnimrhngd8G81tCm_mA6x"
+  },
+  {
+    "id": "cz75-yellow",
+    "name": "CZ75-Auto | Yellow",
+    "collection": "Revolver",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 270,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLyhMG1_B1Y-s2tcvM4Ic-QBmaD1edstfNWQyC0nQlptjjRn9z8cHjBbgB2WccmFOAPukbux9zlP77nsQXf3YxFzSX9iy9AvDErvbgg0Q8tFg"
+  },
+  {
+    "id": "five-seven-orange",
+    "name": "Five-SeveN | Orange",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 99,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL3l4Dl7idN6vyRe7RSNPGDC1if0-94t-RWQyC0nQlp6jjTytf7JH6XbQIiD5t2EOZYsBDtl4LjNe7k4QzYidlEzX34hn8Y7zErvbi46hZUEA"
+  },
+  {
+    "id": "tec9-yellow",
+    "name": "Tec-9 | Yellow",
+    "collection": "Revolver",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 315,
+    "image_url": ""
+  },
+  {
+    "id": "p250-cyber",
+    "name": "P250 | Cyber",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 108,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhzMOwwiVI0OL8PfRSI-mRC3WDyet6vN5lRi67gVMl6mzUm9n8IHzCaQUmA5Z3RLJb4xC9m4bhMbzn7lOL2Y5Am3j73HxI8G81tOdaiAQT"
+  },
+  {
+    "id": "mp9-green-ddp",
+    "name": "MP9 | Green DDPAT",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 45,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8js_f9Ttk__6vYaA_H_yaCW-Ej7outuQ8GHrjwkwl52zVno2peXqVbwYoX8N3ReFcsUK7l9PiPuzitgLAy9US-C_U3wM"
+  },
+  {
+    "id": "mac10-blue",
+    "name": "MAC-10 | Blue",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 63,
+    "image_url": ""
+  },
+  {
+    "id": "famas-marine",
+    "name": "FAMAS | Marine",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 108,
+    "image_url": ""
+  },
+  {
+    "id": "galil-ar-orange",
+    "name": "Galil AR | Orange",
+    "collection": "Revolver",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 360,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2n5rp8SNJ0Pq3V6BpMPGHMWiCwOBxtd5lRi67gVN-4WzRwomqeHKQOwEoAsdzRrENskK7wIXiM-m341feg44TzXr33C0Y8G81tE9ebY28"
+  },
+  {
+    "id": "sg553-wave",
+    "name": "SG 553 | Wave",
+    "collection": "Revolver",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 990,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLimcO1qx1I_829eLZsOc-ED3GV0tF0ouB_QBa_nBovp3PcwoqtdC3BOwQkCZB3QOIIsxm_kNyyZuzg7w3f2YNEnn6qjS0Y6Clq_a9cBmkkHSs4"
+  },
+  {
+    "id": "aug-flame",
+    "name": "AUG | Flame",
+    "collection": "Revolver",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 450,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwi5Hf_C9k5f28ZZtiMvGdCWKvzedxuPUnTn7glkly423Xy4yoJHOWaFR0A5YlQrNc5xXrm93hZejntQWN3YNCzzK-0H2szzSoFw"
+  },
+  {
+    "id": "ssg08-orange",
+    "name": "SSG 08 | Orange",
+    "collection": "Revolver",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 405,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLijZGwpR1T9s28bapSL-KSAGCV_uJ_t-l9AXy3l093sjnSn9_6cnjBPAEhDMNwR-FbtEKwldzkM--05Afej4JGmSzgznQeBdxl634"
+  },
+  {
+    "id": "negev-rapid",
+    "name": "Negev | Rapid",
+    "collection": "Revolver",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 180,
+    "image_url": ""
+  },
+  {
+    "id": "m249-red",
+    "name": "M249 | Red",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 27,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8zMK5wjFL0OirarZsI_GeMWuZxuZi_rM9H3nkk01-6mSAzon_d3vBZw4lXsB0TOQD4RftwdXmY7-3tlffioNbjXKpMr9foB4"
+  },
+  {
+    "id": "g3sg1-blue",
+    "name": "G3SG1 | Blue",
+    "collection": "Revolver",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 180,
+    "image_url": ""
+  },
+  {
+    "id": "scar20-blue",
+    "name": "SCAR-20 | Blue",
+    "collection": "Revolver",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 198,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLinZfyr3Jk7OeRaqh4JeCBB2mE_v11sfNWQyC0nQlp4jvQn92oJX-VaVIgW5QkQuYM5kLswNTnNL-w4QaK2YNFmXqqjSxJuzErvbi8Z0332w"
+  },
+  {
+    "id": "nova-blue",
+    "name": "Nova | Blue",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 54,
+    "image_url": ""
+  },
+  {
+    "id": "xm1014-blue-ddp",
+    "name": "XM1014 | Blue DDPAT",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 36,
+    "image_url": ""
+  },
+  {
+    "id": "mag7-blue",
+    "name": "MAG-7 | Blue",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 45,
+    "image_url": ""
+  },
+  {
+    "id": "sawed-off-blue",
+    "name": "Sawed-Off | Blue",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 27,
+    "image_url": ""
+  },
+  {
+    "id": "bizon-blue",
+    "name": "PP-Bizon | Blue",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 27,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLzl4zv8x1T9s29eKhsNOSWHFicyOl-pK8-Hyzjx0t1sWjdy4v_dXyVaFcpC5ElTO4OsxSxkILjYu3k5wKM2dlG02yg2QMXfH6m"
+  },
+  {
+    "id": "p90-cold",
+    "name": "P90 | Cold",
+    "collection": "Revolver",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 360,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLhx8bf_C9k_P6nfKxoMs-DVzevzedxuPUnSivqkBt_5m7Rw9v8cXmTZ1UjX5Z5EOEIuhK8koHuNe7r51fYjt4XyDK-0H2E4aJrDg"
+  },
+  {
+    "id": "ump45-navy",
+    "name": "UMP-45 | Navy",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 45,
+    "image_url": ""
+  },
+  {
+    "id": "mp7-navy",
+    "name": "MP7 | Navy",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 54,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8jsHf_Cxk4fO4cZthKfebGinIw-0v5-cxS33kwEh2tz-HyYugJC7FZwVyXJZ2FO4CtBa4xtPkN-nn-UWA3HYryggq"
+  },
+  {
+    "id": "mp5-sd-navy",
+    "name": "MP5-SD | Navy",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 72,
+    "image_url": ""
+  },
+  {
+    "id": "dual-elites-red",
+    "name": "Dual Berettas | Red",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 36,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL0kp_0-B1I_82rZK15JeOsGW6e1etkj_NoRi22hyIrujqNjsGrJ3rGbQAgDsEhE-YJ5he7w9TgZOnrtgWI2oNNxCv6hixP7SZitrpRT-N7rUuDq4Qp"
+  },
+  {
+    "id": "r8-revolver-red",
+    "name": "R8 Revolver | Red",
+    "collection": "Revolver",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 27,
+    "image_url": ""
+  },
+  {
+    "id": "awp-poly",
+    "name": "AWP | Poly",
+    "collection": "Spectrum 2",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1800,
+    "image_url": ""
+  },
+  {
+    "id": "ak47-poly",
+    "name": "AK-47 | Poly",
+    "collection": "Spectrum 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 900,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wipP0OKhZL1SI_GeAViRyrohj-1gSCGn201-4G7dyo2oeXORaAIpCcFwTeEK4ELskNa0NeKxtVTXiItDySms3XxXrnE8JD9gyYo"
+  },
+  {
+    "id": "m4a4-moss",
+    "name": "M4A4 | Moss",
+    "collection": "Spectrum 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 585,
+    "image_url": ""
+  },
+  {
+    "id": "m4a1s-orange",
+    "name": "M4A1-S | Orange",
+    "collection": "Spectrum 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 630,
+    "image_url": ""
+  },
+  {
+    "id": "deagle-poly",
+    "name": "Desert Eagle | Poly",
+    "collection": "Spectrum 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 585,
+    "image_url": ""
+  },
+  {
+    "id": "glock18-poly",
+    "name": "Glock-18 | Poly",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 117,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1c_M2pZKtuK8-DAWuJzOtkj-1gSCGn200h4TnQwtqoci_CPQYlDsAiRuZc5hK7kd2zZbm37lGK2o5HnH2v2ixXrnE85Jt4rDY"
+  },
+  {
+    "id": "usp-s-poly",
+    "name": "USP-S | Poly",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 108,
+    "image_url": ""
+  },
+  {
+    "id": "p250-linen",
+    "name": "P250 | Linen",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 90,
+    "image_url": ""
+  },
+  {
+    "id": "five-seven-bun",
+    "name": "Five-SeveN | Bun",
+    "collection": "Spectrum 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 315,
+    "image_url": ""
+  },
+  {
+    "id": "tec9-blue",
+    "name": "Tec-9 | Blue",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 81,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLlm5W5wjFU0OaraahSLPmUBnPex7cj4Lg9GS-ylB4jsGTSzov_JHvDag8nCcB4FrZes0XtwIblNOLhshue1dxd5qECaQ"
+  },
+  {
+    "id": "famas-orange",
+    "name": "FAMAS | Orange",
+    "collection": "Spectrum 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 315,
+    "image_url": ""
+  },
+  {
+    "id": "bizon-camo",
+    "name": "PP-Bizon | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 36,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLzl4zv8x1T9s25Z6tpH_eBD26e_u13ve5WXSy3qhEutDWR1NyucS6XPQMmD5p1ELYC4EG5xoCxMezktgHZjoJDnH342ChLu3k5sO4cEf1y1FpRu8Y"
+  },
+  {
+    "id": "mp9-dart",
+    "name": "MP9 | Dart",
+    "collection": "Spectrum 2",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 225,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8js_f_jdk4uL3V6dlJeaBAWmvzedxuPUnH3_lkRgmtmrVmNn6dC_COFUlWJZwF-df4xW8ktK2N-234QfX2IlMzjK-0H1cH54WRg"
+  },
+  {
+    "id": "mac10-camo",
+    "name": "MAC-10 | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 54,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8n5WxrR1I4P2RZaVucaCsDGuFxOxzovNwcCW6khUz_W7dz9qrJH2XZgYjC5UiQOADshC5x9W1ML_jsg3djIxCnC6oiSsduyx1o7FV5IlAGpg"
+  },
+  {
+    "id": "ump45-camo",
+    "name": "UMP-45 | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 45,
+    "image_url": ""
+  },
+  {
+    "id": "p90-camo",
+    "name": "P90 | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 72,
+    "image_url": ""
+  },
+  {
+    "id": "mp7-camo",
+    "name": "MP7 | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 45,
+    "image_url": ""
+  },
+  {
+    "id": "nov-camo",
+    "name": "Nova | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 36,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL_kYDhwjFL0PGvZatSN_-cCliSzftzj-1gSCGn2x9ytmXRzt36dH_EPw9yD5R1ROYCtBO_x4LhMO2wslfZiotMxX6viitXrnE8JeKdjD0"
+  },
+  {
+    "id": "xm1014-camo",
+    "name": "XM1014 | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 27,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLpk8ewrHZk5-uRfqV_KfOSA2ivxetltfN9cCW6khUz_TuGmI2odiqUaVN2A5IkFuJZtRjrldDkNLiw4ADc2o1Emyj72yxM5ix1o7FV5bllY3w"
+  },
+  {
+    "id": "mag7-camo",
+    "name": "MAG-7 | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 36,
+    "image_url": ""
+  },
+  {
+    "id": "scout-camo",
+    "name": "SSG 08 | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 63,
+    "image_url": ""
+  },
+  {
+    "id": "aug-camo",
+    "name": "AUG | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 54,
+    "image_url": ""
+  },
+  {
+    "id": "sg553-camo",
+    "name": "SG 553 | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 63,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLimcO1qx1I4P2Raqh4JeOsAm6Xyfo46eMxTi_qwEUmtTjUz9etJCnBaVJ0XMd3F-QIuxbtk9GzNe3n5FSP2pUFk3tLrFywMQ"
+  },
+  {
+    "id": "g3sg1-camo",
+    "name": "G3SG1 | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 45,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2zYXnrB1T9s24abZkI_GeAVicyOl-pK9qTn7gwUlwsWrVzd2sci3GZ1cnDpF0TeNe5kG9mt21Mrzq4VPYjdhA02yg2WVbe73u"
+  },
+  {
+    "id": "scar20-camo",
+    "name": "SCAR-20 | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 54,
+    "image_url": ""
+  },
+  {
+    "id": "negev-camo",
+    "name": "Negev | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 36,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL_m5Hl6x1T9s24abZkI_GeAViUxP1zovVWQyC0nQlptzzdzougeHmfaFJxWcZyTLVbtBTulNS0ZbjlsQTYjN1Dm3j8iX4c6DErvbiLvYVdBg"
+  },
+  {
+    "id": "m249-camo",
+    "name": "M249 | Camo",
+    "collection": "Spectrum 2",
+    "rarity": "Mil-Spec",
+    "quality": "Factory New",
+    "price": 18,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8zMK5wipC4M2kfapqLPWsCmKDwPpJvOhuRz39lkUisWTSmIz7I3uValQjXMEmE-AO4Ea9k9HvZLy27g2P3otEnnj8iDQJsHjxYKi7jg"
+  },
+  {
+    "id": "ak47-ice",
+    "name": "AK-47 | Ice",
+    "collection": "Operation 10",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 2520,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiFO0POlPPNSI_-UGm-Zz-llj-1gSCGn2x4l5z_RyNj6JXnEbgFzXMYjEOUIsBe5m9exP-zg4leMj4pGxXn7jCJXrnE84asPq_0"
+  },
+  {
+    "id": "awp-wildfire-fn",
+    "name": "AWP | Wildfire",
+    "collection": "Chroma 2",
+    "rarity": "Covert",
+    "quality": "Factory New",
+    "price": 13500,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_jdk7uW-V7NkLPSVB3WV_uJ_t-l9AX7rxhl-tmzSwomtdC6TPwQnW5UkR-YD5kK-ltCzP-Ox4FfXiNoQyyrgznQeu9L0PzQ"
+  },
+  {
+    "id": "m4a4-batt",
+    "name": "M4A4 | Batt",
+    "collection": "Operation 10",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1980,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwiVI0P_6afBSMPmcAGKV09F6ueZhW2fjxB9_4GqEyN6vdi_BPwQgWZIkRLYD4Ba_kILgYeOz4lbagthBz3_9kGoXuZIYHoDp"
+  },
+  {
+    "id": "deagle-fennec",
+    "name": "Desert Eagle | Fennec",
+    "collection": "Operation 10",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 630,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk6OGRbKFsJ_yWMWGVz-Bzs95lRi67gVN14GvRyt77cnKfagRyXsMiTeUNtRO5kYWyYr7i4lfZgoIUzX722CpO8G81tMpbNfMB"
+  },
+  {
+    "id": "usp-s-jaw",
+    "name": "USP-S | Jaw",
+    "collection": "Operation 10",
+    "rarity": "Classified",
+    "quality": "Factory New",
+    "price": 1620,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSNeODHViUzulxqd5lRi67gVMl62nUyd2scnOVPAcgA5J2TOFY5xLrlN22YbzgsQaI2IlHyiWojnwa8G81tErOD-_J"
+  },
+  {
+    "id": "glock18-candy",
+    "name": "Glock-18 | Candy",
+    "collection": "Operation 10",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 360,
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL2kpnj9h1I4M28baBSLPmUBnPelb93teA-FivjzB5wsjzTyI2pIn_CPAMoW8N3ROJZshm5w9zgNbnk5xue1dyMA9ZU_Q"
+  },
+  {
+    "id": "awp-doodle",
+    "name": "AWP | Doodle",
+    "collection": "Operation 10",
+    "rarity": "Restricted",
+    "quality": "Factory New",
+    "price": 1080,
+    "image_url": ""
+  }
 ]
