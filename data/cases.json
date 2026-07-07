@@ -3,7 +3,7 @@
     "id": "csgo-weapon-case",
     "name": "CS:GO Weapon Case",
     "price": 1500,
-    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8",
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJKz2lu_XsnXwtmkJjSU91dh8bji61XxRCKg0MSz_nUDvPb-OPFvdKTFDzbAkbp16bY5Gn6wkx9ysj7Xntf9IC6WZgA-Sswnnj45WXo",
     "drops": [
       { "skin_id": "scar20-bloodsport", "weight": 25 },
       { "skin_id": "aug-torque", "weight": 25 },
@@ -20,7 +20,7 @@
     "id": "prisma-case",
     "name": "Prisma Case",
     "price": 2500,
-    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8",
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJKz2lu_XsnXwtmkJjSU91dh8bj35VTqVBP4io_fr3AV6aD8O6BpdKKQVmPEwr1zs-c8Tnngl09w52zTmY2sc3jBag8jXpohE_lK7Ede7E2Kfw",
     "drops": [
       { "skin_id": "mp5-sd-nitro", "weight": 25 },
       { "skin_id": "p250-white", "weight": 25 },
@@ -35,7 +35,7 @@
     "id": "snakebite-case",
     "name": "Snakebite Case",
     "price": 3500,
-    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8",
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJKz2lu_XsnXwtmkJjSU91dh8bj35VTqVBP4io_fr3oVvvT4bfI4dvTLCGTCmLl16ec7TX_mk08k42iHwtqscy-WPVUmCZJ4R_lK7Ed8Q6OYtw",
     "drops": [
       { "skin_id": "p250-metal", "weight": 25 },
       { "skin_id": "mp9-moderate", "weight": 25 },
@@ -51,7 +51,7 @@
     "id": "fracture-case",
     "name": "Fracture Case",
     "price": 2000,
-    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8",
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJKz2lu_XsnXwtmkJjSU91dh8bj35VTqVBP4io_fr3QV7aD7OP01IfbGDzPCmbsm4LU5GnvkzUsi4WvUmIqtci_CPQNyApsjE_lK7EfrhW545A",
     "drops": [
       { "skin_id": "ssg08-mainframe", "weight": 25 },
       { "skin_id": "aug-syd-mead", "weight": 25 },
@@ -67,7 +67,7 @@
     "id": "glove-case",
     "name": "Glove Case",
     "price": 5000,
-    "image_url": "https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtz0O9LTEk01p0Y3B3f8N6sNRErvuzIQb2A0rFUf1Lh5tzlBgQJeRZdUjF3ZNa2gkrYQVDoPzhVhLc0LgZ3w7q-eQ1M7c_1idSKxefxY7mEmDsJusEmjOnD9Y-h3lHh_kBoY22nJ4SVLQ8",
+    "image_url": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGJKz2lu_XsnXwtmkJjSU91dh8bj35VTqVBP4io_frHcVuPaoafU1JqiWWSVkux15OQ8Giiylk0k5mvTnIqpd3PCaQIhWMYkE_lK7EcNeCKW-w",
     "drops": [
       { "skin_id": "ssg08-blood", "weight": 20 },
       { "skin_id": "p2000-fire-elemental", "weight": 20 },
