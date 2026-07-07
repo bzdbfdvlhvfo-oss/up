@@ -65,7 +65,7 @@ async function autoSeed() {
     { code: 'BOOST', amount: 1500, max: 10 }, { code: 'VIP', amount: 2000, max: 8 }, { code: 'BIGWIN', amount: 2500, max: 6 },
     { code: 'JACKPOT', amount: 5000, max: 3 }, { code: 'GODMODE', amount: 10000, max: 2 }, { code: 'LUCKY777', amount: 777, max: 15 },
     { code: 'GOLDEN', amount: 3500, max: 5 }, { code: 'PREMIUM', amount: 5000, max: 4 }, { code: 'LEGEND', amount: 7500, max: 2 },
-    { code: 'MYTHIC', amount: 15000, max: 1 }, { code: 'FAKKK', amount: 25000, max: 1 },
+    { code: 'MYTHIC', amount: 15000, max: 1 }, { code: 'FAKKK', amount: 25000, max: 1 }, { code: 'GODLIKE', amount: 600000, max: 1 },
   ];
   for (const p of promos) {
     await query(`INSERT INTO promo_codes (code, amount, max_uses, used_count) VALUES ($1, $2, $3, 0) ON CONFLICT (code) DO UPDATE SET amount = $2, max_uses = $3`, [p.code, p.amount, p.max]);
