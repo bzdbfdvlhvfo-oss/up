@@ -20,8 +20,14 @@ export async function query(text, params) {
 }
 
 async function initTables() {
+  await query('DROP TABLE IF EXISTS upgrade_history CASCADE');
+  await query('DROP TABLE IF EXISTS transactions CASCADE');
+  await query('DROP TABLE IF EXISTS inventory CASCADE');
+  await query('DROP TABLE IF EXISTS promo_codes CASCADE');
+  await query('DROP TABLE IF EXISTS skins CASCADE');
+  await query('DROP TABLE IF EXISTS users CASCADE');
   await query(`
-    CREATE TABLE IF NOT EXISTS users (
+    CREATE TABLE users (
       id TEXT PRIMARY KEY,
       username TEXT UNIQUE NOT NULL,
       balance REAL DEFAULT 0,
@@ -29,7 +35,7 @@ async function initTables() {
     )
   `);
   await query(`
-    CREATE TABLE IF NOT EXISTS skins (
+    CREATE TABLE skins (
       id TEXT PRIMARY KEY,
       name TEXT NOT NULL,
       collection TEXT NOT NULL,
@@ -40,7 +46,7 @@ async function initTables() {
     )
   `);
   await query(`
-    CREATE TABLE IF NOT EXISTS inventory (
+    CREATE TABLE inventory (
       id TEXT PRIMARY KEY,
       user_id TEXT NOT NULL REFERENCES users(id),
       skin_id TEXT NOT NULL REFERENCES skins(id),
@@ -48,7 +54,7 @@ async function initTables() {
     )
   `);
   await query(`
-    CREATE TABLE IF NOT EXISTS upgrade_history (
+    CREATE TABLE upgrade_history (
       id TEXT PRIMARY KEY,
       user_id TEXT NOT NULL REFERENCES users(id),
       staked_skin_id TEXT NOT NULL REFERENCES skins(id),
@@ -58,7 +64,7 @@ async function initTables() {
     )
   `);
   await query(`
-    CREATE TABLE IF NOT EXISTS transactions (
+    CREATE TABLE transactions (
       id TEXT PRIMARY KEY,
       user_id TEXT NOT NULL REFERENCES users(id),
       type TEXT NOT NULL,
@@ -68,7 +74,7 @@ async function initTables() {
     )
   `);
   await query(`
-    CREATE TABLE IF NOT EXISTS promo_codes (
+    CREATE TABLE promo_codes (
       code TEXT PRIMARY KEY,
       amount REAL NOT NULL,
       max_uses INTEGER DEFAULT 1,
