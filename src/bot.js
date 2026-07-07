@@ -6,10 +6,23 @@ const API = `https://api.telegram.org/bot${BOT_TOKEN}`;
 let offset = 0;
 let query;
 
-export function initBot(pgQuery) {
+export async function initBot(pgQuery) {
   query = pgQuery;
   if (!BOT_TOKEN) { console.log('No TELEGRAM_BOT_TOKEN, bot disabled'); return; }
   console.log('Telegram bot starting...');
+
+  if (CHANNEL) {
+    const info = await call('getMe');
+    if (info.ok) {
+      const check = await call('getChatMember', { chat_id: `@${CHANNEL}`, user_id: info.result.id });
+      if (check.ok && ['administrator','creator'].includes(check.result.status)) {
+        console.log(`✅ Бот админ канала @${CHANNEL}`);
+      } else {
+        console.log(`⚠️  Бот не админ @${CHANNEL}. /sub не работает. Добавь @${info.result.username} в админы канала.`);
+      }
+    }
+  }
+
   poll();
 }
 
