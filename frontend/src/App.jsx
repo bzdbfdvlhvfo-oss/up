@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Marketplace from './pages/Marketplace'
 import Inventory from './pages/Inventory'
 import Upgrade from './pages/Upgrade'
+import Settings from './pages/Settings'
 import * as api from './api'
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
           <Route path="/marketplace" element={<Marketplace user={user} onBalanceUpdate={refreshBalance} />} />
           <Route path="/inventory" element={user ? <Inventory user={user} onBalanceUpdate={refreshBalance} /> : <Navigate to="/" />} />
           <Route path="/upgrade" element={user ? <Upgrade user={user} onBalanceUpdate={refreshBalance} /> : <Navigate to="/" />} />
+          <Route path="/settings" element={user ? <Settings user={user} onBalanceUpdate={refreshBalance} /> : <Navigate to="/" />} />
         </Routes>
       </main>
       {showAuth && <AuthModal onLogin={handleAuthSuccess} onClose={() => setShowAuth(false)} />}

@@ -6,7 +6,11 @@ function playSound(type) {
     const ctx = new (window.AudioContext || window.webkitAudioContext)()
     const osc = ctx.createOscillator(); const gain = ctx.createGain()
     osc.connect(gain); gain.connect(ctx.destination)
-    if (type === 'tick') {
+    if (type === 'spin') {
+      osc.type = 'triangle'; osc.frequency.setValueAtTime(200, ctx.currentTime); osc.frequency.exponentialRampToValueAtTime(600, ctx.currentTime + 0.15)
+      gain.gain.setValueAtTime(0.015, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.2)
+    } else if (type === 'tick') {
       osc.type = 'square'; osc.frequency.setValueAtTime(1200 + Math.random() * 600, ctx.currentTime)
       gain.gain.setValueAtTime(0.012, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.02)
       osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.02)
@@ -39,6 +43,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const [targetName, setTargetName] = useState('')
   const [targetPrice, setTargetPrice] = useState(0)
   const [flash, setFlash] = useState(false)
+  const [confetti, setConfetti] = useState([])
   const animRef = useRef(null)
   const tickTimers = useRef([])
 
@@ -98,6 +103,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
       const totalDegrees = fullSpins * 360 + (targetAngle / 100) * 360
 
       setSpinning(true)
+      playSound('spin')
       const startTime = Date.now()
       const duration = 2500 + Math.random() * 600
 
@@ -127,9 +133,18 @@ export default function Upgrade({ user, onBalanceUpdate }) {
           setFlash(false)
           setTimeout(() => {
             setShowResult(true)
-            if (res.won) playSound('win')
-            else playSound('lose')
-            if (!res.won) setSelectedId(null)
+            if (res.won) {
+              playSound('win')
+              setConfetti(Array.from({length: 40}, (_, i) => ({
+                id: i, left: Math.random() * 100, delay: Math.random() * 0.5,
+                color: ['#ff8f00','#ffc107','#fff','#e65100','#4a2800'][Math.floor(Math.random()*5)],
+                size: 4 + Math.random() * 8, dur: 2 + Math.random() * 2,
+              })))
+              setTimeout(() => setConfetti([]), 4000)
+            } else {
+              playSound('lose')
+            }
+            setSelectedId(null)
             fetchData(); onBalanceUpdate()
           }, 500)
         }
@@ -293,6 +308,19 @@ export default function Upgrade({ user, onBalanceUpdate }) {
           </div>
         )}
       </div>
+      {confetti.length > 0 && (
+        <div className="confetti-container">
+          {confetti.map(c => (
+            <div key={c.id} className="confetti-piece"
+              style={{
+                left: `${c.left}%`, width: c.size, height: c.size,
+                background: c.color, animationDelay: `${c.delay}s`,
+                animationDuration: `${c.dur}s`,
+              }}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

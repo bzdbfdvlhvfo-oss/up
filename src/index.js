@@ -5,6 +5,7 @@ import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import { v4 as uuidv4 } from 'uuid';
 import { query, initDb } from './db.js';
+import { initBot } from './bot.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -143,6 +144,8 @@ app.post('/api/users/:userId/upgrade', async (req, res) => {
     const won = roll <= chance;
     let wonSkin = null;
 
+    await query('DELETE FROM inventory WHERE id = $1', [inventoryId]);
+
     if (won) {
       wonSkin = targets[Math.floor(Math.random() * targets.length)];
       const newInvId = uuidv4();
@@ -150,7 +153,6 @@ app.post('/api/users/:userId/upgrade', async (req, res) => {
       await query('INSERT INTO upgrade_history (id, user_id, staked_skin_id, result, won_skin_id, multiplier) VALUES ($1,$2,$3,$4,$5,$6)',
         [uuidv4(), userId, skin.id, 'win', wonSkin.id, multiplier]);
     } else {
-      await query('DELETE FROM inventory WHERE id = $1', [inventoryId]);
       await query('INSERT INTO upgrade_history (id, user_id, staked_skin_id, result, multiplier) VALUES ($1,$2,$3,$4,$5)',
         [uuidv4(), userId, skin.id, 'lose', multiplier]);
     }
@@ -161,6 +163,15 @@ app.post('/api/users/:userId/upgrade', async (req, res) => {
       won_skin: wonSkin ? { id: wonSkin.id, name: wonSkin.name, price: wonSkin.price, rarity: wonSkin.rarity, quality: wonSkin.quality } : null,
       balance: (await query('SELECT balance FROM users WHERE id = $1', [userId])).rows[0].balance
     });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// User info
+app.get('/api/users/:userId', async (req, res) => {
+  try {
+    const u = (await query('SELECT id, username, balance, telegram_chat_id, telegram_sub_checked FROM users WHERE id = $1', [req.params.userId])).rows[0];
+    if (!u) return res.status(404).json({ error: 'User not found' });
+    res.json({ ...u, telegram_linked: !!u.telegram_chat_id });
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
@@ -211,6 +222,7 @@ app.get('/api/promo-codes', async (req, res) => {
 async function start() {
   try { await initDb(); console.log('Database ready'); }
   catch (e) { console.error('DB init failed:', e); process.exit(1); }
+  initBot(query);
   app.listen(PORT, '0.0.0.0', () => console.log(`Server on port ${PORT}`));
 }
 start();

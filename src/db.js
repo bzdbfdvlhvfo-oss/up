@@ -68,6 +68,8 @@ async function initTables() {
   await query(`ALTER TABLE upgrade_history ADD COLUMN IF NOT EXISTS multiplier REAL DEFAULT 1`).catch(() => {});
   await query(`ALTER TABLE upgrade_history ADD COLUMN IF NOT EXISTS won_skin_id TEXT REFERENCES skins(id)`).catch(() => {});
   await query(`ALTER TABLE skins ADD COLUMN IF NOT EXISTS category TEXT DEFAULT ''`).catch(() => {});
+  await query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS telegram_chat_id TEXT DEFAULT ''`).catch(() => {});
+  await query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS telegram_sub_checked BOOLEAN DEFAULT false`).catch(() => {});
   console.log('Tables ready');
 }
 

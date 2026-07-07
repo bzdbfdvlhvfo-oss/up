@@ -45,6 +45,10 @@ export function upgrade(userId, inventoryId, mode, value) {
   return request(`/users/${userId}/upgrade`, { method: 'POST', body: JSON.stringify({ inventoryId, mode, value }) });
 }
 
+export function getUser(userId) {
+  return request(`/users/${userId}`);
+}
+
 export function getBalance(userId) {
   return request(`/users/${userId}/balance`);
 }
