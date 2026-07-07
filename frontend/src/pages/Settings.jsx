@@ -57,7 +57,7 @@ export default function Settings({ user, onBalanceUpdate }) {
               </div>
             )}
             <div className="settings-telegram-info">
-              <p>1. Напиши боту: <a href={`https://t.me/${import.meta.env.VITE_BOT_USERNAME || 'bot'}`} target="_blank" className="link">@cs2up_bot</a></p>
+              <p>1. Напиши боту: <a href="https://t.me/CS2uppbot" target="_blank" className="link">@CS2uppbot</a></p>
               <p>2. Отправь команду <code>/link</code> и твой ID</p>
               <p>3. Получи <strong>+100₽</strong> за привязку</p>
               <p>4. Подпишись на канал и отправь <code>/sub</code> — ещё <strong>+300₽</strong></p>
