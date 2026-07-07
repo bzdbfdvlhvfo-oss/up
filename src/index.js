@@ -1,15 +1,19 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { v4 as uuidv4 } from 'uuid';
 import { query, initDb } from './db.js';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-app.get('/', (req, res) => res.json({ status: 'ok' }));
+app.use(express.static(path.join(__dirname, '..', 'frontend', 'dist')));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, '..', 'frontend', 'dist', 'index.html')));
 
 function getUpgradeTargetRarity(currentRarity) {
   const tiers = ['Industrial', 'Mil-Spec', 'Restricted', 'Classified', 'Covert'];
