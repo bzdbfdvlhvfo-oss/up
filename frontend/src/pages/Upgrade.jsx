@@ -52,7 +52,6 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const [mode, setMode] = useState('multiplier')
   const [value, setValue] = useState(2)
   const [spinning, setSpinning] = useState(false)
-  const [arrowAngle, setArrowAngle] = useState(0)
   const [showResult, setShowResult] = useState(false)
   const [targetImg, setTargetImg] = useState('')
   const [targetName, setTargetName] = useState('')
@@ -62,7 +61,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const [winSkins, setWinSkins] = useState([])
   const [skinFilter, setSkinFilter] = useState('all')
   const [spinSpeed, setSpinSpeed] = useState('fast')
-  const arrowRef = useRef(null)
+  const arrowEl = useRef(null)
   const animRef = useRef(null)
   const tickTimers = useRef([])
 
@@ -107,7 +106,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const toggleSkin = (invId) => {
     if (spinning) return
     setSelectedId(prev => prev === invId ? null : invId)
-    setResult(null); setShowResult(false); setArrowAngle(0)
+    setResult(null); setShowResult(false)
   }
 
   const handleUpgrade = async () => {
@@ -147,9 +146,8 @@ export default function Upgrade({ user, onBalanceUpdate }) {
         const progress = Math.min(elapsed / duration, 1)
         const eased = 1 - Math.pow(1 - progress, 3.5)
         const currentAngle = totalDegrees * eased
-        setArrowAngle(currentAngle)
-        if (arrowRef.current) {
-          arrowRef.current.setAttribute('transform', `rotate(${currentAngle}, 200, 200)`)
+        if (arrowEl.current) {
+          arrowEl.current.style.transform = `rotate(${currentAngle}deg)`
         }
 
         const segDeg = currentAngle % 18
@@ -163,9 +161,8 @@ export default function Upgrade({ user, onBalanceUpdate }) {
         if (progress < 1) {
           animRef.current = requestAnimationFrame(animate)
         } else {
-          setArrowAngle(totalDegrees)
-          if (arrowRef.current) {
-            arrowRef.current.setAttribute('transform', `rotate(${totalDegrees}, 200, 200)`)
+          if (arrowEl.current) {
+            arrowEl.current.style.transform = `rotate(${totalDegrees}deg)`
           }
           setSpinning(false)
           setFlash(false)
@@ -283,13 +280,8 @@ export default function Upgrade({ user, onBalanceUpdate }) {
               <circle cx={cx} cy={cy} r={24} fill="none" stroke="var(--accent)" strokeWidth="1.5" opacity="0.5"/>
               <circle cx={cx} cy={cy} r={9} fill="var(--accent)"/>
               <circle cx={cx} cy={cy} r={4} fill="#fff"/>
-              <g ref={arrowRef} transform={`rotate(${arrowAngle}, ${cx}, ${cy})`} filter="url(#wShad)">
-                <polygon points={`${cx - 6},${cy - 32} ${cx},${cy - 170} ${cx + 6},${cy - 32}`}
-                  fill="var(--accent)" stroke="#fff" strokeWidth="0.5"/>
-                <polygon points={`${cx - 4},${cy - 170} ${cx},${cy - 178} ${cx + 4},${cy - 170}`}
-                  fill="#fff"/>
-              </g>
             </svg>
+            <div ref={arrowEl} className="wheel-arrow" />
           </div>
 
           <div className="target-scale-wrap">
