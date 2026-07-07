@@ -1,13 +1,15 @@
 import express from 'express';
 import cors from 'cors';
 import { v4 as uuidv4 } from 'uuid';
-import { query } from './db.js';
+import { query, initDb } from './db.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors({ origin: '*' }));
 app.use(express.json());
+
+app.get('/', (req, res) => res.json({ status: 'ok' }));
 
 function getUpgradeTargetRarity(currentRarity) {
   const tiers = ['Industrial', 'Mil-Spec', 'Restricted', 'Classified', 'Covert'];
@@ -85,13 +87,11 @@ app.post('/api/users/:userId/skins/:skinId/buy', async (req, res) => {
     const skin = skinResult.rows[0];
     if (!user || !skin) return res.status(404).json({ error: 'User or skin not found' });
     if (user.balance < skin.price) return res.status(400).json({ error: 'Недостаточно средств' });
-
     const invId = uuidv4();
     await query('UPDATE users SET balance = balance - $1 WHERE id = $2', [skin.price, userId]);
     await query('INSERT INTO inventory (id, user_id, skin_id) VALUES ($1, $2, $3)', [invId, userId, skinId]);
     await query('INSERT INTO transactions (id, user_id, type, amount, description) VALUES ($1, $2, $3, $4, $5)',
       [uuidv4(), userId, 'buy', -skin.price, `Куплен ${skin.name} (${skin.quality})`]);
-
     const bal = await query('SELECT balance FROM users WHERE id = $1', [userId]);
     res.json({ success: true, inventory_id: invId, balance: bal.rows[0].balance });
   } catch (e) { res.status(500).json({ error: e.message }); }
@@ -103,16 +103,13 @@ app.post('/api/users/:userId/inventory/:inventoryId/sell', async (req, res) => {
     const itemResult = await query('SELECT * FROM inventory WHERE id = $1 AND user_id = $2', [inventoryId, userId]);
     const item = itemResult.rows[0];
     if (!item) return res.status(404).json({ error: 'Item not found' });
-
     const skinResult = await query('SELECT * FROM skins WHERE id = $1', [item.skin_id]);
     const skin = skinResult.rows[0];
     const sellPrice = Math.round(skin.price * 0.85);
-
     await query('UPDATE users SET balance = balance + $1 WHERE id = $2', [sellPrice, userId]);
     await query('DELETE FROM inventory WHERE id = $1', [inventoryId]);
     await query('INSERT INTO transactions (id, user_id, type, amount, description) VALUES ($1, $2, $3, $4, $5)',
       [uuidv4(), userId, 'sell', sellPrice, `Продан ${skin.name} (${skin.quality})`]);
-
     const bal = await query('SELECT balance FROM users WHERE id = $1', [userId]);
     res.json({ success: true, balance: bal.rows[0].balance });
   } catch (e) { res.status(500).json({ error: e.message }); }
@@ -123,10 +120,8 @@ app.post('/api/users/:userId/upgrade', async (req, res) => {
     const { userId } = req.params;
     const { inventoryIds } = req.body;
     if (!inventoryIds || inventoryIds.length === 0) return res.status(400).json({ error: 'Select at least one skin' });
-
     const userResult = await query('SELECT * FROM users WHERE id = $1', [userId]);
     if (!userResult.rows[0]) return res.status(404).json({ error: 'User not found' });
-
     const stakedSkins = [];
     let totalValue = 0;
     for (const invId of inventoryIds) {
@@ -137,24 +132,19 @@ app.post('/api/users/:userId/upgrade', async (req, res) => {
       stakedSkins.push({ inv, skin: skinResult.rows[0] });
       totalValue += skinResult.rows[0].price;
     }
-
     const minRarity = stakedSkins.reduce((min, s) => {
       const tiers = ['Industrial', 'Mil-Spec', 'Restricted', 'Classified', 'Covert'];
       const idx = tiers.indexOf(s.skin.rarity);
       const minIdx = tiers.indexOf(min);
       return idx < minIdx ? s.skin.rarity : min;
     }, 'Covert');
-
     const upgradeTier = getUpgradeTargetRarity(minRarity);
     if (!upgradeTier) return res.status(400).json({ error: 'Cannot upgrade - already max rarity' });
-
     const baseChance = totalValue > 0 ? Math.min(30, Math.round((totalValue / 18000) * 30)) : 5;
     const chance = Math.max(5, baseChance);
     const roll = Math.random() * 100;
     const won = roll <= chance;
-
     let historyId, wonSkin = null;
-
     if (won) {
       wonSkin = await randomSkinByRarity(upgradeTier, null);
       if (wonSkin) {
@@ -172,16 +162,10 @@ app.post('/api/users/:userId/upgrade', async (req, res) => {
       await query('INSERT INTO upgrade_history (id, user_id, staked_skin_id, result) VALUES ($1, $2, $3, $4)',
         [historyId, userId, stakedSkins[0].skin.id, 'lose']);
     }
-
     const bal = await query('SELECT balance FROM users WHERE id = $1', [userId]);
     res.json({
-      success: true,
-      won,
-      chance,
-      roll: Math.round(roll * 100) / 100,
-      won_skin: wonSkin || null,
-      staked_value: Math.round(totalValue),
-      balance: bal.rows[0].balance
+      success: true, won, chance, roll: Math.round(roll * 100) / 100,
+      won_skin: wonSkin || null, staked_value: Math.round(totalValue), balance: bal.rows[0].balance
     });
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
@@ -212,58 +196,45 @@ app.get('/api/users/:userId/upgrade-history', async (req, res) => {
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
-// Promo code
 app.post('/api/users/:userId/promo', async (req, res) => {
   try {
     const { userId } = req.params;
     const { code } = req.body;
     if (!code) return res.status(400).json({ error: 'Введите промокод' });
-
     const userResult = await query('SELECT * FROM users WHERE id = $1', [userId]);
     if (!userResult.rows[0]) return res.status(404).json({ error: 'User not found' });
-
     const promoResult = await query('SELECT * FROM promo_codes WHERE code = $1', [code.toUpperCase()]);
     const promo = promoResult.rows[0];
     if (!promo) return res.status(400).json({ error: 'Промокод не найден' });
     if (promo.used_count >= promo.max_uses) return res.status(400).json({ error: 'Промокод уже использован' });
     if (promo.expires_at && new Date(promo.expires_at) < new Date()) return res.status(400).json({ error: 'Промокод истёк' });
-
     await query('UPDATE users SET balance = balance + $1 WHERE id = $2', [promo.amount, userId]);
     await query('UPDATE promo_codes SET used_count = used_count + 1 WHERE code = $1', [code.toUpperCase()]);
     await query('INSERT INTO transactions (id, user_id, type, amount, description) VALUES ($1, $2, $3, $4, $5)',
       [uuidv4(), userId, 'promo', promo.amount, `Промокод ${promo.code}: +${promo.amount}₽`]);
-
     const bal = await query('SELECT balance FROM users WHERE id = $1', [userId]);
     res.json({ success: true, amount: promo.amount, balance: bal.rows[0].balance });
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
-// Promo codes list (admin)
 app.get('/api/promo-codes', async (req, res) => {
   try {
-    const result = await query('SELECT code, amount, max_uses, used_count, expires_at FROM promo_codes ORDER BY amount DESC');
+    const result = await query('SELECT code, amount, max_uses, used_count FROM promo_codes ORDER BY amount DESC');
     res.json(result.rows);
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
-async function autoSeed() {
+async function start() {
   try {
-    const result = await query('SELECT COUNT(*) as count FROM skins');
-    if (parseInt(result.rows[0].count) === 0) {
-      console.log('Database empty, running seed...');
-      const { seed } = await import('./seed.js');
-      await seed();
-      console.log('Auto-seed complete.');
-    }
+    await initDb();
+    console.log('Database ready');
   } catch (e) {
-    console.log('Auto-seed check failed:', e.message);
+    console.error('DB init failed:', e);
+    process.exit(1);
   }
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server listening on port ${PORT}`);
+  });
 }
 
-process.on('uncaughtException', (e) => console.error('UNCAUGHT:', e));
-process.on('unhandledRejection', (e) => console.error('UNHANDLED:', e));
-
-app.listen(PORT, '0.0.0.0', async () => {
-  console.log(`CS2 Upgrader API running on port ${PORT}`);
-  try { await autoSeed(); } catch (e) { console.error('Seed error:', e); }
-});
+start();
