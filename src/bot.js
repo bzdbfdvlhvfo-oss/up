@@ -1,5 +1,6 @@
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
-const CHANNEL = process.env.TELEGRAM_CHANNEL || '';
+const CHANNEL_RAW = process.env.TELEGRAM_CHANNEL || '';
+const CHANNEL = CHANNEL_RAW.replace(/^https:\/\/t\.me\//, '').replace(/^@/, '');
 const API = `https://api.telegram.org/bot${BOT_TOKEN}`;
 
 let offset = 0;
@@ -96,8 +97,13 @@ async function handleUpdate(u) {
 
       if (!CHANNEL) return send(chatId, '❌ Канал не настроен.');
 
-      const member = await call('getChatMember', { chat_id: CHANNEL, user_id: chatId });
-      const status = member.ok ? member.result.status : '';
+      const member = await call('getChatMember', { chat_id: `@${CHANNEL}`, user_id: chatId });
+
+      if (!member.ok) {
+        return send(chatId, `❌ Бот не может проверить подписку. Убедись что бот — админ канала.\nКанал: https://t.me/${CHANNEL}`);
+      }
+
+      const status = member.result.status;
 
       if (['member', 'administrator', 'creator'].includes(status)) {
         await query('UPDATE users SET telegram_sub_checked = true, balance = balance + 300 WHERE id = $1', [user.id]);
@@ -105,7 +111,7 @@ async function handleUpdate(u) {
           [uuidv4(), user.id, 'telegram_sub', 300, 'Подписка на канал +300₽']);
         send(chatId, '✅ Подписка подтверждена!\n💰 +300₽ зачислено.');
       } else {
-        send(chatId, `❌ Ты не подписан на канал.\nПодпишись: ${CHANNEL}\nи нажми /sub снова.`);
+        send(chatId, `❌ Ты не подписан на канал.\nПодпишись: https://t.me/${CHANNEL}\nи нажми /sub снова.`);
       }
     },
 
