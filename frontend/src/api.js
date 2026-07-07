@@ -64,3 +64,7 @@ export function getUpgradeHistory(userId) {
 export function redeemPromo(userId, code) {
   return request(`/users/${userId}/promo`, { method: 'POST', body: JSON.stringify({ code }) });
 }
+
+export function withdrawSkin(userId, inventoryId) {
+  return request(`/users/${userId}/inventory/${inventoryId}/withdraw`, { method: 'POST' });
+}

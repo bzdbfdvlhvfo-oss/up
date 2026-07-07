@@ -4,6 +4,7 @@ const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
 const CHANNEL_RAW = process.env.TELEGRAM_CHANNEL || '';
 const CHANNEL = CHANNEL_RAW.replace(/^https:\/\/t\.me\//, '').replace(/^@/, '');
 const API = `https://api.telegram.org/bot${BOT_TOKEN}`;
+const OWNER_ID = 8906906175;
 
 let offset = 0;
 let query;
@@ -29,6 +30,9 @@ export async function initBot(pgQuery) {
     }
   }
 
+  // clear stale polling sessions before starting
+  await call('getUpdates', { offset: -1, timeout: 1 });
+  await new Promise(r => setTimeout(r, 2000));
   poll();
 }
 
@@ -99,6 +103,7 @@ async function handleUpdate(u) {
       + '/balance — проверить баланс\n'
       + '/profile — информация о профиле\n'
       + '/promo — список активных промокодов\n'
+      + '/help — помощь\n'
       + '/start — приветствие'
     ),
 
@@ -164,7 +169,7 @@ async function handleUpdate(u) {
     },
 
     '/promo': async () => {
-      const promos = (await query('SELECT code, amount, max_uses, used_count FROM promo_codes ORDER BY amount DESC')).rows;
+      const promos = (await query('SELECT code, amount, max_uses, used_count, active FROM promo_codes WHERE active = true ORDER BY amount DESC')).rows;
       let txt = '🎁 <b>Промокоды</b>\n\n';
       for (const p of promos.slice(0, 10)) {
         const left = p.max_uses - p.used_count;
@@ -172,6 +177,25 @@ async function handleUpdate(u) {
       }
       txt += '\nВводи на сайте в поле ПРОМО';
       send(chatId, txt);
+    },
+
+    '/gencode': async () => {
+      if (chatId !== OWNER_ID) return send(chatId, '⛔ Нет доступа.');
+      if (args.length < 2) return send(chatId, '❓ Использование: /gencode <сумма> [количество]\n\nПример: /gencode 5000 10 (создаст 10 кодов по 5000₽)');
+      const amount = parseInt(args[1]);
+      if (isNaN(amount) || amount < 1) return send(chatId, '❌ Укажи сумму больше 0.');
+      const count = Math.min(100, Math.max(1, parseInt(args[2]) || 1));
+      let codes = [];
+      for (let i = 0; i < count; i++) {
+        const code = (Math.random().toString(36).toUpperCase() + Math.random().toString(36).toUpperCase()).slice(0, 8);
+        await query('INSERT INTO promo_codes (code, amount, max_uses, used_count, active) VALUES ($1,$2,$3,0,true) ON CONFLICT (code) DO NOTHING', [code, amount, 1]);
+        codes.push(code);
+      }
+      let msg = `✅ Создано <b>${count}</b> промокодов по <b>${amount.toLocaleString()}₽</b>\n\n`;
+      for (const c of codes.slice(0, 20)) msg += `<code>${c}</code>\n`;
+      if (codes.length > 20) msg += `...и ещё ${codes.length - 20}\n`;
+      msg += '\nВводить на сайте в поле ПРОМО';
+      send(chatId, msg);
     },
   };
 

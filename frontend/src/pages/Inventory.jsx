@@ -6,7 +6,6 @@ export default function Inventory({ user, onBalanceUpdate }) {
   const [items, setItems] = useState([])
   const [history, setHistory] = useState([])
   const [loading, setLoading] = useState(true)
-  const [tab, setTab] = useState('items')
 
   const fetchInventory = () => {
     setLoading(true)
@@ -22,11 +21,16 @@ export default function Inventory({ user, onBalanceUpdate }) {
   const handleSell = async (inventoryId) => {
     try {
       await api.sellSkin(user.id, inventoryId)
-      fetchInventory()
-      onBalanceUpdate()
-    } catch (err) {
-      alert(err.message)
-    }
+      fetchInventory(); onBalanceUpdate()
+    } catch (err) { alert(err.message) }
+  }
+
+  const handleWithdraw = async (inventoryId, skin) => {
+    if (!confirm(`Вывести "${skin.name}" в Steam?\nСкин получит маркировку StatTrak™ ✓`)) return
+    try {
+      await api.withdrawSkin(user.id, inventoryId)
+      fetchInventory(); onBalanceUpdate()
+    } catch (err) { alert(err.message) }
   }
 
   const totalValue = items.reduce((sum, i) => sum + i.price, 0)
@@ -55,6 +59,7 @@ export default function Inventory({ user, onBalanceUpdate }) {
                   inInventory
                   inventoryId={item.inventory_id}
                   onSell={handleSell}
+                  onWithdraw={handleWithdraw}
                 />
               ))}
             </div>

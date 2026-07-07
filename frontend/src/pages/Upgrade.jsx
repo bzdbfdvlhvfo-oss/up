@@ -7,24 +7,21 @@ function playSound(type) {
     const osc = ctx.createOscillator(); const gain = ctx.createGain()
     osc.connect(gain); gain.connect(ctx.destination)
     if (type === 'spin') {
-      osc.type = 'triangle'; osc.frequency.setValueAtTime(200, ctx.currentTime); osc.frequency.exponentialRampToValueAtTime(600, ctx.currentTime + 0.15)
-      gain.gain.setValueAtTime(0.015, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2)
+      osc.type = 'triangle'; osc.frequency.setValueAtTime(200, ctx.currentTime); osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.15)
+      gain.gain.setValueAtTime(0.02, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2)
       osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.2)
     } else if (type === 'tick') {
-      osc.type = 'square'; osc.frequency.setValueAtTime(1200 + Math.random() * 600, ctx.currentTime)
-      gain.gain.setValueAtTime(0.012, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.02)
+      osc.type = 'sine'; osc.frequency.setValueAtTime(800 + Math.random() * 400, ctx.currentTime)
+      gain.gain.setValueAtTime(0.008, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.02)
       osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.02)
     } else if (type === 'win') {
-      [523, 659, 784, 1047].forEach((f, i) => { setTimeout(() => {
-        const o2 = ctx.createOscillator(); const g2 = ctx.createGain()
-        o2.connect(g2); g2.connect(ctx.destination)
-        o2.frequency.setValueAtTime(f, ctx.currentTime); g2.gain.setValueAtTime(0.06, ctx.currentTime); g2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3)
-        o2.start(ctx.currentTime); o2.stop(ctx.currentTime + 0.3)
-      }, i * 120) })
+      osc.type = 'sine'; osc.frequency.setValueAtTime(440, ctx.currentTime); osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.3)
+      gain.gain.setValueAtTime(0.06, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.4)
     } else if (type === 'lose') {
-      osc.type = 'sawtooth'; osc.frequency.setValueAtTime(250, ctx.currentTime); osc.frequency.exponentialRampToValueAtTime(60, ctx.currentTime + 0.5)
-      gain.gain.setValueAtTime(0.05, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.5)
+      osc.type = 'sine'; osc.frequency.setValueAtTime(300, ctx.currentTime); osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.4)
+      gain.gain.setValueAtTime(0.04, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.4)
     }
   } catch {}
 }
@@ -43,7 +40,8 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const [targetName, setTargetName] = useState('')
   const [targetPrice, setTargetPrice] = useState(0)
   const [flash, setFlash] = useState(false)
-  const [confetti, setConfetti] = useState([])
+  const [winGlow, setWinGlow] = useState(false)
+  const [drops, setDrops] = useState([])
   const animRef = useRef(null)
   const tickTimers = useRef([])
 
@@ -87,7 +85,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
 
   const handleUpgrade = async () => {
     if (!selectedId || loading || spinning) return
-    setLoading(true); setResult(null); setShowResult(false); setFlash(false)
+    setLoading(true); setResult(null); setShowResult(false); setFlash(false); setWinGlow(false)
     try {
       const res = await api.upgrade(user.id, selectedId, mode, value)
       setResult(res)
@@ -116,7 +114,6 @@ export default function Upgrade({ user, onBalanceUpdate }) {
         const currentAngle = totalDegrees * eased
         setArrowAngle(currentAngle)
 
-        // Ticks
         const segDeg = currentAngle % 18
         if (segDeg < 2) {
           if (!tickTimers.current.some(t => Date.now() - t < 200)) {
@@ -135,12 +132,13 @@ export default function Upgrade({ user, onBalanceUpdate }) {
             setShowResult(true)
             if (res.won) {
               playSound('win')
-              setConfetti(Array.from({length: 40}, (_, i) => ({
-                id: i, left: Math.random() * 100, delay: Math.random() * 0.5,
-                color: ['#ff8f00','#ffc107','#fff','#e65100','#4a2800'][Math.floor(Math.random()*5)],
-                size: 4 + Math.random() * 8, dur: 2 + Math.random() * 2,
+              setWinGlow(true)
+              setDrops(Array.from({length: 12}, (_, i) => ({
+                id: i, left: 20 + Math.random() * 60, delay: Math.random() * 0.3,
+                emoji: ['🔫','💎','🔥','⭐','💀','🎯','👑','💥','✨','🎲','🃏','💰'][Math.floor(Math.random()*12)],
+                size: 14 + Math.random() * 10, dur: 1.5 + Math.random() * 1.5,
               })))
-              setTimeout(() => setConfetti([]), 4000)
+              setTimeout(() => { setWinGlow(false); setDrops([]) }, 3500)
             } else {
               playSound('lose')
             }
@@ -217,7 +215,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
         </div>
 
         <div className="upgrade-center">
-          <div className={`wheel-wrap ${flash ? 'flashing' : ''}`}>
+          <div className={`wheel-wrap ${flash ? 'flashing' : ''} ${winGlow ? 'win-glow' : ''}`}>
             <svg className="wheel-svg" viewBox="0 0 400 400">
               <defs>
                 <radialGradient id="wheelBg" cx="50%" cy="50%" r="50%">
@@ -236,7 +234,6 @@ export default function Upgrade({ user, onBalanceUpdate }) {
               <circle cx={cx} cy={cy} r={24} fill="none" stroke="var(--accent)" strokeWidth="1.5" opacity="0.5"/>
               <circle cx={cx} cy={cy} r={9} fill="var(--accent)"/>
               <circle cx={cx} cy={cy} r={4} fill="#fff"/>
-              {/* Spinning Knife/Arrow */}
               <g transform={`rotate(${arrowAngle}, ${cx}, ${cy})`} filter="url(#wShad)">
                 <polygon points={`${cx - 6},${cy - 32} ${cx},${cy - 170} ${cx + 6},${cy - 32}`}
                   fill="var(--accent)" stroke="#fff" strokeWidth="0.5"/>
@@ -308,16 +305,17 @@ export default function Upgrade({ user, onBalanceUpdate }) {
           </div>
         )}
       </div>
-      {confetti.length > 0 && (
-        <div className="confetti-container">
-          {confetti.map(c => (
-            <div key={c.id} className="confetti-piece"
+
+      {drops.length > 0 && (
+        <div className="drops-container">
+          {drops.map(d => (
+            <div key={d.id} className="drop-piece"
               style={{
-                left: `${c.left}%`, width: c.size, height: c.size,
-                background: c.color, animationDelay: `${c.delay}s`,
-                animationDuration: `${c.dur}s`,
+                left: `${d.left}%`, fontSize: d.size,
+                animationDelay: `${d.delay}s`,
+                animationDuration: `${d.dur}s`,
               }}
-            />
+            >{d.emoji}</div>
           ))}
         </div>
       )}

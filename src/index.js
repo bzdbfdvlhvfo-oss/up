@@ -74,7 +74,7 @@ app.get('/api/skins/:id', async (req, res) => {
 // Inventory
 app.get('/api/users/:userId/inventory', async (req, res) => {
   try {
-    const r = await query(`SELECT i.id as inventory_id, i.acquired_at, s.* FROM inventory i JOIN skins s ON s.id = i.skin_id WHERE i.user_id = $1 ORDER BY s.price DESC`, [req.params.userId]);
+    const r = await query(`SELECT i.id as inventory_id, i.acquired_at, i.withdrawn_at, s.* FROM inventory i JOIN skins s ON s.id = i.skin_id WHERE i.user_id = $1 ORDER BY s.price DESC`, [req.params.userId]);
     res.json(r.rows);
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
@@ -204,6 +204,7 @@ app.post('/api/users/:userId/promo', async (req, res) => {
     if (!code) return res.status(400).json({ error: 'Введите промокод' });
     const promo = (await query('SELECT * FROM promo_codes WHERE code = $1', [code.toUpperCase()])).rows[0];
     if (!promo) return res.status(400).json({ error: 'Промокод не найден' });
+    if (!promo.active) return res.status(400).json({ error: 'Промокод деактивирован' });
     if (promo.used_count >= promo.max_uses) return res.status(400).json({ error: 'Промокод уже использован' });
     await query('UPDATE users SET balance = balance + $1 WHERE id = $2', [promo.amount, userId]);
     await query('UPDATE promo_codes SET used_count = used_count + 1 WHERE code = $1', [code.toUpperCase()]);
@@ -215,7 +216,22 @@ app.post('/api/users/:userId/promo', async (req, res) => {
 
 app.get('/api/promo-codes', async (req, res) => {
   try {
-    res.json((await query('SELECT code, amount, max_uses, used_count FROM promo_codes ORDER BY amount DESC')).rows);
+    res.json((await query('SELECT code, amount, max_uses, used_count FROM promo_codes WHERE active = true ORDER BY amount DESC')).rows);
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// Withdraw to Steam (simulated)
+app.post('/api/users/:userId/inventory/:inventoryId/withdraw', async (req, res) => {
+  try {
+    const { userId, inventoryId } = req.params;
+    const item = (await query('SELECT * FROM inventory WHERE id = $1 AND user_id = $2', [inventoryId, userId])).rows[0];
+    if (!item) return res.status(404).json({ error: 'Item not found' });
+    if (item.withdrawn_at) return res.status(400).json({ error: 'Уже выведен' });
+    const skin = (await query('SELECT * FROM skins WHERE id = $1', [item.skin_id])).rows[0];
+    await query('UPDATE inventory SET withdrawn_at = NOW() WHERE id = $1', [inventoryId]);
+    await query('INSERT INTO transactions (id,user_id,type,amount,description) VALUES ($1,$2,$3,$4,$5)',
+      [uuidv4(), userId, 'withdraw', 0, `Выведен в Steam: ${skin.name} StatTrak™ ✓`]);
+    res.json({ success: true, message: 'Скин выведен в Steam', inventory_id: inventoryId });
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
