@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import * as api from '../api'
 
+const MAX_PRICE = 20000
+
 export default function TradeUp({ user, onBalanceUpdate }) {
   const [items, setItems] = useState([])
   const [selected, setSelected] = useState([])
@@ -31,20 +33,13 @@ export default function TradeUp({ user, onBalanceUpdate }) {
   }
 
   const selectedItems = items.filter(i => selected.includes(i.inventory_id))
-
-  // Group by rarity+quality for validation display
-  const byRarity = {}
-  items.forEach(i => {
-    const k = `${i.rarity}|${i.quality}`
-    if (!byRarity[k]) byRarity[k] = []
-    byRarity[k].push(i)
-  })
+  const overLimit = items.filter(i => i.price > MAX_PRICE && !i.withdrawn_at)
 
   return (
     <div className="page">
       <div className="page-header">
         <h2 className="page-title">Контракт</h2>
-        <div className="page-subtitle">Заложи 10 скинов одного качества и получи 1 лучше</div>
+        <div className="page-subtitle">Заложи 10 любых скинов (до {MAX_PRICE.toLocaleString()} ₽) и получи 1 лучше</div>
       </div>
 
       <div className="tradeup-layout">
@@ -88,16 +83,17 @@ export default function TradeUp({ user, onBalanceUpdate }) {
         </div>
 
         <div className="tradeup-inventory">
-          <h3>Инвентарь</h3>
+          <h3>Инвентарь <span className="tradeup-hint">макс {MAX_PRICE.toLocaleString()} ₽</span></h3>
           {loading ? <div className="skeleton-list"><div className="skeleton" /><div className="skeleton" /><div className="skeleton" /></div> : (
             <div className="skin-grid">
               {items.filter(i => !i.withdrawn_at).map(item => {
                 const isSel = selected.includes(item.inventory_id)
-                const disabled = !isSel && selected.length >= 10
+                const over = item.price > MAX_PRICE
+                const disabled = (!isSel && selected.length >= 10) || over
                 return (
                   <div key={item.inventory_id}
                     className={`skin-card${isSel ? ' selected' : ''}${disabled ? ' disabled' : ''}`}
-                    onClick={() => toggle(item.inventory_id)}>
+                    onClick={() => !over && toggle(item.inventory_id)}>
                     <div className="skin-img-wrap">
                       {item.image_url ? <img src={item.image_url} alt=""/> : <div className="skin-ph"/>}
                     </div>
@@ -105,6 +101,7 @@ export default function TradeUp({ user, onBalanceUpdate }) {
                       <div className="skin-name">{item.name}</div>
                       <div className="skin-ql">{item.rarity} · {item.quality}</div>
                       <div className="skin-price">{item.price.toLocaleString()} ₽</div>
+                      {over && <div className="skin-overlimit">{'>'}{MAX_PRICE.toLocaleString()}₽</div>}
                     </div>
                   </div>
                 )

@@ -245,13 +245,18 @@ function loadCases() {
 app.get('/api/cases', async (req, res) => {
   try {
     const cases = loadCases();
-    // Enrich with actual skin data from DB
     for (const c of cases) {
       const skinIds = c.drops.map(d => d.skin_id);
       const skins = (await query(`SELECT id, name, rarity, quality, price, image_url FROM skins WHERE id = ANY($1)`, [skinIds])).rows;
       const skinMap = {};
       skins.forEach(s => skinMap[s.id] = s);
       c.drops = c.drops.map(d => ({ ...d, skin: skinMap[d.skin_id] || null }));
+      // Case image = most expensive skin image
+      const priced = c.drops.filter(d => d.skin).sort((a, b) => b.skin.price - a.skin.price);
+      if (priced.length > 0 && !c.image_url) {
+        c.image_url = priced[0].skin.image_url;
+      }
+      c.top_drop = priced.length > 0 ? priced[0].skin : null;
     }
     res.json(cases);
   } catch (e) { res.status(500).json({ error: e.message }); }
@@ -299,44 +304,32 @@ app.post('/api/cases/:caseId/buy', async (req, res) => {
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
-// Trade Up
-const RARITY_ORDER = ['Consumer', 'Industrial', 'Mil-Spec', 'Restricted', 'Classified', 'Covert'];
-
+// Trade Up — any 10 skins, each ≤ 20 000₽, get a random better skin
 app.post('/api/tradeup', async (req, res) => {
   try {
     const { userId, inventoryIds } = req.body;
     if (!userId || !inventoryIds || inventoryIds.length !== 10)
       return res.status(400).json({ error: 'Нужно 10 скинов для контракта' });
 
-    // Fetch all items
     const items = (await query(`SELECT i.*, s.rarity, s.quality, s.name, s.price, s.image_url, s.id as skin_id2
       FROM inventory i JOIN skins s ON s.id = i.skin_id
       WHERE i.id = ANY($1) AND i.user_id = $2`, [inventoryIds, userId])).rows;
     if (items.length !== 10) return res.status(400).json({ error: 'Некоторые скины не найдены' });
 
-    // Check all same quality
-    const quality = items[0].quality;
-    if (!items.every(i => i.quality === quality))
-      return res.status(400).json({ error: 'Все скины должны быть одного качества (износа)' });
+    // Check max 20k per skin
+    const over20k = items.filter(i => i.price > 20000);
+    if (over20k.length > 0)
+      return res.status(400).json({ error: 'Каждый скин не дороже 20 000₽' });
 
-    // Check all same rarity
-    const rarity = items[0].rarity;
-    if (!items.every(i => i.rarity === rarity))
-      return res.status(400).json({ error: 'Все скины должны быть одной редкости' });
+    const avgPrice = items.reduce((s, i) => s + i.price, 0) / items.length;
+    const targetMin = Math.round(avgPrice * 1.3);
+    const targetMax = Math.round(avgPrice * 2.5);
 
-    // Find next rarity
-    const idx = RARITY_ORDER.indexOf(rarity);
-    if (idx === -1 || idx >= RARITY_ORDER.length - 1)
-      return res.status(400).json({ error: 'Нельзя улучшить скины этой редкости' });
-    const nextRarity = RARITY_ORDER[idx + 1];
-
-    // Pick a random skin of next rarity (+ same quality)
-    const targets = (await query(`SELECT * FROM skins WHERE rarity = $1 AND quality = $2 ORDER BY RANDOM() LIMIT 1`, [nextRarity, quality])).rows;
+    const targets = (await query('SELECT * FROM skins WHERE price >= $1 AND price <= $2 AND category != $3 ORDER BY RANDOM() LIMIT 1', [targetMin, targetMax, 'sticker'])).rows;
     if (targets.length === 0)
       return res.status(400).json({ error: 'Нет скинов для обмена' });
     const wonSkin = targets[0];
 
-    // Delete the 10 staked items, add the won skin
     await query(`DELETE FROM inventory WHERE id = ANY($1)`, [inventoryIds]);
     const newInvId = uuidv4();
     await query('INSERT INTO inventory (id, user_id, skin_id) VALUES ($1,$2,$3)', [newInvId, userId, wonSkin.id]);
@@ -348,6 +341,7 @@ app.post('/api/tradeup', async (req, res) => {
       staked: items.map(i => ({ id: i.skin_id2, name: i.name })),
       won: { id: wonSkin.id, name: wonSkin.name, rarity: wonSkin.rarity, quality: wonSkin.quality, price: wonSkin.price, image_url: wonSkin.image_url },
       inventory_id: newInvId,
+      avg_price: Math.round(avgPrice),
       balance: (await query('SELECT balance FROM users WHERE id = $1', [userId])).rows[0].balance
     });
   } catch (e) { res.status(500).json({ error: e.message }); }
