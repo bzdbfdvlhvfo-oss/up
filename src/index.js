@@ -235,6 +235,133 @@ app.post('/api/users/:userId/inventory/:inventoryId/withdraw', async (req, res) 
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
+// Cases
+const { readFileSync } = await import('fs');
+const __dataDir = path.join(__dirname, '..', 'data');
+function loadCases() {
+  return JSON.parse(readFileSync(path.join(__dataDir, 'cases.json'), 'utf-8'));
+}
+
+app.get('/api/cases', async (req, res) => {
+  try {
+    const cases = loadCases();
+    // Enrich with actual skin data from DB
+    for (const c of cases) {
+      const skinIds = c.drops.map(d => d.skin_id);
+      const skins = (await query(`SELECT id, name, rarity, quality, price, image_url FROM skins WHERE id = ANY($1)`, [skinIds])).rows;
+      const skinMap = {};
+      skins.forEach(s => skinMap[s.id] = s);
+      c.drops = c.drops.map(d => ({ ...d, skin: skinMap[d.skin_id] || null }));
+    }
+    res.json(cases);
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+app.post('/api/cases/:caseId/buy', async (req, res) => {
+  try {
+    const { userId } = req.body;
+    if (!userId) return res.status(400).json({ error: 'User ID required' });
+    const user = (await query('SELECT * FROM users WHERE id = $1', [userId])).rows[0];
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    const cases = loadCases();
+    const c = cases.find(c => c.id === req.params.caseId);
+    if (!c) return res.status(404).json({ error: 'Case not found' });
+    if (user.balance < c.price) return res.status(400).json({ error: 'Недостаточно средств' });
+
+    // Weighted random drop
+    const totalWeight = c.drops.reduce((s, d) => s + d.weight, 0);
+    let roll = Math.random() * totalWeight;
+    let chosen;
+    for (const d of c.drops) {
+      roll -= d.weight;
+      if (roll <= 0) { chosen = d; break; }
+    }
+    if (!chosen) chosen = c.drops[c.drops.length - 1];
+
+    // Fetch the skin
+    const skin = (await query('SELECT * FROM skins WHERE id = $1', [chosen.skin_id])).rows[0];
+    if (!skin) return res.status(500).json({ error: 'Skin data missing' });
+
+    // Deduct case price, add skin
+    const invId = require('uuid').v4();
+    await query('UPDATE users SET balance = balance - $1 WHERE id = $2', [c.price, userId]);
+    await query('INSERT INTO inventory (id, user_id, skin_id) VALUES ($1,$2,$3)', [invId, userId, skin.id]);
+    await query('INSERT INTO transactions (id,user_id,type,amount,description) VALUES ($1,$2,$3,$4,$5)',
+      [uuidv4(), userId, 'case', -c.price, `Открыт кейс ${c.name}, выпал ${skin.name}`]);
+
+    res.json({
+      success: true,
+      case_name: c.name,
+      skin: { id: skin.id, name: skin.name, rarity: skin.rarity, quality: skin.quality, price: skin.price, image_url: skin.image_url },
+      inventory_id: invId,
+      balance: (await query('SELECT balance FROM users WHERE id = $1', [userId])).rows[0].balance
+    });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// Trade Up
+const RARITY_ORDER = ['Consumer', 'Industrial', 'Mil-Spec', 'Restricted', 'Classified', 'Covert'];
+
+app.post('/api/tradeup', async (req, res) => {
+  try {
+    const { userId, inventoryIds } = req.body;
+    if (!userId || !inventoryIds || inventoryIds.length !== 10)
+      return res.status(400).json({ error: 'Нужно 10 скинов для контракта' });
+
+    // Fetch all items
+    const items = (await query(`SELECT i.*, s.rarity, s.quality, s.name, s.price, s.image_url, s.id as skin_id2
+      FROM inventory i JOIN skins s ON s.id = i.skin_id
+      WHERE i.id = ANY($1) AND i.user_id = $2`, [inventoryIds, userId])).rows;
+    if (items.length !== 10) return res.status(400).json({ error: 'Некоторые скины не найдены' });
+
+    // Check all same quality
+    const quality = items[0].quality;
+    if (!items.every(i => i.quality === quality))
+      return res.status(400).json({ error: 'Все скины должны быть одного качества (износа)' });
+
+    // Check all same rarity
+    const rarity = items[0].rarity;
+    if (!items.every(i => i.rarity === rarity))
+      return res.status(400).json({ error: 'Все скины должны быть одной редкости' });
+
+    // Find next rarity
+    const idx = RARITY_ORDER.indexOf(rarity);
+    if (idx === -1 || idx >= RARITY_ORDER.length - 1)
+      return res.status(400).json({ error: 'Нельзя улучшить скины этой редкости' });
+    const nextRarity = RARITY_ORDER[idx + 1];
+
+    // Pick a random skin of next rarity (+ same quality)
+    const targets = (await query(`SELECT * FROM skins WHERE rarity = $1 AND quality = $2 ORDER BY RANDOM() LIMIT 1`, [nextRarity, quality])).rows;
+    if (targets.length === 0)
+      return res.status(400).json({ error: 'Нет скинов для обмена' });
+    const wonSkin = targets[0];
+
+    // Delete the 10 staked items, add the won skin
+    await query(`DELETE FROM inventory WHERE id = ANY($1)`, [inventoryIds]);
+    const newInvId = require('uuid').v4();
+    await query('INSERT INTO inventory (id, user_id, skin_id) VALUES ($1,$2,$3)', [newInvId, userId, wonSkin.id]);
+    await query('INSERT INTO transactions (id,user_id,type,amount,description) VALUES ($1,$2,$3,$4,$5)',
+      [uuidv4(), userId, 'tradeup', 0, `Контракт: ${items.length} скинов → ${wonSkin.name}`]);
+
+    res.json({
+      success: true,
+      staked: items.map(i => ({ id: i.skin_id2, name: i.name })),
+      won: { id: wonSkin.id, name: wonSkin.name, rarity: wonSkin.rarity, quality: wonSkin.quality, price: wonSkin.price, image_url: wonSkin.image_url },
+      inventory_id: newInvId,
+      balance: (await query('SELECT balance FROM users WHERE id = $1', [userId])).rows[0].balance
+    });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// Leaderboard
+app.get('/api/leaderboard', async (req, res) => {
+  try {
+    const limit = Math.min(parseInt(req.query.limit) || 50, 100);
+    const users = (await query(`SELECT id, username, balance, (SELECT COUNT(*) FROM inventory WHERE user_id = users.id) as items_count FROM users ORDER BY balance DESC LIMIT $1`, [limit])).rows;
+    res.json(users);
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
 async function start() {
   try { await initDb(); console.log('Database ready'); }
   catch (e) { console.error('DB init failed:', e); process.exit(1); }

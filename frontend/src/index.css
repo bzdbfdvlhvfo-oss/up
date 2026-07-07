@@ -543,6 +543,77 @@ body {
 .settings-loading { color: var(--text2); font-size: 11px; }
 .settings-about { font-size: 11px; color: var(--text2); line-height: 1.5; }
 
+/* === CASES === */
+.cases-grid { display: flex; gap: 16px; flex-wrap: wrap; padding: 16px 0; }
+.case-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; width: 220px; overflow: hidden; display: flex; flex-direction: column; }
+.case-img-wrap { height: 160px; display: flex; align-items: center; justify-content: center; background: var(--bg); padding: 16px; }
+.case-img { max-height: 130px; max-width: 100%; object-fit: contain; }
+.case-info { padding: 10px 12px; }
+.case-name { font-size: 12px; font-weight: 700; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.case-price { font-size: 13px; color: var(--gold); font-weight: 700; }
+.case-drops-preview { display: flex; gap: 4px; padding: 0 12px 10px; flex-wrap: wrap; }
+.case-drop-mini { width: 28px; height: 28px; border-radius: 4px; overflow: hidden; background: var(--bg); }
+.case-drop-mini img { width: 100%; height: 100%; object-fit: cover; }
+.case-drop-more { width: 28px; height: 28px; border-radius: 4px; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--text2); }
+.case-btn { margin: 0 12px 12px; }
+.case-nologin { text-align: center; padding: 12px; font-size: 10px; color: var(--text2); }
+
+.case-open-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; display: flex; align-items: center; justify-content: center; animation: fadeIn 0.3s; }
+.case-open-modal { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 32px; text-align: center; max-width: 360px; width: 90%; animation: resultPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.case-open-title { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--text2); margin-bottom: 4px; }
+.case-open-sub { font-size: 16px; color: var(--accent); font-weight: 700; margin-bottom: 20px; }
+.case-open-reveal { padding: 16px 0; }
+.case-open-skin-img { width: 160px; height: 120px; margin: 0 auto 12px; }
+.case-open-skin-img img { width: 100%; height: 100%; object-fit: contain; }
+.case-open-rarity { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.case-open-skin-name { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.case-open-skin-price { font-size: 18px; color: var(--gold); font-weight: 800; }
+
+.rarity-consumer { color: #b0b0b0; }
+.rarity-industrial { color: #5e98d9; }
+.rarity-mil-spec { color: #4b69ff; }
+.rarity-restricted { color: #8847ff; }
+.rarity-classified { color: #d32ce6; }
+.rarity-covert { color: #eb4b4b; }
+.rarity-rare-special { color: #ffd700; }
+
+/* === TRADE UP === */
+.tradeup-layout { display: flex; gap: 24px; padding: 16px 0; }
+.tradeup-slots { width: 300px; flex-shrink: 0; }
+.tradeup-slots h3 { font-size: 12px; margin-bottom: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+.tradeup-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 12px; }
+.tradeup-slot { aspect-ratio: 1; border-radius: 6px; border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; font-size: 9px; }
+.tradeup-slot.empty { background: var(--bg3); color: var(--text3); }
+.tradeup-slot.filled { background: var(--bg); border-color: var(--accent); }
+.tradeup-slot img { width: 60%; height: 60%; object-fit: contain; }
+.tradeup-slot-name { position: absolute; bottom: 2px; left: 2px; right: 2px; font-size: 7px; color: var(--text2); text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+.tradeup-slot-num { position: absolute; top: 2px; left: 4px; font-size: 8px; color: var(--text3); }
+.tradeup-btn { width: 100%; }
+.tradeup-result { margin-top: 12px; padding: 12px; background: var(--bg3); border-radius: 8px; text-align: center; }
+.tradeup-result-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-bottom: 8px; }
+.tradeup-result-skin img { height: 80px; object-fit: contain; margin-bottom: 6px; }
+.tradeup-result-rarity { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.tradeup-result-name { font-size: 13px; font-weight: 700; }
+.tradeup-result-price { font-size: 15px; color: var(--gold); font-weight: 800; margin-bottom: 8px; }
+.tradeup-inventory { flex: 1; min-width: 0; }
+.tradeup-inventory h3 { font-size: 12px; margin-bottom: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+.tradeup-inventory .skin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
+.tradeup-inventory .skin-card { cursor: pointer; }
+.tradeup-inventory .skin-card.disabled { opacity: 0.4; pointer-events: none; }
+
+/* === LEADERBOARD === */
+.leaderboard-wrap { max-width: 600px; margin: 0 auto; padding: 16px 0; }
+.leaderboard-table { width: 100%; border-collapse: collapse; }
+.leaderboard-table th { text-align: left; padding: 8px 12px; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text2); border-bottom: 1px solid var(--border); }
+.leaderboard-table td { padding: 10px 12px; font-size: 11px; border-bottom: 1px solid var(--border); }
+.lb-rank { width: 40px; font-size: 13px; }
+.lb-user { font-weight: 600; }
+.lb-balance { color: var(--gold); font-weight: 700; }
+.lb-items { color: var(--text2); }
+.lb-top-1 { background: rgba(255,215,0,0.05); }
+.lb-top-2 { background: rgba(192,192,192,0.05); }
+.lb-top-3 { background: rgba(205,127,50,0.05); }
+
 /* === SCROLLBAR === */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg); }

@@ -29,6 +29,9 @@ export default function Navbar({ user, balance, onLoginClick, onLogout, onBalanc
           <NavLink to="/marketplace" className={({isActive}) => isActive ? 'active' : ''}>Маркет</NavLink>
           <NavLink to="/inventory" className={({isActive}) => isActive ? 'active' : ''}>Инвентарь</NavLink>
           {user && <NavLink to="/upgrade" className={({isActive}) => isActive ? 'active' : ''}>Апгрейд</NavLink>}
+          {user && <NavLink to="/cases" className={({isActive}) => isActive ? 'active' : ''}>Кейсы</NavLink>}
+          {user && <NavLink to="/tradeup" className={({isActive}) => isActive ? 'active' : ''}>Контракт</NavLink>}
+          <NavLink to="/leaderboard" className={({isActive}) => isActive ? 'active' : ''}>Топ</NavLink>
           {user && <NavLink to="/settings" className={({isActive}) => isActive ? 'active' : ''}>Настройки</NavLink>}
         </div>
         <div className="nav-user">
