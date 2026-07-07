@@ -77,6 +77,39 @@ body {
 }
 .nav-username { color: var(--text2); font-size: 12px; }
 
+.nav-hamburger {
+  display: none; background: none; border: none; color: var(--text2); cursor: pointer;
+  padding: 4px; border-radius: 50%; transition: transform 0.3s ease, color 0.2s; margin-left: auto;
+}
+.nav-hamburger:hover { color: var(--accent); }
+.nav-hamburger.open { transform: rotate(180deg); color: var(--accent); }
+
+.nav-dropdown {
+  display: none; position: absolute; top: 52px; left: 0; right: 0;
+  background: var(--bg2); border-bottom: 1px solid var(--border);
+  padding: 8px 20px 12px; flex-direction: column; gap: 2px;
+  transform: translateY(-10px); opacity: 0; pointer-events: none;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.nav-dropdown.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.nav-dropdown a {
+  color: var(--text2); text-decoration: none; font-size: 12px; padding: 8px 12px;
+  border-radius: 4px; text-transform: uppercase; letter-spacing: 1px;
+  font-weight: 500; transition: all 0.15s;
+}
+.nav-dropdown a:hover { color: var(--text); background: var(--bg3); }
+.nav-dropdown a.active { color: var(--accent); background: rgba(255,143,0,0.08); }
+.nav-dd-logout { padding: 8px 12px 4px; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; align-items: center; justify-content: center; }
+  .nav-dropdown { display: flex; }
+  .promo-form .promo-input { width: 60px; }
+  .nav-balance { font-size: 12px; padding: 3px 8px; }
+  .nav-username { display: none; }
+}
+
 .promo-form { display: flex; gap: 3px; }
 .promo-input {
   background: var(--bg3); border: 1px solid var(--border);
