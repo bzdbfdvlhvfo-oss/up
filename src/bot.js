@@ -169,14 +169,7 @@ async function handleUpdate(u) {
     },
 
     '/promo': async () => {
-      const promos = (await query('SELECT code, amount, max_uses, used_count, active FROM promo_codes WHERE active = true ORDER BY amount DESC')).rows;
-      let txt = '🎁 <b>Промокоды</b>\n\n';
-      for (const p of promos.slice(0, 10)) {
-        const left = p.max_uses - p.used_count;
-        txt += `<code>${p.code}</code> — ${p.amount.toLocaleString()}₽ (осталось ${left})\n`;
-      }
-      txt += '\nВводи на сайте в поле ПРОМО';
-      send(chatId, txt);
+      send(chatId, '🎁 <b>Промокоды</b>\n\nПромокоды распространяются в Telegram канале и личных сообщениях. Следи за каналом — там публикуются новые коды!');
     },
 
     '/gencode': async () => {
