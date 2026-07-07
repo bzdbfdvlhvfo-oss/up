@@ -1,0 +1,10 @@
+{
+  "name": "cs2-upgrader",
+  "private": true,
+  "scripts": {
+    "start": "cd backend && node src/index.js",
+    "seed": "cd backend && node src/seed.js",
+    "build:frontend": "cd frontend && npm install && npx vite build",
+    "install:all": "cd backend && npm install && cd ../frontend && npm install"
+  }
+}
