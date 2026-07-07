@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
 const CHANNEL_RAW = process.env.TELEGRAM_CHANNEL || '';
 const CHANNEL = CHANNEL_RAW.replace(/^https:\/\/t\.me\//, '').replace(/^@/, '');
@@ -8,18 +10,22 @@ let query;
 
 export async function initBot(pgQuery) {
   query = pgQuery;
-  if (!BOT_TOKEN) { console.log('No TELEGRAM_BOT_TOKEN, bot disabled'); return; }
-  console.log('Telegram bot starting...');
+  if (!BOT_TOKEN) { console.log('Bot: no TELEGRAM_BOT_TOKEN, disabled'); return; }
+  console.log('Bot: starting...');
+
+  const me = await call('getMe');
+  if (!me.ok) {
+    console.error('Bot: TOKEN INVALID! Check TELEGRAM_BOT_TOKEN');
+    return;
+  }
+  console.log(`Bot: @${me.result.username} (${me.result.id})`);
 
   if (CHANNEL) {
-    const info = await call('getMe');
-    if (info.ok) {
-      const check = await call('getChatMember', { chat_id: `@${CHANNEL}`, user_id: info.result.id });
-      if (check.ok && ['administrator','creator'].includes(check.result.status)) {
-        console.log(`✅ Бот админ канала @${CHANNEL}`);
-      } else {
-        console.log(`⚠️  Бот не админ @${CHANNEL}. /sub не работает. Добавь @${info.result.username} в админы канала.`);
-      }
+    const check = await call('getChatMember', { chat_id: `@${CHANNEL}`, user_id: me.result.id });
+    if (check.ok && ['administrator','creator'].includes(check.result.status)) {
+      console.log(`Bot: ✅ admin of @${CHANNEL}`);
+    } else {
+      console.log(`Bot: ⚠️ not admin of @${CHANNEL} — /sub will fail. Add @${me.result.username} as admin.`);
     }
   }
 
@@ -28,25 +34,36 @@ export async function initBot(pgQuery) {
 
 async function call(method, body = {}) {
   try {
-    const r = await fetch(`${API}/${method}`, {
+    const url = `${API}/${method}`;
+    const r = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
+      signal: AbortSignal.timeout(35000),
     });
     return await r.json();
-  } catch { return { ok: false }; }
+  } catch (e) {
+    console.error(`Bot: API call ${method} failed:`, e.message);
+    return { ok: false, error: e.message };
+  }
 }
 
 async function poll() {
   try {
     const data = await call('getUpdates', { offset, timeout: 30 });
-    if (data.ok) {
-      for (const u of data.result || []) {
+    if (data.ok && data.result) {
+      for (const u of data.result) {
         offset = u.update_id + 1;
-        await handleUpdate(u);
+        try { await handleUpdate(u); } catch (e) {
+          console.error('Bot: handleUpdate error:', e.message);
+        }
       }
+    } else if (!data.ok) {
+      console.error('Bot: getUpdates failed:', JSON.stringify(data).slice(0, 200));
     }
-  } catch {}
+  } catch (e) {
+    console.error('Bot: poll error:', e.message);
+  }
   setTimeout(poll, 1000);
 }
 
@@ -92,7 +109,6 @@ async function handleUpdate(u) {
       if (!user) return send(chatId, '❌ Аккаунт не найден. Проверь ID.');
       if (user.telegram_chat_id) return send(chatId, '⚠️ Этот аккаунт уже привязан к Telegram.');
 
-      // Check if this chat is already linked to another account
       const existing = (await query('SELECT id FROM users WHERE telegram_chat_id = $1', [String(chatId)])).rows[0];
       if (existing) return send(chatId, '⚠️ Этот Telegram уже привязан к другому аккаунту.');
 
