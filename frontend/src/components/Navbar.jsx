@@ -24,7 +24,7 @@ export default function Navbar({ user, balance, onLoginClick, onLogout, onBalanc
   return (
     <nav className="navbar">
       <div className="nav-inner">
-        <Link to="/" className="nav-logo">CS2 Upgrader</Link>
+        <Link to="/" className="nav-logo">CS 2 UP ↑</Link>
         <div className="nav-links">
           <NavLink to="/marketplace" className={({isActive}) => isActive ? 'active' : ''}>Маркет</NavLink>
           <NavLink to="/inventory" className={({isActive}) => isActive ? 'active' : ''}>Инвентарь</NavLink>

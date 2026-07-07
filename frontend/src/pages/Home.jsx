@@ -4,8 +4,8 @@ export default function Home({ user, onLoginClick }) {
   return (
     <div className="page home-page">
       <div className="hero">
-        <h1>CS2 Upgrader</h1>
-        <p className="hero-sub">Апгрейд скинов CS2. Покупай, продавай, рискуй и выигрывай.</p>
+        <h1>CS 2 UP <span className="hero-arrow">↑</span></h1>
+        <p className="hero-sub">Апгрейд скинов. Покупай, продавай, рискуй и выигрывай.</p>
         <div className="hero-actions">
           {!user && (
             <button className="btn btn-primary btn-lg" onClick={onLoginClick}>

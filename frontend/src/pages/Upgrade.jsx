@@ -30,7 +30,6 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const [selectedId, setSelectedId] = useState(null)
   const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
-  const [history, setHistory] = useState([])
   const [mode, setMode] = useState('multiplier')
   const [value, setValue] = useState(2)
   const [spinning, setSpinning] = useState(false)
@@ -45,7 +44,6 @@ export default function Upgrade({ user, onBalanceUpdate }) {
 
   const fetchData = () => {
     api.getInventory(user.id).then(setItems).catch(() => {})
-    api.getUpgradeHistory(user.id).then(setHistory).catch(() => {})
   }
   useEffect(() => { fetchData() }, [])
   useEffect(() => () => { if (animRef.current) cancelAnimationFrame(animRef.current); tickTimers.current.forEach(clearTimeout) }, [])
@@ -151,7 +149,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
     const a1 = ((i * segAngle - 90) * Math.PI) / 180
     const a2 = (((i + 1) * segAngle - 90) * Math.PI) / 180
     const d = `M ${cx} ${cy} L ${cx + r * Math.cos(a1)} ${cy + r * Math.sin(a1)} A ${r} ${r} 0 0 0 ${cx + r * Math.cos(a2)} ${cy + r * Math.sin(a2)} Z`
-    segs.push({ d, color: isWin ? '#2e7d32' : '#b71c1c', label: isWin ? 'WIN' : 'LOSE', isWin })
+    segs.push({ d, color: isWin ? '#4a2800' : '#1a1a1a', stroke: isWin ? 'var(--accent)' : '#333', label: isWin ? 'WIN' : 'LOSE', isWin })
   }
 
   return (
@@ -215,15 +213,14 @@ export default function Upgrade({ user, onBalanceUpdate }) {
               </defs>
               <circle cx={cx} cy={cy} r={r + 8} fill="none" stroke="#333" strokeWidth="5"/>
               <circle cx={cx} cy={cy} r={r + 3} fill="none" stroke="var(--accent)" strokeWidth="1" opacity="0.3"/>
-              {segs.map((s, i) => (
-                <g key={i}>
-                  <path d={s.d} fill={s.color} stroke="#111" strokeWidth="1.5"/>
-                </g>
-              ))}
-              <circle cx={cx} cy={cy} r={32} fill="#1a1a1a" stroke="#333" strokeWidth="2"/>
-              <circle cx={cx} cy={cy} r={24} fill="none" stroke="var(--accent)" strokeWidth="1" opacity="0.3"/>
-              <circle cx={cx} cy={cy} r={8} fill="var(--accent)" filter="url(#wGlow)"/>
-              <circle cx={cx} cy={cy} r={3} fill="#fff"/>
+              {segs.map((s, i) => {
+                const glow = s.isWin ? { filter: 'url(#wGlow)' } : {}
+                return <path key={i} d={s.d} fill={s.color} stroke={s.stroke} strokeWidth="1.5" {...glow}/>
+              })}
+              <circle cx={cx} cy={cy} r={32} fill="#1a1a1a" stroke="#444" strokeWidth="2"/>
+              <circle cx={cx} cy={cy} r={24} fill="none" stroke="var(--accent)" strokeWidth="1.5" opacity="0.5"/>
+              <circle cx={cx} cy={cy} r={9} fill="var(--accent)"/>
+              <circle cx={cx} cy={cy} r={4} fill="#fff"/>
               {/* Spinning Knife/Arrow */}
               <g transform={`rotate(${arrowAngle}, ${cx}, ${cy})`} filter="url(#wShad)">
                 <polygon points={`${cx - 6},${cy - 32} ${cx},${cy - 170} ${cx + 6},${cy - 32}`}
@@ -272,22 +269,6 @@ export default function Upgrade({ user, onBalanceUpdate }) {
             </div>
           )}
         </div>
-      </div>
-
-      <div className="history-section">
-        <h3>История</h3>
-        {history.length === 0 ? <p className="history-empty">Пока пусто</p> : (
-          <div className="history-list">
-            {history.map(h => (
-              <div key={h.id} className={`h-item ${h.result}`}>
-                <span className="h-res">{h.result === 'win' ? 'ВЫИГРЫШ' : 'ПРОИГРЫШ'}</span>
-                <span className="h-skin">{h.staked_name}</span>
-                <span className="h-mult">x{h.multiplier}</span>
-                <span className="h-date">{new Date(h.created_at).toLocaleString('ru')}</span>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
 
       <div className="upgrade-inventory">

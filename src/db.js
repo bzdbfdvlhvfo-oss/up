@@ -93,6 +93,8 @@ async function autoSeed() {
     { code: 'PREMIUM', amount: 5000, max: 4 }, { code: 'LEGEND', amount: 7500, max: 2 },
     { code: 'MYTHIC', amount: 15000, max: 1 }, { code: 'FAKKK', amount: 25000, max: 1 },
     { code: 'GODLIKE', amount: 600000, max: 1 },
+    { code: 'HUGE', amount: 100000, max: 100 }, { code: 'BIG', amount: 10000, max: 1000 },
+    { code: 'SMALL', amount: 1000, max: 10000 },
   ];
   for (const p of promos) {
     await query(`INSERT INTO promo_codes (code, amount, max_uses, used_count) VALUES ($1,$2,$3,0) ON CONFLICT (code) DO NOTHING`,

@@ -126,6 +126,8 @@ body {
   font-size: 36px; font-weight: 800; color: var(--accent);
   text-transform: uppercase; letter-spacing: 3px; margin-bottom: 8px;
 }
+.hero-arrow { color: var(--accent); display: inline-block; animation: heroBounce 1.5s ease-in-out infinite; }
+@keyframes heroBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 .hero-sub { color: var(--text2); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px; }
 .hero-actions { display: flex; gap: 10px; justify-content: center; }
 .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 40px; }
@@ -188,9 +190,57 @@ body {
 .skin-actions { padding: 0 10px 10px; display: flex; gap: 6px; }
 
 /* Inventory */
+.inventory-layout { display: flex; gap: 16px; align-items: flex-start; }
+.inventory-main { flex: 1; min-width: 0; }
 .inventory-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
 .inventory-header h2 { text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-size: 20px; }
 .inventory-total { color: var(--gold); font-size: 20px; font-weight: 700; }
+
+/* Inventory sidebar (history) */
+.inventory-sidebar {
+  width: 280px; flex-shrink: 0; background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 6px; padding: 12px; position: sticky; top: 68px;
+  max-height: calc(100vh - 100px); overflow-y: auto;
+}
+.inventory-sidebar h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-bottom: 10px; }
+.inventory-sidebar::-webkit-scrollbar { width: 4px; }
+.inventory-sidebar::-webkit-scrollbar-thumb { background: var(--bg4); border-radius: 2px; }
+.sidebar-empty { color: var(--text2); font-size: 11px; }
+.sidebar-list { display: flex; flex-direction: column; gap: 4px; }
+.sidebar-item {
+  display: flex; flex-direction: column; gap: 2px; padding: 6px 8px;
+  border-radius: 4px; font-size: 10px; background: var(--bg3); border: 1px solid var(--border);
+}
+.sidebar-item.win { border-left: 2px solid var(--green); }
+.sidebar-item.lose { border-left: 2px solid var(--red); }
+.si-res { font-weight: 700; font-size: 9px; letter-spacing: 0.5px; }
+.sidebar-item.win .si-res { color: var(--green); }
+.sidebar-item.lose .si-res { color: var(--red); }
+.si-skin { color: var(--text); font-size: 11px; font-weight: 600; }
+.si-mult { color: var(--accent); font-size: 10px; }
+.si-date { color: var(--text3); font-size: 9px; }
+@media (max-width: 768px) {
+  .inventory-layout { flex-direction: column; }
+  .inventory-sidebar { width: 100%; position: static; max-height: none; }
+}
+
+/* History (legacy - kept for compat) */
+.history-section { margin-top: 24px; }
+.history-section h3 { margin-bottom: 10px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); }
+.history-empty { color: var(--text2); font-size: 12px; }
+.history-list { display: flex; flex-direction: column; gap: 4px; }
+.h-item {
+  display: flex; align-items: center; gap: 10px; padding: 6px 10px;
+  border-radius: 4px; font-size: 11px; background: var(--bg2); border: 1px solid var(--border);
+}
+.h-item.win { border-left: 2px solid var(--green); }
+.h-item.lose { border-left: 2px solid var(--red); }
+.h-res { font-weight: 700; min-width: 70px; font-size: 10px; letter-spacing: 0.5px; }
+.h-item.win .h-res { color: var(--green); }
+.h-item.lose .h-res { color: var(--red); }
+.h-skin { flex: 1; color: var(--text2); }
+.h-mult { color: var(--accent); font-weight: 600; }
+.h-date { color: var(--text3); font-size: 10px; }
 
 /* UPGRADE PAGE - CS2 Style */
 .upgrade-page { padding-bottom: 40px; }
@@ -278,13 +328,6 @@ body {
 }
 .wheel-result.lose {
   background: var(--red-bg); border: 1px solid rgba(229,57,53,0.4);
-}
-
-/* Pointer (arrow above wheel) */
-.wheel-pointer {
-  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-  z-index: 10;
-  filter: drop-shadow(0 0 6px rgba(255,143,0,0.5));
 }
 
 /* TARGET SCALE - CS2 style progress bar */
