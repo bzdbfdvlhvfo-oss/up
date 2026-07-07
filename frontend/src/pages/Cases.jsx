@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import * as api from '../api'
+import SkinImage from '../components/SkinImage'
 
 const SECRET_PRICE = 20000
 
@@ -82,7 +83,7 @@ export default function Cases({ user, onBalanceUpdate }) {
           return (
             <div key={c.id} className="case-card">
               <div className="case-img-wrap">
-                <img src={c.image_url} alt={c.name} className="case-img" />
+                <SkinImage src={c.image_url} alt={c.name} className="case-img" />
                 <div className="case-top-label">
                   {top && <span className="case-top-text">до {top.price.toLocaleString()} ₽</span>}
                 </div>
@@ -96,7 +97,7 @@ export default function Cases({ user, onBalanceUpdate }) {
                   const sec = isSecret(d.skin)
                   return d.skin ? (
                     <div key={d.skin_id} className={`case-drop-mini ${sec ? 'secret' : ''}`} title={d.skin.name}>
-                      {sec ? <span className="cdm-q">?</span> : <img src={d.skin.image_url} alt={d.skin.name} />}
+                      {sec ? <span className="cdm-q">?</span> : <SkinImage src={d.skin.image_url} alt={d.skin.name} />}
                     </div>
                   ) : null
                 })}
@@ -128,7 +129,7 @@ export default function Cases({ user, onBalanceUpdate }) {
                         {sec && d.skin?.id !== result.skin?.id ? (
                           <div className="cdm-q-big">?</div>
                         ) : (
-                          d.skin && <img src={d.skin.image_url} alt={d.skin.name} />
+                          d.skin && <SkinImage src={d.skin.image_url} alt={d.skin.name} />
                         )}
                       </div>
                       <div className="case-open-card-name">{d.skin?.name || '???'}</div>

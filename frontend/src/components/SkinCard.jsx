@@ -1,3 +1,5 @@
+import SkinImage from './SkinImage'
+
 export default function SkinCard({ skin, onBuy, onSell, onWithdraw, inInventory, inventoryId, selected, onToggle }) {
   const isSticker = skin.category === 'sticker'
   const withdrawn = skin.withdrawn_at
@@ -7,11 +9,7 @@ export default function SkinCard({ skin, onBuy, onSell, onWithdraw, inInventory,
       onClick={onToggle}
     >
       <div className="skin-img-wrap">
-        {skin.image_url ? (
-          <img src={skin.image_url} alt={skin.name} />
-        ) : (
-          <div className="skin-ph" />
-        )}
+        <SkinImage src={skin.image_url} alt={skin.name} />
         {isSticker && <span className="skin-type-badge sticker">Стикер</span>}
         {withdrawn && <span className="skin-type-badge withdrawn">StatTrak™ ✓</span>}
       </div>

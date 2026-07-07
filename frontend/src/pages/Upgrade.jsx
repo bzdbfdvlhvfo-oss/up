@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import * as api from '../api'
+import SkinImage from '../components/SkinImage'
 
 function playSound(type) {
   try {
@@ -217,7 +218,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
         <div className="upgrade-left">
           {selected ? (
             <div className="upgrade-selected-card">
-              <div className="us-img">{selected.image_url ? <img src={selected.image_url} alt=""/> : <div className="skin-ph"/>}</div>
+              <div className="us-img"><SkinImage src={selected.image_url} alt={selected.name} /></div>
               <div className="us-name">{selected.name}</div>
               <div className="us-meta">{selected.rarity} · {selected.quality}</div>
               <div className="us-price">{selected.price.toLocaleString()} ₽</div>
@@ -294,7 +295,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
               {targetName && (
                 <div className="ts-target">
                   <div className="ts-target-img">
-                    {targetImg ? <img src={targetImg} alt=""/> : <div className="skin-ph sm"/>}
+                    <SkinImage src={targetImg} alt="" />
                   </div>
                   <div className="ts-target-info">
                     <div className="ts-target-name">{targetName}</div>
@@ -345,7 +346,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
               <div key={item.inventory_id} className={`skin-card${selectedId === item.inventory_id ? ' selected' : ''}`}
                 onClick={() => toggleSkin(item.inventory_id)}>
                 <div className="skin-img-wrap">
-                  {item.image_url ? <img src={item.image_url} alt=""/> : <div className="skin-ph"/>}
+                  <SkinImage src={item.image_url} alt={item.name} />
                 </div>
                 <div className="skin-info">
                   <div className="skin-name">{item.name}</div>
@@ -368,7 +369,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
                 animationDuration: `${s.dur}s`,
               }}
             >
-              <img src={s.img} alt={s.name} />
+              <SkinImage src={s.img} alt={s.name} />
             </div>
           ))}
         </div>

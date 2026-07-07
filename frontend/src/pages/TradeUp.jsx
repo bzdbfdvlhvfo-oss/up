@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import * as api from '../api'
+import SkinImage from '../components/SkinImage'
 
 const MAX_PRICE = 20000
 
@@ -52,7 +53,7 @@ export default function TradeUp({ user, onBalanceUpdate }) {
                 <div key={i} className={`tradeup-slot ${item ? 'filled' : 'empty'}`}>
                   {item && (
                     <>
-                      <img src={item.image_url} alt={item.name} />
+                      <SkinImage src={item.image_url} alt={item.name} />
                       <div className="tradeup-slot-name">{item.name}</div>
                     </>
                   )}
@@ -71,7 +72,7 @@ export default function TradeUp({ user, onBalanceUpdate }) {
               <div className="tradeup-result-title">Результат контракта</div>
               {result.won && (
                 <div className="tradeup-result-skin">
-                  <img src={result.won.image_url} alt={result.won.name} />
+                  <SkinImage src={result.won.image_url} alt={result.won.name} />
                   <div className={`tradeup-result-rarity rarity-${result.won.rarity?.toLowerCase()}`}>{result.won.rarity}</div>
                   <div className="tradeup-result-name">{result.won.name}</div>
                   <div className="tradeup-result-price">{result.won.price.toLocaleString()} ₽</div>
@@ -95,7 +96,7 @@ export default function TradeUp({ user, onBalanceUpdate }) {
                     className={`skin-card${isSel ? ' selected' : ''}${disabled ? ' disabled' : ''}`}
                     onClick={() => !over && toggle(item.inventory_id)}>
                     <div className="skin-img-wrap">
-                      {item.image_url ? <img src={item.image_url} alt=""/> : <div className="skin-ph"/>}
+                      <SkinImage src={item.image_url} alt={item.name} />
                     </div>
                     <div className="skin-info">
                       <div className="skin-name">{item.name}</div>
