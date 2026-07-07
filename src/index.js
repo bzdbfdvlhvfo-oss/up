@@ -47,7 +47,7 @@ app.post('/api/auth/login', async (req, res) => {
 // Skins
 app.get('/api/skins', async (req, res) => {
   try {
-    const { rarity, quality, search, min, max } = req.query;
+    const { rarity, quality, search, min, max, category } = req.query;
     let q = 'SELECT * FROM skins WHERE 1=1';
     const p = []; let i = 1;
     if (rarity) { q += ` AND rarity = $${i++}`; p.push(rarity); }
@@ -55,6 +55,7 @@ app.get('/api/skins', async (req, res) => {
     if (search) { q += ` AND name ILIKE $${i++}`; p.push(`%${search}%`); }
     if (min) { q += ` AND price >= $${i++}`; p.push(parseFloat(min)); }
     if (max) { q += ` AND price <= $${i++}`; p.push(parseFloat(max)); }
+    if (category) { q += ` AND category = $${i++}`; p.push(category); }
     q += ' ORDER BY price DESC';
     const r = await query(q, p);
     res.json(r.rows);

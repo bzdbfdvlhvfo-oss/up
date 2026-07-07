@@ -67,6 +67,7 @@ async function initTables() {
   await query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS password TEXT DEFAULT ''`).catch(() => {});
   await query(`ALTER TABLE upgrade_history ADD COLUMN IF NOT EXISTS multiplier REAL DEFAULT 1`).catch(() => {});
   await query(`ALTER TABLE upgrade_history ADD COLUMN IF NOT EXISTS won_skin_id TEXT REFERENCES skins(id)`).catch(() => {});
+  await query(`ALTER TABLE skins ADD COLUMN IF NOT EXISTS category TEXT DEFAULT ''`).catch(() => {});
   console.log('Tables ready');
 }
 
@@ -76,8 +77,8 @@ async function autoSeed() {
   const skins = JSON.parse(readFileSync(join(__dirname, '..', 'data', 'skins.json'), 'utf-8'));
   let count = 0;
   for (const s of skins) {
-    const r = await query(`INSERT INTO skins (id, name, collection, rarity, quality, price, image_url) VALUES ($1,$2,$3,$4,$5,$6,$7) ON CONFLICT (id) DO UPDATE SET price=$6, image_url=$7`,
-      [s.id, s.name, s.collection || '', s.rarity, s.quality, s.price, s.image_url || '']);
+    const r = await query(`INSERT INTO skins (id, name, collection, rarity, quality, price, image_url, category) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) ON CONFLICT (id) DO UPDATE SET price=$6, image_url=$7, category=$8`,
+      [s.id, s.name, s.collection || '', s.rarity, s.quality, s.price, s.image_url || '', s.category || '']);
     if (r.rowCount > 0) count++;
   }
   const promos = [
