@@ -6,11 +6,18 @@ export default function Inventory({ user, onBalanceUpdate }) {
   const [items, setItems] = useState([])
   const [history, setHistory] = useState([])
   const [loading, setLoading] = useState(true)
+  const [skinFilter, setSkinFilter] = useState('all')
 
   const fetchInventory = () => {
     setLoading(true)
     api.getInventory(user.id).then(d => { setItems(d); setLoading(false) }).catch(() => setLoading(false))
   }
+
+  const filteredItems = items.filter(i => {
+    if (skinFilter === 'all') return true
+    if (skinFilter === 'skin') return !i.category || i.category === 'skin' || i.category === ''
+    return i.category === skinFilter
+  })
 
   const fetchHistory = () => {
     api.getUpgradeHistory(user.id).then(setHistory).catch(() => {})
@@ -51,18 +58,29 @@ export default function Inventory({ user, onBalanceUpdate }) {
               <a href="/marketplace" className="btn btn-primary btn-sm">В Маркет</a>
             </div>
           ) : (
-            <div className="skin-grid">
-              {items.map(item => (
-                <SkinCard
-                  key={item.inventory_id}
-                  skin={item}
-                  inInventory
-                  inventoryId={item.inventory_id}
-                  onSell={handleSell}
-                  onWithdraw={handleWithdraw}
-                />
-              ))}
-            </div>
+            <>
+              <div className="inv-filter-row">
+                <div className="filter-chips">
+                  {['all', 'skin', 'sticker'].map(f => (
+                    <button key={f} className={`chip ${skinFilter === f ? 'active' : ''}`} onClick={() => setSkinFilter(f)}>
+                      {f === 'all' ? 'Все' : f === 'skin' ? 'Скины' : 'Стикеры'}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="skin-grid">
+                {filteredItems.map(item => (
+                  <SkinCard
+                    key={item.inventory_id}
+                    skin={item}
+                    inInventory
+                    inventoryId={item.inventory_id}
+                    onSell={handleSell}
+                    onWithdraw={handleWithdraw}
+                  />
+                ))}
+              </div>
+            </>
           )}
         </div>
 
