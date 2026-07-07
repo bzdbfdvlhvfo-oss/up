@@ -75,9 +75,12 @@ async function checkSeed() {
 async function autoSeed() {
   console.log('Seeding data...');
   const __dirname = dirname(fileURLToPath(import.meta.url));
+  await query('DELETE FROM upgrade_history');
+  await query('DELETE FROM inventory');
+  await query('DELETE FROM skins');
   const skins = JSON.parse(readFileSync(join(__dirname, '..', 'data', 'skins.json'), 'utf-8'));
   for (const s of skins) {
-    await query(`INSERT INTO skins (id, name, collection, rarity, quality, price, image_url) VALUES ($1,$2,$3,$4,$5,$6,$7) ON CONFLICT (id) DO NOTHING`,
+    await query(`INSERT INTO skins (id, name, collection, rarity, quality, price, image_url) VALUES ($1,$2,$3,$4,$5,$6,$7)`,
       [s.id, s.name, s.collection || '', s.rarity, s.quality, s.price, s.image_url || '']);
   }
   const promos = [
