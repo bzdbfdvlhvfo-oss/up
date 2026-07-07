@@ -1,32 +1,46 @@
 import { useState, useEffect, useRef } from 'react'
 import * as api from '../api'
 
-function playTone(type) {
+function playSound(type) {
   try {
     const ctx = new (window.AudioContext || window.webkitAudioContext)()
     const osc = ctx.createOscillator()
     const gain = ctx.createGain()
     osc.connect(gain); gain.connect(ctx.destination)
-    if (type === 'win') {
+    if (type === 'whoosh') {
+      osc.type = 'sawtooth'
+      osc.frequency.setValueAtTime(200, ctx.currentTime)
+      osc.frequency.exponentialRampToValueAtTime(2000, ctx.currentTime + 0.3)
+      gain.gain.setValueAtTime(0.04, ctx.currentTime)
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.3)
+    } else if (type === 'shatter') {
+      osc.type = 'square'
+      osc.frequency.setValueAtTime(1500, ctx.currentTime)
+      osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.2)
+      gain.gain.setValueAtTime(0.06, ctx.currentTime)
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.2)
+    } else if (type === 'tick') {
+      osc.type = 'sine'
+      osc.frequency.setValueAtTime(1200 + Math.random() * 400, ctx.currentTime)
+      gain.gain.setValueAtTime(0.03, ctx.currentTime)
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.04)
+    } else if (type === 'win') {
       osc.frequency.setValueAtTime(523, ctx.currentTime)
-      osc.frequency.setValueAtTime(659, ctx.currentTime + 0.1)
-      osc.frequency.setValueAtTime(784, ctx.currentTime + 0.2)
-      gain.gain.setValueAtTime(0.15, ctx.currentTime)
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.5)
+      osc.frequency.setValueAtTime(659, ctx.currentTime + 0.12)
+      osc.frequency.setValueAtTime(784, ctx.currentTime + 0.24)
+      osc.frequency.setValueAtTime(1047, ctx.currentTime + 0.36)
+      gain.gain.setValueAtTime(0.12, ctx.currentTime)
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.6)
     } else if (type === 'lose') {
       osc.frequency.setValueAtTime(400, ctx.currentTime)
-      osc.frequency.setValueAtTime(300, ctx.currentTime + 0.15)
-      osc.frequency.setValueAtTime(200, ctx.currentTime + 0.3)
-      gain.gain.setValueAtTime(0.12, ctx.currentTime)
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.4)
-    } else if (type === 'tick') {
-      osc.type = 'square'
-      osc.frequency.setValueAtTime(800, ctx.currentTime)
-      gain.gain.setValueAtTime(0.03, ctx.currentTime)
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.05)
+      osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.5)
+      gain.gain.setValueAtTime(0.08, ctx.currentTime)
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.5)
     }
   } catch {}
 }
@@ -39,10 +53,13 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const [history, setHistory] = useState([])
   const [mode, setMode] = useState('multiplier')
   const [value, setValue] = useState(2)
-  const [spinning, setSpinning] = useState(false)
+  const [animating, setAnimating] = useState(false)
+  const [phase, setPhase] = useState('idle')
+  const [needlePos, setNeedlePos] = useState(0)
+  const [shattered, setShattered] = useState(false)
   const [showResult, setShowResult] = useState(false)
-  const [liquidLevel, setLiquidLevel] = useState(0)
-  const animRef = useRef(null)
+  const [particles, setParticles] = useState([])
+  const animFrameRef = useRef(null)
   const tickRef = useRef(null)
 
   const fetchData = () => {
@@ -50,12 +67,6 @@ export default function Upgrade({ user, onBalanceUpdate }) {
     api.getUpgradeHistory(user.id).then(setHistory).catch(() => {})
   }
   useEffect(() => { fetchData() }, [])
-
-  useEffect(() => {
-    if (!spinning && animRef.current) {
-      clearInterval(animRef.current); clearInterval(tickRef.current)
-    }
-  }, [spinning])
 
   const selected = items.find(i => i.inventory_id === selectedId)
   const calcChance = () => {
@@ -73,62 +84,123 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const multiplier = calcMultiplier()
   const potWin = selected ? Math.round(selected.price * multiplier) : 0
 
-  useEffect(() => {
-    if (!spinning) {
-      setLiquidLevel(chance)
-    }
-  }, [chance, spinning, selectedId, mode, value])
-
   const toggleSkin = (inventoryId) => {
-    if (spinning) return
+    if (animating) return
     setSelectedId(prev => prev === inventoryId ? null : inventoryId)
-    setResult(null); setShowResult(false)
+    setResult(null); setShowResult(false); setPhase('idle'); setNeedlePos(0); setShattered(false)
+  }
+
+  const spawnParticles = (count, x, y) => {
+    const p = []
+    for (let i = 0; i < count; i++) {
+      p.push({
+        id: Math.random(), x, y,
+        vx: (Math.random() - 0.5) * 8, vy: -Math.random() * 10 - 5,
+        life: 1, color: Math.random() > 0.5 ? '#00e5ff' : '#ffd54f'
+      })
+    }
+    setParticles(prev => [...prev, ...p])
+    const interval = setInterval(() => {
+      setParticles(prev => {
+        const next = prev.map(p2 => ({ ...p2, x: p2.x + p2.vx, y: p2.y + p2.vy, vy: p2.vy + 0.3, life: p2.life - 0.02 })).filter(p2 => p2.life > 0)
+        if (next.length === 0) clearInterval(interval)
+        return next
+      })
+    }, 30)
   }
 
   const handleUpgrade = async () => {
-    if (!selectedId || loading || spinning) return
-    setLoading(true); setShowResult(false); setResult(null)
+    if (!selectedId || loading || animating) return
+    setLoading(true); setResult(null); setShowResult(false); setShattered(false); setParticles([])
+
     try {
       const res = await api.upgrade(user.id, selectedId, mode, value)
       setResult(res)
-      setSpinning(true)
+      setAnimating(true)
+      setPhase('shoot')
 
-      let tickCount = 0
-      const tickInterval = setInterval(() => {
-        playTone('tick'); tickCount++
-        if (tickCount > 20) clearInterval(tickInterval)
-      }, 100)
-      tickRef.current = tickInterval
+      // Phase 1: Needle shoots up past 100%
+      playSound('whoosh')
+      let startTime = Date.now()
+      const shootDuration = 500
+      const overshoot = 120
 
-      // Animate liquid
-      const startLevel = chance
-      const endLevel = res.won ? 100 : 0
-      const startTime = Date.now()
-      const duration = 2500
-
-      const animate = () => {
+      const animateShoot = () => {
         const elapsed = Date.now() - startTime
-        const progress = Math.min(elapsed / duration, 1)
-        const eased = 1 - Math.pow(1 - progress, 3)
-        setLiquidLevel(startLevel + (endLevel - startLevel) * eased)
-        if (progress < 1) {
-          animRef.current = requestAnimationFrame(animate)
-        } else {
-          setLiquidLevel(endLevel)
-          setSpinning(false)
-          clearInterval(tickInterval)
+        const progress = Math.min(elapsed / shootDuration, 1)
+        const eased = 1 - Math.pow(1 - progress, 2)
+        const pos = overshoot * eased
+        setNeedlePos(pos)
+
+        if (progress >= 1) {
+          // Shatter effect
+          setShattered(true)
+          playSound('shatter')
+          spawnParticles(30, 50, 10)
           setTimeout(() => {
-            setShowResult(true)
-            if (res.won) playTone('win')
-            else playTone('lose')
-            if (!res.won) setSelectedId(null)
-            fetchData()
-            onBalanceUpdate()
-          }, 500)
+            setShattered(false)
+            setPhase('drop')
+            // Phase 2: Drop back to 0
+            startTime = Date.now()
+            const dropDuration = 300
+            const animateDrop = () => {
+              const elapsed2 = Date.now() - startTime
+              const progress2 = Math.min(elapsed2 / dropDuration, 1)
+              const eased2 = 1 - Math.pow(1 - progress2, 3)
+              setNeedlePos(overshoot * (1 - eased2))
+              if (progress2 < 1) {
+                animFrameRef.current = requestAnimationFrame(animateDrop)
+              } else {
+                setNeedlePos(0)
+                setPhase('rise')
+                // Phase 3: Rise to result
+                const target = res.won ? chance + Math.random() * 3 : chance + 10 + Math.random() * (95 - chance - 10)
+                const finalPos = Math.min(target, 100)
+                startTime = Date.now()
+                const riseDuration = 2000
+
+                let tickCount = 0
+                const tickInterval = setInterval(() => {
+                  playSound('tick')
+                  tickCount++
+                  if (tickCount > 30) clearInterval(tickInterval)
+                }, 80)
+                tickRef.current = tickInterval
+
+                const animateRise = () => {
+                  const elapsed3 = Date.now() - startTime
+                  const progress3 = Math.min(elapsed3 / riseDuration, 1)
+                  const eased3 = 1 - Math.pow(1 - progress3, 3)
+                  const pos3 = finalPos * eased3
+                  setNeedlePos(pos3)
+                  if (progress3 < 1) {
+                    animFrameRef.current = requestAnimationFrame(animateRise)
+                  } else {
+                    setNeedlePos(finalPos)
+                    setAnimating(false)
+                    clearInterval(tickInterval)
+                    setPhase('idle')
+                    setTimeout(() => {
+                      setShowResult(true)
+                      if (res.won) playSound('win')
+                      else playSound('lose')
+                      if (!res.won) setSelectedId(null)
+                      fetchData()
+                      onBalanceUpdate()
+                    }, 400)
+                  }
+                }
+                animateRise()
+              }
+            }
+            animateDrop()
+          }, 200)
+          return
         }
+        animFrameRef.current = requestAnimationFrame(animateShoot)
       }
-      animate()
-    } catch (err) { alert(err.message); setSpinning(false) }
+      animateShoot()
+    } catch (err) { alert(err.message); setAnimating(false) }
     setLoading(false)
   }
 
@@ -139,11 +211,9 @@ export default function Upgrade({ user, onBalanceUpdate }) {
       <div className="upgrade-main">
         {selected ? (
           <div className="upgrade-selected-card">
-            <div className="upgrade-selected-info">
-              <div className="upgrade-selected-name">{selected.name}</div>
-              <div className="upgrade-selected-meta">{selected.rarity} · {selected.quality}</div>
-              <div className="upgrade-selected-price">{selected.price.toLocaleString()} ₽</div>
-            </div>
+            <div className="upgrade-selected-name">{selected.name}</div>
+            <div className="upgrade-selected-meta">{selected.rarity} · {selected.quality}</div>
+            <div className="upgrade-selected-price">{selected.price.toLocaleString()} ₽</div>
           </div>
         ) : (
           <div className="upgrade-selected-empty">Выбери скин из инвентаря ниже</div>
@@ -154,20 +224,15 @@ export default function Upgrade({ user, onBalanceUpdate }) {
             <button className={`mode-btn ${mode === 'chance' ? 'active' : ''}`} onClick={() => setMode('chance')}>Шанс</button>
             <button className={`mode-btn ${mode === 'multiplier' ? 'active' : ''}`} onClick={() => setMode('multiplier')}>Множитель</button>
           </div>
-
           <div className="value-presets">
             {mode === 'chance' ? (
-              <>
-                {[30, 50, 75].map(v => (
-                  <button key={v} className={`preset-btn ${value === v ? 'active' : ''}`} onClick={() => setValue(v)}>{v}%</button>
-                ))}
-              </>
+              [30, 50, 75].map(v => (
+                <button key={v} className={`preset-btn ${value === v ? 'active' : ''}`} onClick={() => setValue(v)}>{v}%</button>
+              ))
             ) : (
-              <>
-                {[2, 4, 8].map(v => (
-                  <button key={v} className={`preset-btn ${value === v ? 'active' : ''}`} onClick={() => setValue(v)}>{v}x</button>
-                ))}
-              </>
+              [2, 4, 8].map(v => (
+                <button key={v} className={`preset-btn ${value === v ? 'active' : ''}`} onClick={() => setValue(v)}>{v}x</button>
+              ))
             )}
           </div>
         </div>
@@ -189,22 +254,41 @@ export default function Upgrade({ user, onBalanceUpdate }) {
           </div>
         )}
 
-        <div className="liquid-section">
-          <div className="liquid-container">
-            <div className="liquid-track-wrap">
-              <div className="liquid-track">
-                <div className="liquid-fill" style={{ height: `${liquidLevel}%` }}>
-                  <div className="liquid-wave" />
-                  <div className="liquid-glow" />
-                </div>
-              </div>
+        {/* CARNIVAL GAUGE */}
+        <div className="gauge-section">
+          <div className="gauge-container">
+            <div className="gauge-track">
+              <div className="gauge-green" style={{ height: `${chance}%` }} />
+              <div className="gauge-red" style={{ height: `${100 - chance}%` }} />
+              <div className={`gauge-divider ${animating ? 'glow' : ''}`} style={{ bottom: `${chance}%` }} />
+              <div className="gauge-glass" />
+              {shattered && <div className="gauge-shards" />}
+              {particles.map(p => (
+                <div key={p.id} className="particle" style={{
+                  left: `${p.x}%`, top: `${p.y}%`, background: p.color, opacity: p.life
+                }} />
+              ))}
             </div>
-            <div className="liquid-label">{Math.round(liquidLevel)}%</div>
+            <div className="gauge-needle-wrap" style={{ bottom: `${needlePos}%` }}>
+              <div className={`gauge-needle ${animating ? 'active' : ''}`} />
+              <div className="gauge-needle-tip" />
+            </div>
+            <div className="gauge-markers">
+              {[0, 25, 50, 75, 100].map(m => (
+                <div key={m} className="gauge-marker" style={{ bottom: `${m}%` }}>
+                  <span>{m}%</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           {selected && (
-            <button className="btn btn-primary btn-lg spin-btn" onClick={handleUpgrade} disabled={loading || spinning}>
-              {spinning ? 'ПРОВЕРКА...' : loading ? '...' : 'КРУТИТЬ!'}
+            <button
+              className={`btn btn-primary btn-lg spin-btn ${animating ? 'spinning' : ''}`}
+              onClick={handleUpgrade}
+              disabled={loading || animating}
+            >
+              {animating ? 'ПРОВЕРКА...' : loading ? '...' : 'КРУТИТЬ!'}
             </button>
           )}
 

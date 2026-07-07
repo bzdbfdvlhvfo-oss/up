@@ -66,6 +66,8 @@ async function initTables() {
   )`);
   // Migrate old tables that may be missing columns
   await query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS password TEXT DEFAULT ''`).catch(() => {});
+  await query(`ALTER TABLE upgrade_history ADD COLUMN IF NOT EXISTS multiplier REAL DEFAULT 1`).catch(() => {});
+  await query(`ALTER TABLE upgrade_history ADD COLUMN IF NOT EXISTS won_skin_id TEXT REFERENCES skins(id)`).catch(() => {});
   console.log('Tables ready');
 }
 

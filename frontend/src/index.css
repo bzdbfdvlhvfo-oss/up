@@ -216,59 +216,117 @@ body {
 .chance-value { color: var(--green); }
 .potwin-value { color: var(--gold); }
 
-/* Liquid meter */
-.liquid-section {
+/* Carnival Gauge */
+.gauge-section {
   display: flex; flex-direction: column; align-items: center; gap: 16px; width: 100%;
 }
-.liquid-container {
-  position: relative; width: 120px; height: 280px;
+.gauge-container {
+  position: relative; width: 100px; height: 320px;
 }
-.liquid-track-wrap {
-  padding: 3px;
-  background: linear-gradient(to bottom, #ff6b35, #ffd700, var(--green), #00e676);
-  border-radius: 18px;
-  width: 100%; height: 100%;
-}
-.liquid-track {
-  width: 100%; height: 100%;
+.gauge-track {
+  width: 40px; height: 100%; margin: 0 auto;
   background: var(--bg);
-  border-radius: 16px;
+  border-radius: 20px;
   position: relative; overflow: hidden;
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.6), 0 0 20px rgba(0,0,0,0.3);
 }
-.liquid-fill {
+.gauge-green {
   position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, #00e676, #00c853, #00e676);
-  transition: height 0.1s linear;
-  border-radius: 0 0 12px 12px;
-  box-shadow: inset 0 0 20px rgba(0,230,118,0.3), 0 0 20px rgba(0,230,118,0.2);
+  background: linear-gradient(to top, #00e676, #00c853, #69f0ae);
+  transition: none;
+  border-radius: 0 0 18px 18px;
+  box-shadow: inset 0 0 15px rgba(0,230,118,0.2);
 }
-.liquid-wave {
-  position: absolute; top: -8px; left: -10%; width: 120%; height: 16px;
-  background: radial-gradient(ellipse at center, rgba(0,230,118,0.6), transparent);
-  animation: wave 2s ease-in-out infinite;
+.gauge-red {
+  position: absolute; top: 0; left: 0; right: 0;
+  background: linear-gradient(to bottom, #ff1744, #d50000, #ff5252);
+  transition: none;
+  border-radius: 18px 18px 0 0;
+  box-shadow: inset 0 0 15px rgba(255,23,68,0.2);
 }
-@keyframes wave {
-  0%, 100% { transform: translateX(-5%) scaleY(1); }
-  50% { transform: translateX(5%) scaleY(1.5); }
-}
-.liquid-glow {
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(0,230,118,0.1), transparent 60%);
-  animation: pulse 3s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-.liquid-label {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  font-size: 28px; font-weight: 800; color: #fff;
-  text-shadow: 0 0 20px rgba(0,230,118,0.5);
+.gauge-divider {
+  position: absolute; left: -4px; right: -4px; height: 3px;
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold);
   z-index: 2;
+  transition: bottom 0.3s ease;
+}
+.gauge-divider.glow {
+  animation: dividerPulse 0.3s ease infinite alternate;
+}
+@keyframes dividerPulse {
+  from { box-shadow: 0 0 10px var(--gold); }
+  to { box-shadow: 0 0 25px var(--gold), 0 0 40px var(--accent); }
+}
+.gauge-glass {
+  position: absolute; top: -8px; left: -10px; right: -10px; height: 16px;
+  background: linear-gradient(to bottom, rgba(0,229,255,0.4), transparent);
+  border-radius: 50%;
+  z-index: 3;
+  box-shadow: 0 0 20px rgba(0,229,255,0.3);
+}
+.gauge-shards {
+  position: absolute; top: -10px; left: -20px; right: -20px; height: 30px;
+  background: radial-gradient(circle, rgba(255,255,255,0.6), transparent 70%);
+  animation: shatterBurst 0.5s ease forwards;
+  z-index: 4;
+}
+@keyframes shatterBurst {
+  0% { transform: scale(0.5); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.gauge-needle-wrap {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  z-index: 5;
+  transition: bottom 0.05s linear;
+}
+.gauge-needle {
+  width: 60px; height: 4px;
+  background: linear-gradient(to right, transparent, var(--accent), #fff);
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+}
+.gauge-needle.active {
+  animation: needleGlow 0.15s ease infinite alternate;
+}
+@keyframes needleGlow {
+  from { box-shadow: 0 0 10px var(--accent); }
+  to { box-shadow: 0 0 25px var(--accent), 0 0 40px #fff; }
+}
+.gauge-needle-tip {
+  position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
+  width: 0; height: 0;
+  border-left: 8px solid var(--accent);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  filter: drop-shadow(0 0 6px var(--accent));
+}
+.gauge-markers {
+  position: absolute; right: -5px; top: 0; bottom: 0; width: 30px;
+  pointer-events: none;
+}
+.gauge-marker {
+  position: absolute; right: 0;
+  transform: translateY(50%);
+  font-size: 9px; color: var(--text2);
 }
 
-.spin-btn { margin-top: 8px; min-width: 200px; }
+.spin-btn { margin-top: 4px; min-width: 200px; }
+.spin-btn.spinning {
+  animation: btnShake 0.1s ease infinite alternate;
+}
+@keyframes btnShake {
+  from { transform: translateX(-2px); }
+  to { transform: translateX(2px); }
+}
+
+/* Particles */
+.particle {
+  position: absolute; width: 4px; height: 4px; border-radius: 50%;
+  pointer-events: none; z-index: 10;
+}
 
 /* Result */
 .upgrade-result {
