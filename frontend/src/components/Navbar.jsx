@@ -29,7 +29,6 @@ export default function Navbar({ user, balance, onLoginClick, onLogout, onBalanc
     { to: '/inventory', label: 'Инвентарь', auth: true },
     { to: '/upgrade', label: 'Апгрейд', auth: true },
     { to: '/cases', label: 'Кейсы', auth: true },
-    { to: '/tradeup', label: 'Контракт', auth: true },
     { to: '/leaderboard', label: 'Топ', auth: false },
     { to: '/settings', label: 'Настройки', auth: true },
   ]

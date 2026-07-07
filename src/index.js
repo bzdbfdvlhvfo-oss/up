@@ -305,48 +305,6 @@ app.post('/api/cases/:caseId/buy', async (req, res) => {
 });
 
 // Trade Up — any 10 skins, each ≤ 20 000₽, get a random better skin
-app.post('/api/tradeup', async (req, res) => {
-  try {
-    const { userId, inventoryIds } = req.body;
-    if (!userId || !inventoryIds || inventoryIds.length !== 10)
-      return res.status(400).json({ error: 'Нужно 10 скинов для контракта' });
-
-    const items = (await query(`SELECT i.*, s.rarity, s.quality, s.name, s.price, s.image_url, s.id as skin_id2
-      FROM inventory i JOIN skins s ON s.id = i.skin_id
-      WHERE i.id = ANY($1) AND i.user_id = $2`, [inventoryIds, userId])).rows;
-    if (items.length !== 10) return res.status(400).json({ error: 'Некоторые скины не найдены' });
-
-    // Check max 20k per skin
-    const over20k = items.filter(i => i.price > 20000);
-    if (over20k.length > 0)
-      return res.status(400).json({ error: 'Каждый скин не дороже 20 000₽' });
-
-    const avgPrice = items.reduce((s, i) => s + i.price, 0) / items.length;
-    const targetMin = Math.round(avgPrice * 1.3);
-    const targetMax = Math.round(avgPrice * 2.5);
-
-    const targets = (await query('SELECT * FROM skins WHERE price >= $1 AND price <= $2 AND category != $3 ORDER BY RANDOM() LIMIT 1', [targetMin, targetMax, 'sticker'])).rows;
-    if (targets.length === 0)
-      return res.status(400).json({ error: 'Нет скинов для обмена' });
-    const wonSkin = targets[0];
-
-    await query(`DELETE FROM inventory WHERE id = ANY($1)`, [inventoryIds]);
-    const newInvId = uuidv4();
-    await query('INSERT INTO inventory (id, user_id, skin_id) VALUES ($1,$2,$3)', [newInvId, userId, wonSkin.id]);
-    await query('INSERT INTO transactions (id,user_id,type,amount,description) VALUES ($1,$2,$3,$4,$5)',
-      [uuidv4(), userId, 'tradeup', 0, `Контракт: ${items.length} скинов → ${wonSkin.name}`]);
-
-    res.json({
-      success: true,
-      staked: items.map(i => ({ id: i.skin_id2, name: i.name })),
-      won: { id: wonSkin.id, name: wonSkin.name, rarity: wonSkin.rarity, quality: wonSkin.quality, price: wonSkin.price, image_url: wonSkin.image_url },
-      inventory_id: newInvId,
-      avg_price: Math.round(avgPrice),
-      balance: (await query('SELECT balance FROM users WHERE id = $1', [userId])).rows[0].balance
-    });
-  } catch (e) { res.status(500).json({ error: e.message }); }
-});
-
 // Leaderboard
 app.get('/api/leaderboard', async (req, res) => {
   try {

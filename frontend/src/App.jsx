@@ -8,7 +8,6 @@ import Inventory from './pages/Inventory'
 import Upgrade from './pages/Upgrade'
 import Settings from './pages/Settings'
 import Cases from './pages/Cases'
-import TradeUp from './pages/TradeUp'
 import Leaderboard from './pages/Leaderboard'
 import * as api from './api'
 
@@ -58,7 +57,6 @@ function App() {
           <Route path="/upgrade" element={user ? <Upgrade user={user} onBalanceUpdate={refreshBalance} /> : <Navigate to="/" />} />
           <Route path="/settings" element={user ? <Settings user={user} onBalanceUpdate={refreshBalance} /> : <Navigate to="/" />} />
           <Route path="/cases" element={user ? <Cases user={user} onBalanceUpdate={refreshBalance} /> : <Navigate to="/" />} />
-          <Route path="/tradeup" element={user ? <TradeUp user={user} onBalanceUpdate={refreshBalance} /> : <Navigate to="/" />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
         </Routes>
       </main>

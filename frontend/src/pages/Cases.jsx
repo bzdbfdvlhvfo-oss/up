@@ -48,17 +48,19 @@ export default function Cases({ user, onBalanceUpdate }) {
 
   const isSecret = (skin) => skin && skin.price >= SECRET_PRICE
 
-  // Animation scroll offset
-  const [scrollPos, setScrollPos] = useState(0)
+  // Animation scroll offset — direct DOM, no React re-renders
+  const scrollRef = useRef(null)
   useEffect(() => {
     if (!showAnim || wsData.length === 0) return
+    if (!scrollRef.current) return
     let start = Date.now()
     const dur = 2800
+    const totalPx = (wsData.length - 3) * 90
     const tick = () => {
       const p = Math.min((Date.now() - start) / dur, 1)
-      const eased = p < 0.7 ? p / 0.7 : 1 - (p - 0.7) / 0.3
-      const px = eased * (wsData.length - 3) * 90
-      setScrollPos(px)
+      const eased = 1 - Math.pow(1 - p, 3)
+      const px = eased * totalPx
+      if (scrollRef.current) scrollRef.current.style.transform = `translateX(-${px}px)`
       if (p < 1) wsAnim.current = requestAnimationFrame(tick)
     }
     wsAnim.current = requestAnimationFrame(tick)
@@ -120,7 +122,7 @@ export default function Cases({ user, onBalanceUpdate }) {
           <div className="case-open-modal" onClick={e => e.stopPropagation()}>
             <div className="case-open-title">Открытие {result.case_name}</div>
             <div className="case-open-scroll-wrap">
-              <div className="case-open-scroll" style={{ transform: `translateX(-${scrollPos}px)` }}>
+              <div ref={scrollRef} className="case-open-scroll">
                 {wsData.map((d, i) => {
                   const sec = isSecret(d.skin)
                   return (

@@ -77,10 +77,6 @@ export function buyCase(userId, caseId) {
   return request(`/cases/${caseId}/buy`, { method: 'POST', body: JSON.stringify({ userId }) });
 }
 
-export function tradeUp(userId, inventoryIds) {
-  return request('/tradeup', { method: 'POST', body: JSON.stringify({ userId, inventoryIds }) });
-}
-
 export function getLeaderboard(limit = 50) {
   return request(`/leaderboard?limit=${limit}`);
 }
