@@ -7,26 +7,13 @@ function playSound(type) {
     const osc = ctx.createOscillator()
     const gain = ctx.createGain()
     osc.connect(gain); gain.connect(ctx.destination)
-    if (type === 'whoosh') {
-      osc.type = 'sawtooth'
-      osc.frequency.setValueAtTime(200, ctx.currentTime)
-      osc.frequency.exponentialRampToValueAtTime(2000, ctx.currentTime + 0.3)
-      gain.gain.setValueAtTime(0.04, ctx.currentTime)
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.3)
-    } else if (type === 'shatter') {
-      osc.type = 'square'
-      osc.frequency.setValueAtTime(1500, ctx.currentTime)
-      osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.2)
-      gain.gain.setValueAtTime(0.06, ctx.currentTime)
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.2)
-    } else if (type === 'tick') {
+    if (type === 'spin') {
       osc.type = 'sine'
-      osc.frequency.setValueAtTime(1200 + Math.random() * 400, ctx.currentTime)
-      gain.gain.setValueAtTime(0.03, ctx.currentTime)
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.04)
+      osc.frequency.setValueAtTime(300, ctx.currentTime)
+      osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.15)
+      gain.gain.setValueAtTime(0.04, ctx.currentTime)
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.15)
     } else if (type === 'win') {
       osc.frequency.setValueAtTime(523, ctx.currentTime)
       osc.frequency.setValueAtTime(659, ctx.currentTime + 0.12)
@@ -41,8 +28,29 @@ function playSound(type) {
       gain.gain.setValueAtTime(0.08, ctx.currentTime)
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5)
       osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.5)
+    } else if (type === 'tick') {
+      const osc2 = ctx.createOscillator()
+      const gain2 = ctx.createGain()
+      osc2.connect(gain2); gain2.connect(ctx.destination)
+      osc2.type = 'square'
+      osc2.frequency.setValueAtTime(1200 + Math.random() * 600, ctx.currentTime)
+      gain2.gain.setValueAtTime(0.025, ctx.currentTime)
+      gain2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.03)
+      osc2.start(ctx.currentTime); osc2.stop(ctx.currentTime + 0.03)
     }
   } catch {}
+}
+
+function polarToCartesian(cx, cy, r, angleDeg) {
+  const rad = ((angleDeg - 90) * Math.PI) / 180
+  return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) }
+}
+
+function describeArc(cx, cy, r, startAngle, endAngle) {
+  const start = polarToCartesian(cx, cy, r, endAngle)
+  const end = polarToCartesian(cx, cy, r, startAngle)
+  const largeArc = endAngle - startAngle > 180 ? 1 : 0
+  return `M ${cx} ${cy} L ${start.x} ${start.y} A ${r} ${r} 0 ${largeArc} 0 ${end.x} ${end.y} Z`
 }
 
 export default function Upgrade({ user, onBalanceUpdate }) {
@@ -53,13 +61,11 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const [history, setHistory] = useState([])
   const [mode, setMode] = useState('multiplier')
   const [value, setValue] = useState(2)
-  const [animating, setAnimating] = useState(false)
-  const [phase, setPhase] = useState('idle')
-  const [needlePos, setNeedlePos] = useState(0)
-  const [shattered, setShattered] = useState(false)
+  const [spinning, setSpinning] = useState(false)
+  const [arrowAngle, setArrowAngle] = useState(0)
   const [showResult, setShowResult] = useState(false)
-  const [particles, setParticles] = useState([])
-  const animFrameRef = useRef(null)
+  const [leds, setLeds] = useState([])
+  const animRef = useRef(null)
   const tickRef = useRef(null)
 
   const fetchData = () => {
@@ -85,124 +91,87 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const potWin = selected ? Math.round(selected.price * multiplier) : 0
 
   const toggleSkin = (inventoryId) => {
-    if (animating) return
+    if (spinning) return
     setSelectedId(prev => prev === inventoryId ? null : inventoryId)
-    setResult(null); setShowResult(false); setPhase('idle'); setNeedlePos(0); setShattered(false)
-  }
-
-  const spawnParticles = (count, x, y) => {
-    const p = []
-    for (let i = 0; i < count; i++) {
-      p.push({
-        id: Math.random(), x, y,
-        vx: (Math.random() - 0.5) * 8, vy: -Math.random() * 10 - 5,
-        life: 1, color: Math.random() > 0.5 ? '#00e5ff' : '#ffd54f'
-      })
-    }
-    setParticles(prev => [...prev, ...p])
-    const interval = setInterval(() => {
-      setParticles(prev => {
-        const next = prev.map(p2 => ({ ...p2, x: p2.x + p2.vx, y: p2.y + p2.vy, vy: p2.vy + 0.3, life: p2.life - 0.02 })).filter(p2 => p2.life > 0)
-        if (next.length === 0) clearInterval(interval)
-        return next
-      })
-    }, 30)
+    setResult(null); setShowResult(false); setArrowAngle(0)
   }
 
   const handleUpgrade = async () => {
-    if (!selectedId || loading || animating) return
-    setLoading(true); setResult(null); setShowResult(false); setShattered(false); setParticles([])
+    if (!selectedId || loading || spinning) return
+    setLoading(true); setResult(null); setShowResult(false)
 
     try {
       const res = await api.upgrade(user.id, selectedId, mode, value)
       setResult(res)
-      setAnimating(true)
-      setPhase('shoot')
+      setSpinning(true)
 
-      // Phase 1: Needle shoots up past 100%
-      playSound('whoosh')
-      let startTime = Date.now()
-      const shootDuration = 500
-      const overshoot = 120
+      // WIN arc starts at 0° (top), goes clockwise for chance%
+      // LOSE arc starts at chance%, goes for 100-chance%
+      // WIN center angle = chance / 2
+      // LOSE center angle = chance + (100 - chance) / 2
+      const winCenter = chance / 2
+      const loseCenter = chance + (100 - chance) / 2
+      const targetAngle = res.won ? winCenter : loseCenter
 
-      const animateShoot = () => {
-        const elapsed = Date.now() - startTime
-        const progress = Math.min(elapsed / shootDuration, 1)
-        const eased = 1 - Math.pow(1 - progress, 2)
-        const pos = overshoot * eased
-        setNeedlePos(pos)
+      // Randomize within the sector
+      const sectorSize = res.won ? chance : (100 - chance)
+      const sectorStart = res.won ? 0 : chance
+      const finalAngle = sectorStart + Math.random() * sectorSize
 
-        if (progress >= 1) {
-          // Shatter effect
-          setShattered(true)
-          playSound('shatter')
-          spawnParticles(30, 50, 10)
-          setTimeout(() => {
-            setShattered(false)
-            setPhase('drop')
-            // Phase 2: Drop back to 0
-            startTime = Date.now()
-            const dropDuration = 300
-            const animateDrop = () => {
-              const elapsed2 = Date.now() - startTime
-              const progress2 = Math.min(elapsed2 / dropDuration, 1)
-              const eased2 = 1 - Math.pow(1 - progress2, 3)
-              setNeedlePos(overshoot * (1 - eased2))
-              if (progress2 < 1) {
-                animFrameRef.current = requestAnimationFrame(animateDrop)
-              } else {
-                setNeedlePos(0)
-                setPhase('rise')
-                // Phase 3: Rise to result
-                const target = res.won ? chance + Math.random() * 3 : chance + 10 + Math.random() * (95 - chance - 10)
-                const finalPos = Math.min(target, 100)
-                startTime = Date.now()
-                const riseDuration = 2000
+      // The arrow sweeps 1440 + random degrees (4 full spins + random)
+      const fullSpins = 4 + Math.floor(Math.random() * 3)
+      const totalDegrees = fullSpins * 360 + finalAngle
 
-                let tickCount = 0
-                const tickInterval = setInterval(() => {
-                  playSound('tick')
-                  tickCount++
-                  if (tickCount > 30) clearInterval(tickInterval)
-                }, 80)
-                tickRef.current = tickInterval
-
-                const animateRise = () => {
-                  const elapsed3 = Date.now() - startTime
-                  const progress3 = Math.min(elapsed3 / riseDuration, 1)
-                  const eased3 = 1 - Math.pow(1 - progress3, 3)
-                  const pos3 = finalPos * eased3
-                  setNeedlePos(pos3)
-                  if (progress3 < 1) {
-                    animFrameRef.current = requestAnimationFrame(animateRise)
-                  } else {
-                    setNeedlePos(finalPos)
-                    setAnimating(false)
-                    clearInterval(tickInterval)
-                    setPhase('idle')
-                    setTimeout(() => {
-                      setShowResult(true)
-                      if (res.won) playSound('win')
-                      else playSound('lose')
-                      if (!res.won) setSelectedId(null)
-                      fetchData()
-                      onBalanceUpdate()
-                    }, 400)
-                  }
-                }
-                animateRise()
-              }
-            }
-            animateDrop()
-          }, 200)
-          return
+      // LED animation
+      let ledTick = 0
+      const ledInterval = setInterval(() => {
+        ledTick++
+        const lit = []
+        for (let i = 0; i < 16; i++) {
+          lit.push((i + ledTick) % 16 < 4)
         }
-        animFrameRef.current = requestAnimationFrame(animateShoot)
+        setLeds([...lit])
+      }, 80)
+
+      const startTime = Date.now()
+      const duration = 2500 + Math.random() * 500
+
+      const animate = () => {
+        const elapsed = Date.now() - startTime
+        const progress = Math.min(elapsed / duration, 1)
+        const eased = 1 - Math.pow(1 - progress, 4)
+        const currentAngle = totalDegrees * eased
+        setArrowAngle(currentAngle)
+
+        if (progress < 1) {
+          // Tick sounds - speed up then slow down
+          const tickInterval_ = 60 + 140 * (1 - progress)
+          if (!tickRef.current || Date.now() - tickRef.current > tickInterval_) {
+            playSound('tick')
+            tickRef.current = Date.now()
+          }
+          animRef.current = requestAnimationFrame(animate)
+        } else {
+          setArrowAngle(totalDegrees)
+          setSpinning(false)
+          clearInterval(ledInterval)
+          setTimeout(() => {
+            setShowResult(true)
+            if (res.won) playSound('win')
+            else playSound('lose')
+            if (!res.won) setSelectedId(null)
+            fetchData()
+            onBalanceUpdate()
+          }, 500)
+        }
       }
-      animateShoot()
-    } catch (err) { alert(err.message); setAnimating(false) }
+      animate()
+    } catch (err) { alert(err.message); setSpinning(false) }
     setLoading(false)
   }
+
+  const winAngle = (chance / 100) * 360
+  const cx = 150, cy = 150, r = 130
 
   return (
     <div className="page upgrade-page">
@@ -254,59 +223,177 @@ export default function Upgrade({ user, onBalanceUpdate }) {
           </div>
         )}
 
-        {/* CARNIVAL GAUGE */}
-        <div className="gauge-section">
-          <div className="gauge-container">
-            <div className="gauge-track">
-              <div className="gauge-green" style={{ height: `${chance}%` }} />
-              <div className="gauge-red" style={{ height: `${100 - chance}%` }} />
-              <div className={`gauge-divider ${animating ? 'glow' : ''}`} style={{ bottom: `${chance}%` }} />
-              <div className="gauge-glass" />
-              {shattered && <div className="gauge-shards" />}
-              {particles.map(p => (
-                <div key={p.id} className="particle" style={{
-                  left: `${p.x}%`, top: `${p.y}%`, background: p.color, opacity: p.life
-                }} />
+        {/* WHEEL OF FORTUNE */}
+        <div className="wheel-section">
+          <div className="wheel-container">
+            {/* LED ring */}
+            <div className="wheel-leds">
+              {Array.from({ length: 16 }).map((_, i) => (
+                <div
+                  key={i}
+                  className={`wheel-led ${leds[i] ? 'lit' : ''}`}
+                  style={{
+                    transform: `rotate(${i * 22.5}deg) translateY(-142px)`,
+                  }}
+                />
               ))}
             </div>
-            <div className="gauge-needle-wrap" style={{ bottom: `${needlePos}%` }}>
-              <div className={`gauge-needle ${animating ? 'active' : ''}`} />
-              <div className="gauge-needle-tip" />
-            </div>
-            <div className="gauge-markers">
-              {[0, 25, 50, 75, 100].map(m => (
-                <div key={m} className="gauge-marker" style={{ bottom: `${m}%` }}>
-                  <span>{m}%</span>
-                </div>
-              ))}
-            </div>
+
+            <svg className="wheel-svg" viewBox="0 0 300 300">
+              <defs>
+                <filter id="wglow">
+                  <feGaussianBlur stdDeviation="3" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <filter id="wglow-arrow">
+                  <feGaussianBlur stdDeviation="2" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <radialGradient id="wheel-bg" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#1a1a3a"/>
+                  <stop offset="100%" stopColor="#0a0a1a"/>
+                </radialGradient>
+              </defs>
+
+              {/* Wheel shadow */}
+              <circle cx={cx} cy={cy} r={r + 8} fill="none" stroke="rgba(0,0,0,0.5)" strokeWidth="8" opacity="0.5"/>
+
+              {/* WIN sector (green) */}
+              <path
+                d={describeArc(cx, cy, r, 0, winAngle)}
+                fill={`url(#${spinning ? 'win-grad-active' : 'win-grad'})`}
+                stroke="rgba(0,230,118,0.4)"
+                strokeWidth="1"
+              />
+              <defs>
+                <linearGradient id="win-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#00e676"/>
+                  <stop offset="100%" stopColor="#00c853"/>
+                </linearGradient>
+                <linearGradient id="win-grad-active" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#69f0ae"/>
+                  <stop offset="100%" stopColor="#00e676"/>
+                </linearGradient>
+              </defs>
+
+              {/* LOSE sector (red) */}
+              <path
+                d={describeArc(cx, cy, r, winAngle, 360)}
+                fill={`url(#${spinning ? 'lose-grad-active' : 'lose-grad'})`}
+                stroke="rgba(255,23,68,0.4)"
+                strokeWidth="1"
+              />
+              <defs>
+                <linearGradient id="lose-grad" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#ff1744"/>
+                  <stop offset="100%" stopColor="#d50000"/>
+                </linearGradient>
+                <linearGradient id="lose-grad-active" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#ff5252"/>
+                  <stop offset="100%" stopColor="#ff1744"/>
+                </linearGradient>
+              </defs>
+
+              {/* Wheel border */}
+              <circle cx={cx} cy={cy} r={r} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="2"/>
+              <circle cx={cx} cy={cy} r={r - 15} fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="1"/>
+
+              {/* WIN text */}
+              <text
+                x={cx + r * 0.55 * Math.cos(((winAngle / 4) - 90) * Math.PI / 180)}
+                y={cy + r * 0.55 * Math.sin(((winAngle / 4) - 90) * Math.PI / 180)}
+                textAnchor="middle" dominantBaseline="central"
+                fill="#fff" fontSize="16" fontWeight="800"
+                filter="url(#wglow)"
+              >WIN</text>
+              <text
+                x={cx + r * 0.55 * Math.cos(((winAngle / 4) - 90) * Math.PI / 180)}
+                y={cy + r * 0.55 * Math.sin(((winAngle / 4) - 90) * Math.PI / 180) + 18}
+                textAnchor="middle" dominantBaseline="central"
+                fill="#fff" fontSize="11" fontWeight="600"
+              >{chance}%</text>
+
+              {/* LOSE text */}
+              <text
+                x={cx + r * 0.6 * Math.cos(((winAngle + (360 - winAngle) / 4) - 90) * Math.PI / 180)}
+                y={cy + r * 0.6 * Math.sin(((winAngle + (360 - winAngle) / 4) - 90) * Math.PI / 180)}
+                textAnchor="middle" dominantBaseline="central"
+                fill="#fff" fontSize="14" fontWeight="800"
+                filter="url(#wglow)"
+              >LOSE</text>
+              <text
+                x={cx + r * 0.6 * Math.cos(((winAngle + (360 - winAngle) / 4) - 90) * Math.PI / 180)}
+                y={cy + r * 0.6 * Math.sin(((winAngle + (360 - winAngle) / 4) - 90) * Math.PI / 180) + 16}
+                textAnchor="middle" dominantBaseline="central"
+                fill="#fff" fontSize="10" fontWeight="600"
+              >{100 - chance}%</text>
+
+              {/* Center hub */}
+              <circle cx={cx} cy={cy} r={22} fill="#0a0a2a" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5"/>
+              <circle cx={cx} cy={cy} r={18} fill="none" stroke="rgba(255,213,79,0.3)" strokeWidth="1"/>
+
+              {/* SPINNING ARROW */}
+              <g transform={`rotate(${arrowAngle}, ${cx}, ${cy})`}>
+                <polygon
+                  points={`${cx},${cy - 22} ${cx - 8},${cy + 10} ${cx},${cy + 6} ${cx + 8},${cy + 10}`}
+                  fill="#ffd54f"
+                  stroke="#fff"
+                  strokeWidth="1"
+                  filter="url(#wglow-arrow)"
+                />
+                {/* Arrow shaft */}
+                <rect x={cx - 2} y={cy - 22} width={4} height={32} rx={2} fill="#ffd54f" stroke="rgba(255,255,255,0.3)" strokeWidth="0.5"/>
+                {/* Arrow tip */}
+                <polygon
+                  points={`${cx - 6},${cy - 22} ${cx},${cy - 32} ${cx + 6},${cy - 22}`}
+                  fill="#ffd54f"
+                  stroke="#fff"
+                  strokeWidth="0.5"
+                  filter="url(#wglow-arrow)"
+                />
+              </g>
+
+              {/* Center dot */}
+              <circle cx={cx} cy={cy} r={5} fill="#ffd54f" filter="url(#wglow)"/>
+              <circle cx={cx} cy={cy} r={2} fill="#fff"/>
+
+              {/* Fixed pointer at top */}
+              <polygon
+                points={`${cx},${cy - r - 12} ${cx - 8},${cy - r + 2} ${cx + 8},${cy - r + 2}`}
+                fill="#ffd54f"
+                stroke="#fff"
+                strokeWidth="1"
+                filter="url(#wglow)"
+              />
+            </svg>
+
+            {/* Result overlay */}
+            {showResult && result && (
+              <div className={`wheel-result ${result.won ? 'win' : 'lose'}`}>
+                {result.won ? (
+                  <div className="result-inner">
+                    <div className="result-title win-title">ВЫИГРЫШ!</div>
+                    <div className="result-skin">{result.won_skin?.name}</div>
+                    <div className="result-price">+{result.won_skin?.price.toLocaleString()} ₽</div>
+                  </div>
+                ) : (
+                  <div className="result-inner">
+                    <div className="result-title lose-title">ПРОИГРЫШ</div>
+                    <div className="result-skin">Скин сгорел</div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           {selected && (
             <button
-              className={`btn btn-primary btn-lg spin-btn ${animating ? 'spinning' : ''}`}
+              className={`btn btn-primary btn-lg spin-btn ${spinning ? 'spinning' : ''}`}
               onClick={handleUpgrade}
-              disabled={loading || animating}
+              disabled={loading || spinning}
             >
-              {animating ? 'ПРОВЕРКА...' : loading ? '...' : 'КРУТИТЬ!'}
+              {spinning ? 'КРУТИМ...' : loading ? '...' : 'КРУТИТЬ КОЛЕСО!'}
             </button>
-          )}
-
-          {showResult && result && (
-            <div className={`upgrade-result ${result.won ? 'win' : 'lose'}`}>
-              {result.won ? (
-                <div className="result-inner">
-                  <div className="result-title win-title">ВЫИГРЫШ!</div>
-                  <div className="result-skin">{result.won_skin?.name}</div>
-                  <div className="result-price">+{result.won_skin?.price.toLocaleString()} ₽</div>
-                </div>
-              ) : (
-                <div className="result-inner">
-                  <div className="result-title lose-title">ПРОИГРЫШ</div>
-                  <div className="result-skin">Скин сгорел</div>
-                </div>
-              )}
-            </div>
           )}
         </div>
       </div>
