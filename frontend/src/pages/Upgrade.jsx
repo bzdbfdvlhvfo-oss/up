@@ -1,37 +1,32 @@
 import { useState, useEffect, useRef } from 'react'
 import * as api from '../api'
-import SkinCard from '../components/SkinCard'
 
 function playTone(type) {
   try {
     const ctx = new (window.AudioContext || window.webkitAudioContext)()
     const osc = ctx.createOscillator()
     const gain = ctx.createGain()
-    osc.connect(gain)
-    gain.connect(ctx.destination)
+    osc.connect(gain); gain.connect(ctx.destination)
     if (type === 'win') {
       osc.frequency.setValueAtTime(523, ctx.currentTime)
       osc.frequency.setValueAtTime(659, ctx.currentTime + 0.1)
       osc.frequency.setValueAtTime(784, ctx.currentTime + 0.2)
       gain.gain.setValueAtTime(0.15, ctx.currentTime)
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5)
-      osc.start(ctx.currentTime)
-      osc.stop(ctx.currentTime + 0.5)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.5)
     } else if (type === 'lose') {
       osc.frequency.setValueAtTime(400, ctx.currentTime)
       osc.frequency.setValueAtTime(300, ctx.currentTime + 0.15)
       osc.frequency.setValueAtTime(200, ctx.currentTime + 0.3)
       gain.gain.setValueAtTime(0.12, ctx.currentTime)
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4)
-      osc.start(ctx.currentTime)
-      osc.stop(ctx.currentTime + 0.4)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.4)
     } else if (type === 'tick') {
       osc.type = 'square'
       osc.frequency.setValueAtTime(800, ctx.currentTime)
       gain.gain.setValueAtTime(0.03, ctx.currentTime)
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05)
-      osc.start(ctx.currentTime)
-      osc.stop(ctx.currentTime + 0.05)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.05)
     }
   } catch {}
 }
@@ -42,84 +37,84 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
   const [history, setHistory] = useState([])
+  const [mode, setMode] = useState('multiplier')
+  const [value, setValue] = useState(2)
   const [spinning, setSpinning] = useState(false)
-  const [needleAngle, setNeedleAngle] = useState(0)
   const [showResult, setShowResult] = useState(false)
-  const spinRef = useRef(null)
+  const [liquidLevel, setLiquidLevel] = useState(0)
+  const animRef = useRef(null)
   const tickRef = useRef(null)
 
   const fetchData = () => {
     api.getInventory(user.id).then(setItems).catch(() => {})
     api.getUpgradeHistory(user.id).then(setHistory).catch(() => {})
   }
-
   useEffect(() => { fetchData() }, [])
 
   useEffect(() => {
-    if (!spinning && spinRef.current) {
-      clearInterval(spinRef.current)
-      clearInterval(tickRef.current)
+    if (!spinning && animRef.current) {
+      clearInterval(animRef.current); clearInterval(tickRef.current)
     }
   }, [spinning])
+
+  const selected = items.find(i => i.inventory_id === selectedId)
+  const calcChance = () => {
+    if (!selected) return 0
+    if (mode === 'chance') return Math.min(95, Math.max(1, value))
+    const mult = Math.min(10, Math.max(1.01, value))
+    return Math.round((1 / mult) * 98 * 100) / 100
+  }
+  const chance = calcChance()
+  const calcMultiplier = () => {
+    if (mode === 'multiplier') return value
+    const c = Math.min(95, Math.max(1, value))
+    return Math.round((100 / c) * 100) / 100
+  }
+  const multiplier = calcMultiplier()
+  const potWin = selected ? Math.round(selected.price * multiplier) : 0
+
+  useEffect(() => {
+    if (!spinning) {
+      setLiquidLevel(chance)
+    }
+  }, [chance, spinning, selectedId, mode, value])
 
   const toggleSkin = (inventoryId) => {
     if (spinning) return
     setSelectedId(prev => prev === inventoryId ? null : inventoryId)
-    setResult(null)
-    setShowResult(false)
-  }
-
-  const selected = items.find(i => i.inventory_id === selectedId)
-  const tiers = ['Industrial', 'Mil-Spec', 'Restricted', 'Classified', 'Covert']
-  const targetTier = selected ? tiers[Math.min(tiers.indexOf(selected.rarity) + 1, tiers.length - 1)] : null
-
-  const calcChance = () => {
-    if (!selected) return 0
-    const base = Math.min(30, Math.round((selected.price / 18000) * 30))
-    return Math.max(5, base)
+    setResult(null); setShowResult(false)
   }
 
   const handleUpgrade = async () => {
     if (!selectedId || loading || spinning) return
-    setLoading(true)
-    setShowResult(false)
-    setResult(null)
-    const chance = calcChance()
+    setLoading(true); setShowResult(false); setResult(null)
     try {
-      const res = await api.upgrade(user.id, [selectedId])
+      const res = await api.upgrade(user.id, selectedId, mode, value)
       setResult(res)
-
-      const winAngle = 90 + (Math.random() * (chance / 100) * 360 * 0.8)
-      const loseAngle = 90 + (chance / 100) * 360 + (Math.random() * ((100 - chance) / 100) * 360 * 0.8)
-      const targetAngle = res.won ? winAngle : loseAngle
-      const fullSpins = 5 + Math.floor(Math.random() * 3)
-      const totalAngle = fullSpins * 360 + targetAngle
-
       setSpinning(true)
 
       let tickCount = 0
       const tickInterval = setInterval(() => {
-        playTone('tick')
-        tickCount++
-        if (tickCount > 30) clearInterval(tickInterval)
-      }, 80)
-
+        playTone('tick'); tickCount++
+        if (tickCount > 20) clearInterval(tickInterval)
+      }, 100)
       tickRef.current = tickInterval
 
+      // Animate liquid
+      const startLevel = chance
+      const endLevel = res.won ? 100 : 0
       const startTime = Date.now()
       const duration = 2500
-      const startAngle = needleAngle % 360
 
       const animate = () => {
         const elapsed = Date.now() - startTime
         const progress = Math.min(elapsed / duration, 1)
         const eased = 1 - Math.pow(1 - progress, 3)
-        const current = startAngle + (totalAngle - startAngle) * eased
-        setNeedleAngle(current)
+        setLiquidLevel(startLevel + (endLevel - startLevel) * eased)
         if (progress < 1) {
-          requestAnimationFrame(animate)
+          animRef.current = requestAnimationFrame(animate)
         } else {
-          setNeedleAngle(totalAngle)
+          setLiquidLevel(endLevel)
           setSpinning(false)
           clearInterval(tickInterval)
           setTimeout(() => {
@@ -129,147 +124,155 @@ export default function Upgrade({ user, onBalanceUpdate }) {
             if (!res.won) setSelectedId(null)
             fetchData()
             onBalanceUpdate()
-          }, 300)
+          }, 500)
         }
       }
       animate()
-    } catch (err) {
-      alert(err.message)
-      setSpinning(false)
-    }
+    } catch (err) { alert(err.message); setSpinning(false) }
     setLoading(false)
   }
 
-  const chance = calcChance()
-
   return (
     <div className="page upgrade-page">
-      <h2>Апгрейд</h2>
-      <p className="upgrade-hint">Выбери скин и крути колесо!</p>
+      <h2 className="upgrade-title">Апгрейд скина</h2>
 
-      <div className="wheel-section">
-        <div className="wheel-container">
-          <svg className="wheel-svg" viewBox="0 0 200 200">
-            <defs>
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-            </defs>
-            <g transform={`rotate(${-90 + (chance / 100) * 180}, 100, 100)`}>
-              <path
-                d="M100,100 L100,5 A95,95 0 0,1 195,100 Z"
-                fill={spinning || (showResult && result?.won) ? '#00e676' : '#1a3a2a'}
-                stroke="#00e676"
-                strokeWidth="0.5"
-                opacity="0.9"
-              />
-            </g>
-            <g transform={`rotate(${90 + (chance / 100) * 180}, 100, 100)`}>
-              <path
-                d="M100,100 L100,5 A95,95 0 0,1 195,100 Z"
-                fill={spinning || (showResult && !result?.won) ? '#ff1744' : '#3a1a1a'}
-                stroke="#ff1744"
-                strokeWidth="0.5"
-                opacity="0.9"
-              />
-            </g>
-            <circle cx="100" cy="100" r="95" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="2"/>
-            <circle cx="100" cy="100" r="85" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1"/>
-            <g>
-              {Array.from({ length: 20 }).map((_, i) => (
-                <line
-                  key={i}
-                  x1={100 + 82 * Math.cos((i * 18 * Math.PI) / 180)}
-                  y1={100 + 82 * Math.sin((i * 18 * Math.PI) / 180)}
-                  x2={100 + 95 * Math.cos((i * 18 * Math.PI) / 180)}
-                  y2={100 + 95 * Math.sin((i * 18 * Math.PI) / 180)}
-                  stroke="rgba(255,255,255,0.1)"
-                  strokeWidth="1"
-                  transform={`rotate(${(chance / 100) * 180}, 100, 100)`}
-                />
-              ))}
-            </g>
-            <text x="48" y="30" fontSize="9" fill="#00e676" fontWeight="700" filter="url(#glow)">
-              WIN {chance}%
-            </text>
-            <text x={140} y={90} fontSize="9" fill="#ff1744" fontWeight="700" filter="url(#glow)">
-              LOSE {100 - chance}%
-            </text>
-            {/* NEEDLE */}
-            <g transform={`rotate(${needleAngle}, 100, 100)`}>
-              <polygon points="100,12 95,40 105,40" fill="#ffd54f" stroke="#fff" strokeWidth="1" filter="url(#glow)"/>
-              <circle cx="100" cy="100" r="6" fill="#ffd54f" stroke="#fff" strokeWidth="1.5"/>
-              <circle cx="100" cy="100" r="2.5" fill="#1a1a3a"/>
-            </g>
-          </svg>
+      <div className="upgrade-main">
+        {selected ? (
+          <div className="upgrade-selected-card">
+            <div className="upgrade-selected-info">
+              <div className="upgrade-selected-name">{selected.name}</div>
+              <div className="upgrade-selected-meta">{selected.rarity} · {selected.quality}</div>
+              <div className="upgrade-selected-price">{selected.price.toLocaleString()} ₽</div>
+            </div>
+          </div>
+        ) : (
+          <div className="upgrade-selected-empty">Выбери скин из инвентаря ниже</div>
+        )}
+
+        <div className="upgrade-controls">
+          <div className="mode-toggle">
+            <button className={`mode-btn ${mode === 'chance' ? 'active' : ''}`} onClick={() => setMode('chance')}>Шанс</button>
+            <button className={`mode-btn ${mode === 'multiplier' ? 'active' : ''}`} onClick={() => setMode('multiplier')}>Множитель</button>
+          </div>
+
+          <div className="value-presets">
+            {mode === 'chance' ? (
+              <>
+                {[30, 50, 75].map(v => (
+                  <button key={v} className={`preset-btn ${value === v ? 'active' : ''}`} onClick={() => setValue(v)}>{v}%</button>
+                ))}
+              </>
+            ) : (
+              <>
+                {[2, 4, 8].map(v => (
+                  <button key={v} className={`preset-btn ${value === v ? 'active' : ''}`} onClick={() => setValue(v)}>{v}x</button>
+                ))}
+              </>
+            )}
+          </div>
+        </div>
+
+        {selected && (
+          <div className="upgrade-stats">
+            <div className="stat-item">
+              <span className="stat-label">Шанс</span>
+              <span className="stat-value chance-value">{chance}%</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-label">Множитель</span>
+              <span className="stat-value">{multiplier}x</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-label">Потенц. выигрыш</span>
+              <span className="stat-value potwin-value">{potWin.toLocaleString()} ₽</span>
+            </div>
+          </div>
+        )}
+
+        <div className="liquid-section">
+          <div className="liquid-container">
+            <div className="liquid-track-wrap">
+              <div className="liquid-track">
+                <div className="liquid-fill" style={{ height: `${liquidLevel}%` }}>
+                  <div className="liquid-wave" />
+                  <div className="liquid-glow" />
+                </div>
+              </div>
+            </div>
+            <div className="liquid-label">{Math.round(liquidLevel)}%</div>
+          </div>
+
+          {selected && (
+            <button className="btn btn-primary btn-lg spin-btn" onClick={handleUpgrade} disabled={loading || spinning}>
+              {spinning ? 'ПРОВЕРКА...' : loading ? '...' : 'КРУТИТЬ!'}
+            </button>
+          )}
 
           {showResult && result && (
-            <div className={`wheel-result ${result.won ? 'win' : 'lose'}`}>
+            <div className={`upgrade-result ${result.won ? 'win' : 'lose'}`}>
               {result.won ? (
-                <>ВЫИГРЫШ!<br/>{result.won_skin?.name}<br/><span className="wheel-price">{result.won_skin?.price.toLocaleString()} ₽</span></>
+                <div className="result-inner">
+                  <div className="result-title win-title">ВЫИГРЫШ!</div>
+                  <div className="result-skin">{result.won_skin?.name}</div>
+                  <div className="result-price">+{result.won_skin?.price.toLocaleString()} ₽</div>
+                </div>
               ) : (
-                <>ПРОИГРЫШ</>
+                <div className="result-inner">
+                  <div className="result-title lose-title">ПРОИГРЫШ</div>
+                  <div className="result-skin">Скин сгорел</div>
+                </div>
               )}
             </div>
           )}
         </div>
-
-        <div className="wheel-info">
-          {selected ? (
-            <>
-              <div>Скин: <strong>{selected.name}</strong> ({selected.quality})</div>
-              <div>Цена: <strong>{selected.price.toLocaleString()} ₽</strong></div>
-              <div>Цель: <strong style={{ color: 'var(--accent2)' }}>{targetTier}</strong></div>
-              <div>Шанс: <strong style={{ color: 'var(--gold)' }}>{chance}%</strong></div>
-              <button
-                className="btn btn-primary btn-lg wheel-spin-btn"
-                onClick={handleUpgrade}
-                disabled={loading || spinning}
-              >
-                {spinning ? '...' : loading ? 'КРУТИМ...' : 'КРУТИТЬ!'}
-              </button>
-            </>
-          ) : (
-            <div className="wheel-select-hint">Выбери скин в инвентаре ниже</div>
-          )}
-        </div>
       </div>
 
-      {items.length === 0 ? (
-        <div className="empty-state">
-          <p>В инвентаре нет скинов. Купи что-нибудь в Маркете.</p>
-          <a href="/marketplace" className="btn btn-primary">В Маркет</a>
-        </div>
-      ) : (
-        <div className="skin-grid">
-          {items.map(item => (
-            <SkinCard
-              key={item.inventory_id}
-              skin={item}
-              inInventory
-              inventoryId={item.inventory_id}
-              selected={selectedId === item.inventory_id}
-              onToggle={() => toggleSkin(item.inventory_id)}
-            />
-          ))}
-        </div>
-      )}
-
-      {history.length > 0 && (
-        <div className="history-section">
-          <h3>История</h3>
+      <div className="history-section">
+        <h3>История апгрейдов</h3>
+        {history.length === 0 ? (
+          <p className="history-empty">Пока нет попыток</p>
+        ) : (
           <div className="history-list">
             {history.map(h => (
               <div key={h.id} className={`history-item ${h.result}`}>
-                <span>{h.result === 'win' ? 'ВЫИГРЫШ' : 'ПРОИГРЫШ'}</span>
-                <span>{h.staked_name}</span>
+                <span className="history-result">{h.result === 'win' ? 'ВЫИГРЫШ' : 'ПРОИГРЫШ'}</span>
+                <span className="history-skin">{h.staked_name}</span>
+                <span className="history-mult">x{h.multiplier}</span>
                 <span className="history-date">{new Date(h.created_at).toLocaleString('ru')}</span>
               </div>
             ))}
           </div>
-        </div>
-      )}
+        )}
+      </div>
+
+      <div className="upgrade-inventory">
+        <h3>Инвентарь</h3>
+        {items.length === 0 ? (
+          <div className="empty-state">
+            <p>Нет скинов в инвентаре</p>
+            <a href="/marketplace" className="btn btn-primary">В Маркет</a>
+          </div>
+        ) : (
+          <div className="skin-grid">
+            {items.map(item => (
+              <div
+                key={item.inventory_id}
+                className={`skin-card${selectedId === item.inventory_id ? ' skin-card-selected' : ''}`}
+                onClick={() => toggleSkin(item.inventory_id)}
+              >
+                <div className="skin-image-wrap">
+                  <div className="skin-image-placeholder" />
+                </div>
+                <div className="skin-info">
+                  <div className="skin-name">{item.name}</div>
+                  <div className="skin-quality-label">{item.quality}</div>
+                  <div className="skin-price">{item.price.toLocaleString()} ₽</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   )
 }

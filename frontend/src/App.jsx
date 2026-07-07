@@ -26,8 +26,7 @@ function App() {
     }
   }, [user])
 
-  const handleLogin = async (username) => {
-    const u = await api.login(username)
+  const handleAuthSuccess = (u) => {
     setUser(u)
     setBalance(u.balance)
     setShowAuth(false)
@@ -46,13 +45,7 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar
-        user={user}
-        balance={balance}
-        onLoginClick={() => setShowAuth(true)}
-        onLogout={handleLogout}
-        onBalanceUpdate={refreshBalance}
-      />
+      <Navbar user={user} balance={balance} onLoginClick={() => setShowAuth(true)} onLogout={handleLogout} onBalanceUpdate={refreshBalance} />
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home user={user} onLoginClick={() => setShowAuth(true)} />} />
@@ -61,7 +54,7 @@ function App() {
           <Route path="/upgrade" element={user ? <Upgrade user={user} onBalanceUpdate={refreshBalance} /> : <Navigate to="/" />} />
         </Routes>
       </main>
-      {showAuth && <AuthModal onLogin={handleLogin} onClose={() => setShowAuth(false)} />}
+      {showAuth && <AuthModal onLogin={handleAuthSuccess} onClose={() => setShowAuth(false)} />}
     </div>
   )
 }

@@ -12,8 +12,12 @@ async function request(url, opts = {}) {
   return res.json();
 }
 
-export function login(username) {
-  return request('/auth/login', { method: 'POST', body: JSON.stringify({ username }) });
+export function register(username, password) {
+  return request('/auth/register', { method: 'POST', body: JSON.stringify({ username, password }) });
+}
+
+export function login(username, password) {
+  return request('/auth/login', { method: 'POST', body: JSON.stringify({ username, password }) });
 }
 
 export function getSkins(filters = {}) {
@@ -37,8 +41,8 @@ export function sellSkin(userId, inventoryId) {
   return request(`/users/${userId}/inventory/${inventoryId}/sell`, { method: 'POST' });
 }
 
-export function upgrade(userId, inventoryIds) {
-  return request(`/users/${userId}/upgrade`, { method: 'POST', body: JSON.stringify({ inventoryIds }) });
+export function upgrade(userId, inventoryId, mode, value) {
+  return request(`/users/${userId}/upgrade`, { method: 'POST', body: JSON.stringify({ inventoryId, mode, value }) });
 }
 
 export function getBalance(userId) {
