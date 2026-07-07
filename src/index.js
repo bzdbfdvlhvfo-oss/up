@@ -246,6 +246,21 @@ app.get('/api/promo-codes', async (req, res) => {
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
-app.listen(PORT, () => {
+async function autoSeed() {
+  try {
+    const result = await query('SELECT COUNT(*) as count FROM skins');
+    if (parseInt(result.rows[0].count) === 0) {
+      console.log('Database empty, running seed...');
+      const { seed } = await import('./seed.js');
+      await seed();
+      console.log('Auto-seed complete.');
+    }
+  } catch (e) {
+    console.log('Auto-seed check failed:', e.message);
+  }
+}
+
+app.listen(PORT, async () => {
   console.log(`CS2 Upgrader API running on http://localhost:${PORT}`);
+  await autoSeed();
 });

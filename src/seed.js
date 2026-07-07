@@ -51,4 +51,9 @@ async function seed() {
   console.log(`Seeded ${promos.length} promo codes.`);
 }
 
-seed().catch(console.error).then(() => process.exit(0));
+export { seed };
+
+const isMain = process.argv[1] === fileURLToPath(import.meta.url);
+if (isMain) {
+  seed().catch(console.error).then(() => process.exit(0));
+}
