@@ -4,45 +4,42 @@ import * as api from '../api'
 function playSound(type) {
   try {
     const ctx = new (window.AudioContext || window.webkitAudioContext)()
-    const osc = ctx.createOscillator(); const gain = ctx.createGain()
-    osc.connect(gain); gain.connect(ctx.destination)
     if (type === 'spin') {
-      osc.type = 'triangle'
-      osc.frequency.setValueAtTime(220, ctx.currentTime)
-      osc.frequency.exponentialRampToValueAtTime(440, ctx.currentTime + 0.2)
-      gain.gain.setValueAtTime(0.015, ctx.currentTime)
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.25)
+      const osc = ctx.createOscillator(); const gain = ctx.createGain()
+      osc.type = 'sawtooth'
+      osc.frequency.setValueAtTime(80, ctx.currentTime)
+      osc.frequency.exponentialRampToValueAtTime(160, ctx.currentTime + 0.15)
+      gain.gain.setValueAtTime(0.06, ctx.currentTime)
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2)
+      osc.connect(gain); gain.connect(ctx.destination)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.2)
     } else if (type === 'tick') {
-      osc.type = 'sine'
-      osc.frequency.setValueAtTime(600 + Math.random() * 300, ctx.currentTime)
-      gain.gain.setValueAtTime(0.006, ctx.currentTime)
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.03)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.03)
-    } else if (type === 'win') {
-      osc.type = 'sine'
-      osc.frequency.setValueAtTime(523, ctx.currentTime)
-      osc.frequency.exponentialRampToValueAtTime(1047, ctx.currentTime + 0.5)
-      gain.gain.setValueAtTime(0.05, ctx.currentTime)
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.6)
-      setTimeout(() => {
-        const o2 = ctx.createOscillator(); const g2 = ctx.createGain()
-        o2.connect(g2); g2.connect(ctx.destination)
-        o2.type = 'sine'
-        o2.frequency.setValueAtTime(659, ctx.currentTime)
-        o2.frequency.exponentialRampToValueAtTime(1318, ctx.currentTime + 0.4)
-        g2.gain.setValueAtTime(0.04, ctx.currentTime)
-        g2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5)
-        o2.start(ctx.currentTime); o2.stop(ctx.currentTime + 0.5)
-      }, 300)
-    } else if (type === 'lose') {
-      osc.type = 'sine'
-      osc.frequency.setValueAtTime(350, ctx.currentTime)
-      osc.frequency.exponentialRampToValueAtTime(120, ctx.currentTime + 0.35)
+      const osc = ctx.createOscillator(); const gain = ctx.createGain()
+      osc.type = 'square'
+      osc.frequency.setValueAtTime(120 + Math.random() * 80, ctx.currentTime)
       gain.gain.setValueAtTime(0.03, ctx.currentTime)
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.35)
-      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.35)
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04)
+      osc.connect(gain); gain.connect(ctx.destination)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.04)
+    } else if (type === 'win') {
+      [60, 40, 30].forEach((f, i) => { setTimeout(() => {
+        const o = ctx.createOscillator(); const g = ctx.createGain()
+        o.type = 'sawtooth'; o.frequency.setValueAtTime(150 - i * 30, ctx.currentTime)
+        o.frequency.exponentialRampToValueAtTime(300 - i * 60, ctx.currentTime + 0.5)
+        g.gain.setValueAtTime(0.07 - i * 0.02, ctx.currentTime)
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5)
+        o.connect(g); g.connect(ctx.destination)
+        o.start(ctx.currentTime); o.stop(ctx.currentTime + 0.5)
+      }, i * 180) })
+    } else if (type === 'lose') {
+      const osc = ctx.createOscillator(); const gain = ctx.createGain()
+      osc.type = 'sawtooth'
+      osc.frequency.setValueAtTime(200, ctx.currentTime)
+      osc.frequency.exponentialRampToValueAtTime(40, ctx.currentTime + 0.5)
+      gain.gain.setValueAtTime(0.06, ctx.currentTime)
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5)
+      osc.connect(gain); gain.connect(ctx.destination)
+      osc.start(ctx.currentTime); osc.stop(ctx.currentTime + 0.5)
     }
   } catch {}
 }
