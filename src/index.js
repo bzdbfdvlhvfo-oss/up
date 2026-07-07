@@ -260,7 +260,10 @@ async function autoSeed() {
   }
 }
 
-app.listen(PORT, async () => {
-  console.log(`CS2 Upgrader API running on http://localhost:${PORT}`);
-  await autoSeed();
+process.on('uncaughtException', (e) => console.error('UNCAUGHT:', e));
+process.on('unhandledRejection', (e) => console.error('UNHANDLED:', e));
+
+app.listen(PORT, '0.0.0.0', async () => {
+  console.log(`CS2 Upgrader API running on port ${PORT}`);
+  try { await autoSeed(); } catch (e) { console.error('Seed error:', e); }
 });

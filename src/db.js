@@ -1,14 +1,26 @@
-import pkg from 'pg';
-const { Pool } = pkg;
+import pg from 'pg';
 
 let pool;
 
 export async function getDb() {
   if (!pool) {
-    pool = new Pool({
+    pool = new pg.Pool({
       connectionString: process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/cs2upgrader',
       ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false,
+      connectionTimeoutMillis: 10000,
     });
+    let retries = 5;
+    while (retries > 0) {
+      try {
+        const client = await pool.connect();
+        client.release();
+        break;
+      } catch (e) {
+        retries--;
+        console.log(`DB connection failed (${retries} retries left): ${e.message}`);
+        await new Promise(r => setTimeout(r, 2000));
+      }
+    }
     await initTables();
   }
   return pool;
