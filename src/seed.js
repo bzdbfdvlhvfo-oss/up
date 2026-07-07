@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import { query } from './db.js';
+import { query, initDb } from './db.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const skins = JSON.parse(readFileSync(join(__dirname, '..', 'data', 'skins.json'), 'utf-8'));
@@ -55,5 +55,5 @@ export { seed };
 
 const isMain = process.argv[1] === fileURLToPath(import.meta.url);
 if (isMain) {
-  seed().catch(console.error).then(() => process.exit(0));
+  initDb().then(() => seed()).catch(console.error).then(() => process.exit(0));
 }
