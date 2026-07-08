@@ -159,18 +159,31 @@ export default function Upgrade({ user, onBalanceUpdate }) {
 
       setFlash(true)
 
+      let lastTickAngle = -1
       const animate = () => {
         const elapsed = Date.now() - startTime
         const progress = Math.min(elapsed / duration, 1)
-        const eased = 1 - Math.pow(1 - progress, 3.5)
+        // Multi-stage: fast start → cruise → long deceleration with slight bounce
+        let eased
+        if (progress < 0.15) {
+          eased = 2.5 * progress * progress
+        } else if (progress < 0.45) {
+          eased = 0.056 + 1.3 * (progress - 0.15)
+        } else {
+          const t = (progress - 0.45) / 0.55
+          eased = 0.446 + 0.56 * t - 0.02 * Math.sin(t * Math.PI * 2.5)
+        }
         const currentAngle = totalDegrees * eased
         if (arrowEl.current) {
           arrowEl.current.style.transform = `rotate(${currentAngle}deg)`
         }
 
-        const segDeg = currentAngle % 18
-        if (segDeg < 2) {
-          if (!tickTimers.current.some(t => Date.now() - t < 200)) {
+        // Tick sound that gradually slows down
+        const tickAngle = Math.floor(currentAngle / 18)
+        if (tickAngle !== lastTickAngle) {
+          lastTickAngle = tickAngle
+          const tickGap = Date.now() - (tickTimers.current[0] || 0)
+          if (tickGap > 50) {
             playSound('tick')
             tickTimers.current = [Date.now(), ...tickTimers.current].slice(0, 3)
           }
@@ -182,9 +195,10 @@ export default function Upgrade({ user, onBalanceUpdate }) {
           if (arrowEl.current) {
             arrowEl.current.style.transform = `rotate(${totalDegrees}deg)`
           }
+          // Flash stop + brief continued shake
           setSpinning(false)
           setFlash(false)
-          setShake(false)
+          setTimeout(() => setShake(false), 300)
           setTimeout(() => {
             setShowResult(true)
             if (res.won) {

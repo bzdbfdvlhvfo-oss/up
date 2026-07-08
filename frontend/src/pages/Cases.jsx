@@ -48,44 +48,71 @@ export default function Cases({ user, onBalanceUpdate }) {
 
   const isSecret = (skin) => skin && skin.price >= SECRET_PRICE
 
-  // Animation scroll offset — acceleration then deceleration with ease
+  // Slot-machine style scroll with ticking that slows down
   const scrollRef = useRef(null)
   const [caseGlow, setCaseGlow] = useState(false)
   const [caseShake, setCaseShake] = useState(false)
+  const [caseZoom, setCaseZoom] = useState(false)
   useEffect(() => {
     if (!showAnim || wsData.length === 0) return
     if (!scrollRef.current) return
     let start = Date.now()
-    const dur = 3200
+    const dur = 3800
     const totalPx = (wsData.length - 3) * 90
+    let lastTickSegment = -1
+    let tickCtx
+    try { tickCtx = new (window.AudioContext || window.webkitAudioContext)() } catch {}
+    const playCaseTick = (pitch) => {
+      if (!tickCtx) return
+      try {
+        const o = tickCtx.createOscillator(); const g = tickCtx.createGain()
+        o.type = 'square'
+        o.frequency.setValueAtTime(60 + pitch, tickCtx.currentTime)
+        g.gain.setValueAtTime(0.02, tickCtx.currentTime)
+        g.gain.exponentialRampToValueAtTime(0.001, tickCtx.currentTime + 0.05)
+        o.connect(g); g.connect(tickCtx.destination)
+        o.start(tickCtx.currentTime); o.stop(tickCtx.currentTime + 0.05)
+      } catch {}
+    }
     const tick = () => {
       const p = Math.min((Date.now() - start) / dur, 1)
-      // Multi-stage easing: fast start → slow middle → smooth stop
+      // Three-phase easing: fast launch → cruise → long deceleration with overshoot
       let eased
-      if (p < 0.2) {
-        // acceleration phase (fast start)
-        eased = 2.5 * p * p
-      } else if (p < 0.6) {
-        // fast cruise
-        eased = 0.1 + 1.3 * (p - 0.2)
+      if (p < 0.15) {
+        // Launch: fast acceleration
+        eased = 3.0 * p * p
+      } else if (p < 0.45) {
+        // Cruise: fast continuous scroll
+        eased = 0.0675 + 1.35 * (p - 0.15)
       } else {
-        // deceleration (smooth stop)
-        const t = (p - 0.6) / 0.4
-        eased = 0.62 + 0.38 * (1 - Math.pow(1 - t, 4))
+        // Deceleration: long smooth stop with slight overshoot bounce
+        const t = (p - 0.45) / 0.55
+        eased = 0.4725 + 0.54 * t - 0.03 * Math.sin(t * Math.PI * 2)
       }
       const px = Math.min(eased * totalPx, totalPx)
       if (scrollRef.current) scrollRef.current.style.transform = `translateX(-${px}px)`
+
+      // Ticking sound — slows down as animation progresses
+      const seg = Math.floor(eased * (wsData.length - 3))
+      if (seg !== lastTickSegment) {
+        lastTickSegment = seg
+        const pitch = Math.max(20, 200 - eased * 180)
+        playCaseTick(pitch)
+      }
+
       if (p < 1) {
         wsAnim.current = requestAnimationFrame(tick)
       } else {
-        // End animation — flash glow + little shake
+        // Final reveal: glow + shake + zoom on winning card
         setCaseGlow(true)
         setCaseShake(true)
-        setTimeout(() => { setCaseGlow(false); setCaseShake(false) }, 2000)
+        setTimeout(() => setCaseZoom(true), 100)
+        setTimeout(() => { setCaseGlow(false); setCaseShake(false); setCaseZoom(false) }, 2500)
+        if (tickCtx) tickCtx.close()
       }
     }
     wsAnim.current = requestAnimationFrame(tick)
-    return () => { if (wsAnim.current) cancelAnimationFrame(wsAnim.current) }
+    return () => { if (wsAnim.current) cancelAnimationFrame(wsAnim.current); if (tickCtx) tickCtx.close() }
   }, [showAnim, wsData.length])
 
   return (
@@ -148,7 +175,7 @@ export default function Cases({ user, onBalanceUpdate }) {
                 {wsData.map((d, i) => {
                   const sec = isSecret(d.skin)
                   return (
-                    <div key={i} className={`case-open-card ${d.skin?.id === result.skin?.id ? 'case-open-card-hit' : ''}`}>
+                    <div key={i} className={`case-open-card ${d.skin?.id === result.skin?.id ? 'case-open-card-hit' : ''} ${d.skin?.id === result.skin?.id && caseZoom ? 'case-open-card-zoom' : ''}`}>
                       <div className="case-open-card-img">
                         {sec && d.skin?.id !== result.skin?.id ? (
                           <div className="cdm-q-big">?</div>
