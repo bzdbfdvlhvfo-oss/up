@@ -62,9 +62,13 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const [winSkins, setWinSkins] = useState([])
   const [skinFilter, setSkinFilter] = useState('all')
   const [spinSpeed, setSpinSpeed] = useState('fast')
+  const [targetSkins, setTargetSkins] = useState([])
+  const [selectedTarget, setSelectedTarget] = useState(null)
+  const [shake, setShake] = useState(false)
   const arrowEl = useRef(null)
   const animRef = useRef(null)
   const tickTimers = useRef([])
+  const shakeRef = useRef(null)
 
   const fetchData = () => {
     api.getInventory(user.id).then(setItems).catch(() => {})
@@ -92,13 +96,21 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const potWin = selected ? Math.round(selected.price * multiplier) : 0
 
   useEffect(() => {
-    if (!selected || !multiplier) { setTargetName(''); setTargetPrice(0); setTargetImg(''); return }
+    if (!selected || !multiplier) { setTargetName(''); setTargetPrice(0); setTargetImg(''); setTargetSkins([]); setSelectedTarget(null); return }
     const targetMin = Math.round(selected.price * multiplier * 0.9)
     const targetMax = Math.round(selected.price * multiplier * 1.4)
     api.getSkins({ min: targetMin, max: targetMax }).then(skins => {
+      setTargetSkins(skins)
       if (skins.length > 0) {
-        const pick = skins[Math.floor(Math.random() * Math.min(skins.length, 5))]
-        setTargetName(pick.name); setTargetPrice(pick.price); setTargetImg(pick.image_url || '')
+        // Pre-select first target or keep existing selection if still valid
+        const keep = selectedTarget && skins.find(s => s.id === selectedTarget.id)
+        if (keep) {
+          setTargetName(keep.name); setTargetPrice(keep.price); setTargetImg(keep.image_url || '')
+        } else {
+          const pick = skins[Math.floor(Math.random() * Math.min(skins.length, 5))]
+          setSelectedTarget(null)
+          setTargetName(pick.name); setTargetPrice(pick.price); setTargetImg(pick.image_url || '')
+        }
       } else {
         setTargetName(`~${(selected.price * multiplier).toLocaleString()} ₽`);
         setTargetPrice(selected.price * multiplier); setTargetImg('')
@@ -115,6 +127,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
   const handleUpgrade = async () => {
     if (!selectedId || loading || spinning) return
     setLoading(true); setResult(null); setShowResult(false); setFlash(false); setWinGlow(false); setWinSkins([])
+    setShake(false)
 
     // Fetch some random skins for the win scatter effect
     let scatterSkins = []
@@ -124,7 +137,8 @@ export default function Upgrade({ user, onBalanceUpdate }) {
     } catch {}
 
     try {
-      const res = await api.upgrade(user.id, selectedId, mode, value)
+      const targetSkinId = selectedTarget ? selectedTarget.id : undefined
+      const res = await api.upgrade(user.id, selectedId, mode, value, targetSkinId)
       setResult(res)
 
       const winStart = 0
@@ -138,6 +152,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
       const totalDegrees = fullSpins * 360 + (targetAngle / 100) * 360
 
       setSpinning(true)
+      setShake(true)
       playSound('spin')
       const startTime = Date.now()
       const duration = spinSpeed === 'slow' ? 3500 + Math.random() * 500 : 2000 + Math.random() * 400
@@ -169,6 +184,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
           }
           setSpinning(false)
           setFlash(false)
+          setShake(false)
           setTimeout(() => {
             setShowResult(true)
             if (res.won) {
@@ -233,7 +249,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
               <button className={`mtab ${mode === 'multiplier' ? 'active' : ''}`} onClick={() => setMode('multiplier')}>Множитель</button>
             </div>
             <div className="preset-row">
-              {(mode === 'chance' ? [30, 50, 75] : [2, 4, 8]).map(v => (
+              {(mode === 'chance' ? [20, 30, 50, 70, 85] : [1.5, 2, 3, 5, 8]).map(v => (
                 <button key={v} className={`pbtn ${value === v ? 'active' : ''}`} onClick={() => setValue(v)}>
                   {v}{mode === 'chance' ? '%' : 'x'}
                 </button>
@@ -270,22 +286,73 @@ export default function Upgrade({ user, onBalanceUpdate }) {
                 <radialGradient id="wheelBg" cx="50%" cy="50%" r="50%">
                   <stop offset="0%" stopColor="#1a1a1a"/><stop offset="100%" stopColor="#0d0d0d"/>
                 </radialGradient>
+                <radialGradient id="hubGrad" cx="40%" cy="35%" r="60%">
+                  <stop offset="0%" stopColor="#555"/><stop offset="100%" stopColor="#111"/>
+                </radialGradient>
                 <filter id="wShad"><feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="#000" floodOpacity="0.6"/></filter>
                 <filter id="wGlow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                <linearGradient id="winGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#4a2800"/><stop offset="100%" stopColor="#2a1500"/>
+                </linearGradient>
+                <linearGradient id="loseGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#1a1a1a"/><stop offset="100%" stopColor="#0d0d0d"/>
+                </linearGradient>
               </defs>
-              <circle cx={cx} cy={cy} r={r + 8} fill="none" stroke="#333" strokeWidth="5"/>
-              <circle cx={cx} cy={cy} r={r + 3} fill="none" stroke="var(--accent)" strokeWidth="1" opacity="0.3"/>
+              <circle cx={cx} cy={cy} r={r + 8} fill="none" stroke="#2a2a2a" strokeWidth="6"/>
+              <circle cx={cx} cy={cy} r={r + 3} fill="none" stroke="var(--accent)" strokeWidth="1" opacity="0.25"/>
               {segs.map((s, i) => {
                 const glow = s.isWin ? { filter: 'url(#wGlow)' } : {}
-                return <path key={i} d={s.d} fill={s.color} stroke={s.stroke} strokeWidth="1.5" {...glow}/>
+                return <path key={i} d={s.d} fill={s.color} stroke={s.stroke} strokeWidth="1" {...glow}/>
               })}
-              <circle cx={cx} cy={cy} r={32} fill="#1a1a1a" stroke="#444" strokeWidth="2"/>
-              <circle cx={cx} cy={cy} r={24} fill="none" stroke="var(--accent)" strokeWidth="1.5" opacity="0.5"/>
-              <circle cx={cx} cy={cy} r={9} fill="var(--accent)"/>
-              <circle cx={cx} cy={cy} r={4} fill="#fff"/>
+              {/* Outer ring dots */}
+              {Array.from({length: 20}).map((_, i) => {
+                const angle = ((i * segAngle - 90) * Math.PI) / 180
+                return <circle key={i} cx={cx + (r - 3) * Math.cos(angle)} cy={cy + (r - 3) * Math.sin(angle)} r="2" fill="#555"/>
+              })}
+              {/* Center hub */}
+              <circle cx={cx} cy={cy} r={36} fill="url(#hubGrad)" stroke="#555" strokeWidth="2"/>
+              <circle cx={cx} cy={cy} r={28} fill="none" stroke="var(--accent)" strokeWidth="1" opacity="0.4"/>
+              <circle cx={cx} cy={cy} r={18} fill="none" stroke="var(--accent)" strokeWidth="2" opacity="0.6"/>
+              <circle cx={cx} cy={cy} r={8} fill="var(--accent)"/>
+              <circle cx={cx} cy={cy} r={20} fill="none" stroke="rgba(255,143,0,0.08)" strokeWidth="12"/>
+              {/* Bolt holes */}
+              {[0, 60, 120, 180, 240, 300].map((a, i) => {
+                const rad = (a * Math.PI) / 180
+                return (
+                  <g key={i}>
+                    <circle cx={cx + 22 * Math.cos(rad)} cy={cy + 22 * Math.sin(rad)} r="3.5" fill="#333" stroke="#555" strokeWidth="0.5"/>
+                    <circle cx={cx + 22 * Math.cos(rad)} cy={cy + 22 * Math.sin(rad)} r="1.5" fill="#666"/>
+                  </g>
+                )
+              })}
             </svg>
             <div ref={arrowEl} className="wheel-arrow" />
           </div>
+
+          {targetSkins.length > 1 && !spinning && !showResult && (
+            <div className="target-picker">
+              <h4>Выбери целевой скин (нажми чтобы выбрать)</h4>
+              <div className="target-grid">
+                {targetSkins.slice(0, 20).map(s => (
+                  <div key={s.id}
+                    className={`target-option${selectedTarget?.id === s.id ? ' selected' : ''}`}
+                    onClick={() => {
+                      setSelectedTarget(s)
+                      setTargetName(s.name)
+                      setTargetPrice(s.price)
+                      setTargetImg(s.image_url || '')
+                    }}
+                  >
+                    <div className="target-option-img">
+                      <SkinImage src={s.image_url} alt={s.name} />
+                    </div>
+                    <div className="target-option-name">{s.name}</div>
+                    <div className="target-option-price">{s.price.toLocaleString()} ₽</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="target-scale-wrap">
             <div className="target-scale">
@@ -306,7 +373,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
             </div>
             <div className="ts-labels">
               <span>0%</span>
-              <span className="ts-chance-label" style={{ left: `${chance}%` }}>{chance}%</span>
+              <span className="ts-chance-label" style={{ left: `${Math.min(chance, 95)}%` }}>{chance}%</span>
               <span>100%</span>
             </div>
           </div>
@@ -358,6 +425,8 @@ export default function Upgrade({ user, onBalanceUpdate }) {
           </div>
         )}
       </div>
+
+      {shake && <div className="shake-overlay" />}
 
       {winSkins.length > 0 && (
         <div className="winskins-container">

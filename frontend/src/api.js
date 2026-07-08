@@ -41,8 +41,8 @@ export function sellSkin(userId, inventoryId) {
   return request(`/users/${userId}/inventory/${inventoryId}/sell`, { method: 'POST' });
 }
 
-export function upgrade(userId, inventoryId, mode, value) {
-  return request(`/users/${userId}/upgrade`, { method: 'POST', body: JSON.stringify({ inventoryId, mode, value }) });
+export function upgrade(userId, inventoryId, mode, value, targetSkinId) {
+  return request(`/users/${userId}/upgrade`, { method: 'POST', body: JSON.stringify({ inventoryId, mode, value, targetSkinId }) });
 }
 
 export function getUser(userId) {

@@ -48,20 +48,41 @@ export default function Cases({ user, onBalanceUpdate }) {
 
   const isSecret = (skin) => skin && skin.price >= SECRET_PRICE
 
-  // Animation scroll offset — direct DOM, no React re-renders
+  // Animation scroll offset — acceleration then deceleration with ease
   const scrollRef = useRef(null)
+  const [caseGlow, setCaseGlow] = useState(false)
+  const [caseShake, setCaseShake] = useState(false)
   useEffect(() => {
     if (!showAnim || wsData.length === 0) return
     if (!scrollRef.current) return
     let start = Date.now()
-    const dur = 2800
+    const dur = 3200
     const totalPx = (wsData.length - 3) * 90
     const tick = () => {
       const p = Math.min((Date.now() - start) / dur, 1)
-      const eased = 1 - Math.pow(1 - p, 3)
-      const px = eased * totalPx
+      // Multi-stage easing: fast start → slow middle → smooth stop
+      let eased
+      if (p < 0.2) {
+        // acceleration phase (fast start)
+        eased = 2.5 * p * p
+      } else if (p < 0.6) {
+        // fast cruise
+        eased = 0.1 + 1.3 * (p - 0.2)
+      } else {
+        // deceleration (smooth stop)
+        const t = (p - 0.6) / 0.4
+        eased = 0.62 + 0.38 * (1 - Math.pow(1 - t, 4))
+      }
+      const px = Math.min(eased * totalPx, totalPx)
       if (scrollRef.current) scrollRef.current.style.transform = `translateX(-${px}px)`
-      if (p < 1) wsAnim.current = requestAnimationFrame(tick)
+      if (p < 1) {
+        wsAnim.current = requestAnimationFrame(tick)
+      } else {
+        // End animation — flash glow + little shake
+        setCaseGlow(true)
+        setCaseShake(true)
+        setTimeout(() => { setCaseGlow(false); setCaseShake(false) }, 2000)
+      }
     }
     wsAnim.current = requestAnimationFrame(tick)
     return () => { if (wsAnim.current) cancelAnimationFrame(wsAnim.current) }
@@ -121,7 +142,8 @@ export default function Cases({ user, onBalanceUpdate }) {
         <div className="case-open-overlay" onClick={closeAnim}>
           <div className="case-open-modal" onClick={e => e.stopPropagation()}>
             <div className="case-open-title">Открытие {result.case_name}</div>
-            <div className="case-open-scroll-wrap">
+            {caseShake && <div className="shake-overlay" />}
+            <div className={`case-open-scroll-wrap${caseGlow ? ' flash-glow' : ''}`}>
               <div ref={scrollRef} className="case-open-scroll">
                 {wsData.map((d, i) => {
                   const sec = isSecret(d.skin)

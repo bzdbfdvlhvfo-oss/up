@@ -110,11 +110,11 @@ app.post('/api/users/:userId/inventory/:inventoryId/sell', async (req, res) => {
   } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
-// Upgrade — price-based, with multiplier/chance selection
+// Upgrade — price-based, with multiplier/chance selection + optional target skin
 app.post('/api/users/:userId/upgrade', async (req, res) => {
   try {
     const { userId } = req.params;
-    const { inventoryId, mode, value } = req.body; // mode: 'chance' or 'multiplier', value: the chance % or multiplier number
+    const { inventoryId, mode, value, targetSkinId } = req.body;
     if (!inventoryId) return res.status(400).json({ error: 'Select a skin' });
 
     const inv = (await query('SELECT * FROM inventory WHERE id = $1 AND user_id = $2', [inventoryId, userId])).rows[0];
@@ -134,6 +134,16 @@ app.post('/api/users/:userId/upgrade', async (req, res) => {
     const targetMin = Math.round(stakedPrice * multiplier * 0.9);
     const targetMax = Math.round(stakedPrice * multiplier * 1.4);
 
+    // If targetSkinId specified, validate it's in range
+    let specificTarget = null;
+    if (targetSkinId) {
+      specificTarget = (await query('SELECT * FROM skins WHERE id = $1', [targetSkinId])).rows[0];
+      if (!specificTarget) return res.status(400).json({ error: 'Target skin not found' });
+      if (specificTarget.price < targetMin || specificTarget.price > targetMax) {
+        return res.status(400).json({ error: 'Target skin price out of range for this multiplier' });
+      }
+    }
+
     // Find skins in the price range
     const targets = (await query('SELECT * FROM skins WHERE price >= $1 AND price <= $2 ORDER BY price ASC', [targetMin, targetMax])).rows;
     if (targets.length === 0) {
@@ -147,7 +157,9 @@ app.post('/api/users/:userId/upgrade', async (req, res) => {
     await query('DELETE FROM inventory WHERE id = $1', [inventoryId]);
 
     if (won) {
-      wonSkin = targets[Math.floor(Math.random() * targets.length)];
+      wonSkin = specificTarget && targets.find(t => t.id === specificTarget.id)
+        ? specificTarget
+        : targets[Math.floor(Math.random() * targets.length)];
       const newInvId = uuidv4();
       await query('INSERT INTO inventory (id, user_id, skin_id) VALUES ($1,$2,$3)', [newInvId, userId, wonSkin.id]);
       await query('INSERT INTO upgrade_history (id, user_id, staked_skin_id, result, won_skin_id, multiplier) VALUES ($1,$2,$3,$4,$5,$6)',
