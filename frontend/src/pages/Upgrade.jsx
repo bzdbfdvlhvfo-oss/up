@@ -164,16 +164,8 @@ export default function Upgrade({ user, onBalanceUpdate }) {
       const animate = () => {
         const elapsed = Date.now() - startTime
         const progress = Math.min(elapsed / duration, 1)
-        // Multi-stage: fast start → cruise → long deceleration with slight bounce
-        let eased
-        if (progress < 0.15) {
-          eased = 2.5 * progress * progress
-        } else if (progress < 0.45) {
-          eased = 0.056 + 1.3 * (progress - 0.15)
-        } else {
-          const t = (progress - 0.45) / 0.55
-          eased = 0.446 + 0.56 * t - 0.02 * Math.sin(t * Math.PI * 2.5)
-        }
+        // Single smooth ease-out — continuous velocity, no jerks
+        const eased = 1 - Math.pow(1 - progress, 3.5)
         const currentAngle = totalDegrees * eased
         if (arrowEl.current) {
           arrowEl.current.style.transform = `rotate(${currentAngle}deg)`

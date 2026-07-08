@@ -49,7 +49,7 @@ export default function Cases({ user, onBalanceUpdate }) {
 
   const isSecret = (skin) => skin && skin.price >= SECRET_PRICE
 
-  // Slot-machine style scroll with ticking that slows down
+  // Smooth slot-machine scroll with continuous deceleration
   const scrollRef = useRef(null)
   const [caseGlow, setCaseGlow] = useState(false)
   const [caseShake, setCaseShake] = useState(false)
@@ -58,7 +58,7 @@ export default function Cases({ user, onBalanceUpdate }) {
     if (!showAnim || wsData.length === 0) return
     if (!scrollRef.current) return
     let start = Date.now()
-    const dur = 3800
+    const dur = 3500
     const totalPx = (wsData.length - 3) * 90
     let lastTickSegment = -1
     let tickCtx
@@ -68,43 +68,32 @@ export default function Cases({ user, onBalanceUpdate }) {
       try {
         const o = tickCtx.createOscillator(); const g = tickCtx.createGain()
         o.type = 'square'
-        o.frequency.setValueAtTime(60 + pitch, tickCtx.currentTime)
-        g.gain.setValueAtTime(0.02, tickCtx.currentTime)
-        g.gain.exponentialRampToValueAtTime(0.001, tickCtx.currentTime + 0.05)
+        o.frequency.setValueAtTime(40 + pitch, tickCtx.currentTime)
+        g.gain.setValueAtTime(0.025, tickCtx.currentTime)
+        g.gain.exponentialRampToValueAtTime(0.001, tickCtx.currentTime + 0.04)
         o.connect(g); g.connect(tickCtx.destination)
-        o.start(tickCtx.currentTime); o.stop(tickCtx.currentTime + 0.05)
+        o.start(tickCtx.currentTime); o.stop(tickCtx.currentTime + 0.04)
       } catch {}
     }
     const tick = () => {
       const p = Math.min((Date.now() - start) / dur, 1)
-      // Three-phase easing: fast launch → cruise → long deceleration with overshoot
-      let eased
-      if (p < 0.15) {
-        // Launch: fast acceleration
-        eased = 3.0 * p * p
-      } else if (p < 0.45) {
-        // Cruise: fast continuous scroll
-        eased = 0.0675 + 1.35 * (p - 0.15)
-      } else {
-        // Deceleration: long smooth stop with slight overshoot bounce
-        const t = (p - 0.45) / 0.55
-        eased = 0.4725 + 0.54 * t - 0.03 * Math.sin(t * Math.PI * 2)
-      }
-      const px = Math.min(eased * totalPx, totalPx)
-      if (scrollRef.current) scrollRef.current.style.transform = `translateX(-${px}px)`
+      // Single smooth ease-out with fast start and continuous deceleration
+      // No piecewise breaks — velocity changes smoothly everywhere
+      const eased = 1 - Math.pow(1 - p, 3.5)
+      const px = eased * totalPx
+      if (scrollRef.current) scrollRef.current.style.transform = `translate3d(-${px}px, 0, 0)`
 
-      // Ticking sound — slows down as animation progresses
+      // Ticking sound — naturally slows down because eased increments shrink
       const seg = Math.floor(eased * (wsData.length - 3))
       if (seg !== lastTickSegment) {
         lastTickSegment = seg
-        const pitch = Math.max(20, 200 - eased * 180)
+        const pitch = Math.max(15, 180 - eased * 160)
         playCaseTick(pitch)
       }
 
       if (p < 1) {
         wsAnim.current = requestAnimationFrame(tick)
       } else {
-        // Final reveal: glow + shake + zoom on winning card
         setCaseGlow(true)
         setCaseShake(true)
         setTimeout(() => setCaseZoom(true), 100)

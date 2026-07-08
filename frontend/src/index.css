@@ -748,7 +748,7 @@ body {
 .case-open-title { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--text2); margin-bottom: 16px; font-weight: 600; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .case-open-scroll-wrap { position: relative; overflow: hidden; height: 120px; margin-bottom: 16px; border-radius: 8px; background: linear-gradient(180deg, #0a0a0a, #050505); border: 1px solid rgba(255,255,255,0.05); }
-.case-open-scroll { display: flex; gap: 6px; padding: 8px; will-change: transform; }
+.case-open-scroll { display: flex; gap: 6px; padding: 8px; will-change: transform; backface-visibility: hidden; }
 .case-open-card { flex-shrink: 0; width: 80px; text-align: center; }
 .case-open-card-img { width: 80px; height: 60px; display: flex; align-items: center; justify-content: center; background: var(--bg3); border-radius: 4px; margin-bottom: 4px; overflow: hidden; }
 .case-open-card-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
