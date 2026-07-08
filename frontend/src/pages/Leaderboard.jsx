@@ -33,7 +33,7 @@ export default function Leaderboard() {
               {users.map((u, i) => (
                 <tr key={u.id} className={i < 3 ? `lb-top lb-top-${i + 1}` : ''}>
                   <td className="lb-rank">
-                    {i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `#${i + 1}`}
+                    {i < 3 ? <span className={`lb-rank-medal lb-rank-${i + 1}`}>{['🥇','🥈','🥉'][i]}</span> : `#${i + 1}`}
                   </td>
                   <td className="lb-user">{u.username}</td>
                   <td className="lb-balance">{u.balance.toLocaleString()} ₽</td>

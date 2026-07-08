@@ -1,8 +1,26 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+const TYPED_WORDS = ['Покупай', 'Продавай', 'Рискуй']
 export default function Home({ user, onLoginClick }) {
+  const [typedIdx, setTypedIdx] = useState(0)
+  const [typedChar, setTypedChar] = useState(0)
+  const [dir, setDir] = useState(1)
+  useEffect(() => {
+    const w = TYPED_WORDS[typedIdx]
+    const t = setTimeout(() => {
+      const next = typedChar + dir
+      if (next > w.length) { setDir(-1); setTimeout(() => setDir(-1), 800); return }
+      if (next < 0) { setDir(1); setTypedIdx((typedIdx + 1) % TYPED_WORDS.length); return }
+      setTypedChar(next)
+    }, dir > 0 ? 80 : 40)
+    return () => clearTimeout(t)
+  }, [typedIdx, typedChar, dir])
+  const typedDisplay = TYPED_WORDS[typedIdx].slice(0, typedChar)
+
   return (
     <div className="page home-page">
+      <div className="hero-bg" />
       <div className="hero">
         <div className="hero-badge">CS2 SKIN SIMULATOR</div>
         <h1>
@@ -10,7 +28,10 @@ export default function Home({ user, onLoginClick }) {
           <span className="hero-title-grade">GRADE</span>
           <span className="hero-arrow">↑</span>
         </h1>
-        <p className="hero-sub">Покупай скины, продавай, рискуй в колесе фортуны</p>
+        <p className="hero-sub">
+          <span className="typed-text">{typedDisplay}<span className="typed-cursor">|</span></span>
+          <span className="typed-rest"> скины, открывай кейсы, крути колесо</span>
+        </p>
         <div className="hero-actions">
           {!user && (
             <button className="btn btn-primary btn-lg hero-btn" onClick={onLoginClick}>

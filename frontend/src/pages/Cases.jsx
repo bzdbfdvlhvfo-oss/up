@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import * as api from '../api'
 import SkinImage from '../components/SkinImage'
+import Confetti from '../components/Confetti'
 
 const SECRET_PRICE = 20000
 
@@ -165,6 +166,7 @@ export default function Cases({ user, onBalanceUpdate }) {
         })}
       </div>
 
+      {result?.skin?.price >= 1000 && <Confetti active={caseGlow} />}
       {showAnim && result && wsData.length > 0 && (
         <div className="case-open-overlay" onClick={closeAnim}>
           <div className="case-open-modal" onClick={e => e.stopPropagation()}>

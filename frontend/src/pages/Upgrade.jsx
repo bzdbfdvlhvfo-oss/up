@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import * as api from '../api'
 import SkinImage from '../components/SkinImage'
+import Confetti from '../components/Confetti'
 
 function playSound(type) {
   try {
@@ -394,6 +395,7 @@ export default function Upgrade({ user, onBalanceUpdate }) {
 
           {showResult && result && (
             <div className={`wheel-result ${result.won ? 'win' : 'lose'}`}>
+              {result.won && <Confetti active={true} />}
               <div className="ur-title">{result.won ? 'ВЫИГРЫШ' : 'ПРОИГРЫШ'}</div>
               {result.won ? (
                 <div className="ur-detail">
